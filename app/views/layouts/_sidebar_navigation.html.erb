@@ -1,0 +1,202 @@
+<!-- BEGIN SIDEBAR -->
+<div class="page-sidebar-wrapper">
+	<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+	<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+	<div class="page-sidebar navbar-collapse collapse">
+		<!-- BEGIN SIDEBAR MENU -->
+		<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+		<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+		<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+		<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+		<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+		<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+		<ul class="page-sidebar-menu " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+			<!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+			<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+			<!--li class="sidebar-toggler-wrapper">
+				<div class="sidebar-toggler">
+				</div>
+			</li-->
+			<!-- END SIDEBAR TOGGLER BUTTON -->
+			<!-- DOC: To remove the search box from the sidebar you just need to completely remove the below "sidebar-search-wrapper" LI element -->
+			<!--li class="sidebar-search-wrapper"-->
+				<!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+				<!-- DOC: Apply "sidebar-search-bordered" class the below search form to have bordered search box -->
+				<!-- DOC: Apply "sidebar-search-bordered sidebar-search-solid" class the below search form to have bordered & solid search box -->
+				<!--form class="sidebar-search " action="extra_search.html" method="POST">
+					<a href="javascript:;" class="remove">
+					<i class="icon-close"></i>
+					</a>
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search...">
+						<span class="input-group-btn">
+						<a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
+						</span>
+					</div>
+				</form-->
+				<!-- END RESPONSIVE QUICK SEARCH FORM -->
+			<!--/li-->
+			<li class="start">
+				<%= link_to raw('<i class="icon-home"></i><span class="title"> Dashboard</span>'), admin_dashboards_url %>
+				<!--ul class="sub-menu">
+					<li class="active">
+						<a href="index.html">
+						<i class="icon-bar-chart"></i>
+						Default Dashboard</a>
+					</li>
+					<li>
+						<a href="index_2.html">
+						<i class="icon-bulb"></i>
+						New Dashboard #1</a>
+					</li>
+					<li>
+						<a href="index_3.html">
+						<i class="icon-graph"></i>
+						New Dashboard #2</a>
+					</li>
+				</ul-->
+			</li>
+			<li class="heading">
+				<h3 class="uppercase">Features</h3>
+			</li>
+			<%= li_active_open?('contents') %>
+				<a href="javascript:;">
+				<i class="icon-diamond"></i>
+				<span class="title">Contents</span>
+        <%= span_selected('contents') %>
+        <span class="arrow<%= is_open?('contents') %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<%= li_active?('banners') %>
+						<%= link_to raw('<i class="icon-flag"></i> Banners'), admin_contents_banners_url %>
+					</li>
+					<%= li_active?('news') %>
+						<%= link_to raw('<i class="icon-feed"></i> News'), admin_contents_news_index_url %>
+					</li>
+					<%= li_active?('services') %>
+						<%= link_to raw('<i class="icon-feed"></i> Services'), admin_contents_services_url %>
+					</li>
+					<!--
+					<%= li_active?('events') %>
+						<%= link_to raw('<i class="icon-calendar"></i> Events'), admin_contents_events_url %>
+					</li>
+					<%= li_active?('galleries') %>
+						<%= link_to raw('<i class="icon-picture"></i> Galleries'), admin_contents_galleries_url %>
+					</li>
+					<%= li_active?('comics') %>
+						<%= link_to raw('<i class="icon-rocket"></i> Comics'), admin_contents_comics_url %>
+					</li>
+					-->
+					<%= li_active?('categories') %>
+						<%= link_to raw('<i class="icon-link"></i> Categories'), admin_contents_categories_url %>
+					</li>
+				</ul>
+			</li>
+			<%= li_active_open?('store') %>
+				<a href="javascript:;">
+				<i class="icon-basket"></i>
+				<span class="title">Market</span>
+				<%= span_selected('store') %>
+        <span class="arrow<%= is_open?('store') %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<%= li_active?('customers') %>
+						<%= link_to raw('<i class="icon-user-following"></i> Customers'), admin_store_customers_url %>
+					</li>
+          <!--
+					<%= li_active?('orders') %>
+						<%= link_to raw('<i class="icon-basket"></i> Orders'), admin_store_orders_url %>
+					</li>
+					-->
+					<%= li_active_open?('orders') %>
+            <a href="javascript:;">
+    				<i class="icon-basket"></i>
+    				<span class="title">Orders</span>
+    				<%= span_selected('orders') %>
+            <span class="arrow<%= is_open?('orders') %>"></span>
+    				</a>
+    				<ul class="sub-menu">
+    					<%= li_active?('open') %>
+    						<%= link_to raw('<i class="icon-basket"></i> Open'),  open_admin_store_orders_url %>
+    					</li>
+    					<%= li_active?('pending_payment') %>
+    						<%= link_to raw('<i class="icon-basket"></i> Pending Payment'),  pending_payment_admin_store_orders_url %>
+    					</li>
+    					<%= li_active?('pending_work') %>
+    						<%= link_to raw('<i class="icon-basket"></i> Pending Work'),  pending_work_admin_store_orders_url %>
+    					</li>
+    					<%= li_active?('processing') %>
+    						<%= link_to raw('<i class="icon-basket"></i> Processing'),  processing_admin_store_orders_url %>
+    					</li>
+    					<%= li_active?('processed') %>
+    						<%= link_to raw('<i class="icon-basket"></i> Processed'),  processed_admin_store_orders_url %>
+    					</li>
+    					<%= li_active?('cancelled') %>
+    						<%= link_to raw('<i class="icon-basket"></i> Cancelled'),  cancelled_admin_store_orders_url %>
+    					</li>
+    					<%= li_active?('all') %>
+    						<%= link_to raw('<i class="icon-basket"></i> All'), admin_store_orders_url %>
+    					</li>
+  				  </ul>
+  				</li>
+					<!-- 
+					<%= li_active?('products') %>
+						< %= link_to raw('<i class="icon-handbag"></i> Products'), admin_store_products_url %>
+					</li>
+					<%= li_active?('collections') %>
+						<%= link_to raw('<i class="icon-link"></i> Collections'), admin_store_collections_url %>
+					</li>
+					-->
+				</ul>
+			</li>
+			<!-- 
+			<%= li_active_open?('mailings') %>
+				<a href="javascript:;">
+				<i class="icon-envelope"></i>
+				<span class="title">Mailing Lists</span>
+				<%= span_selected('mailings') %>
+        <span class="arrow<%= is_open?('mailings') %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<%= li_active?('campaigns') %>
+						<%= link_to raw('<i class="icon-envelope-letter"></i> Campaigns'), admin_mailings_campaigns_url %>
+					</li>
+					<%= li_active?('lists') %>
+						<%= link_to raw('<i class="icon-users"></i> List'), admin_mailings_lists_url %>
+					</li>
+				</ul>
+			</li>
+			<%= li_active_open?('tags') %>
+				<%= link_to raw('<i class="icon-tag"></i><span class="title"> Tags</span>'), admin_tags_url %>
+			</li>
+      -->
+      <li class="heading">
+				<h3 class="uppercase">Administration</h3>
+			</li>
+			<%= li_active_open?('settings') %>
+				<a href="javascript:;">
+				<i class="icon-settings"></i>
+				<span class="title">Settings</span>
+				<%= span_selected('settings') %>
+        <span class="arrow<%= is_open?('settings') %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<%= li_active?('profile') %>          
+						<%= link_to raw('<i class="icon-camera"></i> My Profile'), admin_settings_profiles_url %>
+					</li>
+					<%= li_active?('users') %>
+						<%= link_to raw('<i class="icon-user-following"></i> Users'), admin_settings_users_url %>
+					</li>
+					<%= li_active?('roles') %>
+						<%= link_to raw('<i class="icon-star"></i> Roles'), admin_settings_roles_url %>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<%= link_to raw('<i class="icon-key"></i><span class="title"> Log Out</span>'), action_admin_url(action: 'logout') %>
+			</li>
+		</ul>
+		<!-- END SIDEBAR MENU -->
+	</div>
+</div>
+<!-- END SIDEBAR -->

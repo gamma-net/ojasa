@@ -1,0 +1,64 @@
+    <%= render partial: 'comics/header', locals: {breadcrumbs: []} %>
+    
+    <%= form_tag  sort_admin_contents_comics_url, {role: 'form', method: 'post'} do |f| %>
+    
+    <div class="row">
+  		<div class="col-md-12">
+        <%= button_tag 'Sort Comic', type: 'submit', class: "btn btn-primary pull-right" %>
+      </div>
+    </div>
+    
+    <!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+			<div class="col-md-12">
+				<!-- BEGIN SAMPLE TABLE PORTLET-->
+				<div class="portlet">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-rocket"></i>Comics
+						</div>
+						<div class="tools">
+						  <%= link_to raw('<i class="fa fa-plus"></i>'), new_admin_contents_comic_url, alt: "Add" %>              
+						  <a class="fullscreen" href="javascript:;" data-original-title="" title=""></a>
+         			<a href="javascript:;" class="collapse"></a>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<div class="table-scrollable">
+							<table class="table table-striped table-bordered table-advance table-hover">
+							<thead>
+							<tr>
+								<th><i class="fa fa-sort"></i> Sort</th>
+								<th><i class="fa fa-photo"></i> Image</th>
+								<th><i class="fa fa-info"></i> Name</th>
+								<th><i class="fa fa-file-text-o"></i> Description</th>
+								<th><i class="fa fa-plus-square-o"></i> Episodes</th>
+								<th>&nbsp;</th>
+							</tr>
+							</thead>
+							<tbody>
+							  <% @comics.each do |comic| %>
+							  <%= hidden_field_tag "comic[sort][#{comic.id}][old]", comic.sort %>
+							  <tr>
+  								<td><%= text_field_tag "comic[sort][#{comic.id}][new]", comic.sort, class: 'form-control-size', placeholder: 'Sort #', size: 3, maxlength: 3 %></td>
+  								<td><%= image_tag comic.image.url(:thumb), style: "width: 100px; height: 100px;" %></td>
+                  <td><%= comic.name %></td>
+                  <td><%= comic.description %></td>
+                  <td><%= comic.episodes.size %></td>
+                  <td>
+                    <%= link_to raw('<i class="icon-pencil"> Edit</i>'), edit_admin_contents_comic_url(id: comic.id), class: "btn btn-warning btn-xs" %>
+                    <%= link_to raw('<i class="icon-trash"> Delete</i>'), admin_contents_comic_url(id: comic.id), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure you want to delete this comic?" } %>
+                    <%= link_to raw('<i class="icon-eye"> View Episodes</i>'), admin_contents_comic_episodes_url(comic_id: comic.id), class: "btn btn-primary btn-xs" %>
+                  </td>
+  							</tr>
+							  <% end %>
+							</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- END SAMPLE TABLE PORTLET-->
+			</div>
+		</div>
+		<!-- END PAGE CONTENT-->
+		<% end %>

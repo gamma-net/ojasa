@@ -1,0 +1,23 @@
+<div class="form-body">
+	<div class="form-group form-md-line-input">
+		<label class="col-md-2 control-label" for="form_control_1">Customer ID</label>
+		<div class="col-md-10">
+      <%= text_field_tag 'customer[id]', @order.customer.id, class: "form-control", placeholder: 'Enter Customer ID', id: 'form_control_1', readonly: true %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input">
+		<label class="col-md-2 control-label" for="form_control_1">Email</label>
+		<div class="col-md-10">
+      <%= text_field_tag 'customer[email]', @order.customer.email, class: "form-control", placeholder: 'Enter Email', id: 'form_control_1', readonly: true %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input">
+		<label class="col-md-2 control-label" for="form_control_1">Full Name</label>
+		<div class="col-md-10">
+      <%= text_field_tag 'customer[full_name]', @order.customer.full_name, class: "form-control", placeholder: 'Enter Full Name', id: 'form_control_1', readonly: true %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+</div>

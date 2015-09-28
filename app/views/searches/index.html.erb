@@ -1,0 +1,26 @@
+    <%= render partial: 'searches/header', locals: {breadcrumbs: []} %>
+    
+    <%= form_tag  searches_admin_contents_services_url, {role: 'form', method: 'post'} do |f| %>
+    
+    <div class="row">
+  		<div class="col-md-offset-10 col-md-2">
+        <%= button_tag 'Search', type: 'submit', class: "btn btn-primary" %>
+      </div>
+    </div>
+    
+    <!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+			<div class="col-md-12">
+  			<!-- BEGIN SAMPLE FORM PORTLET-->
+  			<div class="portlet">
+  				<div class="portlet-body form">
+
+              <%= render partial: 'form', locals: {f: f} %>
+
+  				</div>
+  			</div>
+  			<!-- END SAMPLE FORM PORTLET-->
+			</div>
+		</div>
+		<!-- END PAGE CONTENT-->
+		<% end %>

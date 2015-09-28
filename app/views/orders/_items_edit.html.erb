@@ -1,0 +1,30 @@
+<a name="items"></a> 
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-suitcase"></i>Items
+				</div>
+				<div class="tools">
+				  <a class="fullscreen" href="javascript:;" data-original-title="" title=""></a>
+     			<a href="javascript:;" class="collapse"></a>
+				</div>
+			</div>
+			<div class="portlet-body">
+
+        <% @order.items.each do |order_item| %>
+
+          <%= render partial: 'form_items_edit', locals: {order_item: order_item} %>
+
+        <% end %>
+        
+			</div>
+		</div>
+		<!-- END SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+<!-- END PAGE CONTENT-->

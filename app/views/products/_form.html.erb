@@ -1,0 +1,88 @@
+<div class="form-body">
+	<div class="form-group form-md-line-input<%' has-error' unless @product.errors[:name].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Name</label>
+		<div class="col-md-10">
+      <%= f.text_field :name, class: "form-control#{' error' unless @product.errors[:name].blank?}", placeholder: 'Enter Name', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @product.errors[:metadata].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Metadata</label>
+		<div class="col-md-10">
+      <%= f.text_field :metadata, class: "form-control#{' error' unless @product.errors[:metadata].blank?}", placeholder: 'Enter Metadata', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @product.errors[:description].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Description</label>
+		<div class="col-md-10">
+      <%= f.text_area :description, class: "form-control autosizeme#{' error' unless @product.errors[:description].blank?}", placeholder: 'Enter Description', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input">
+		<label class="col-md-2 control-label" for="form_control_1">Collections</label>
+		<div class="col-md-10">
+      <%= f.select :collection_ids, collection_options, {selected: @product.collections.collect(&:id)}, {class: "form-control input-xlarge select2me", multiple: true, id: 'form_control_1', "data-placeholder" => "Select Collections..."} %>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input">
+	  <label class="col-md-2 control-label" for="form_control_1">Tags</label>
+		<div class="col-md-10">
+      <%= f.select :tag_ids, tagging_options, {selected: @product.tags.collect(&:id)}, {class: "form-control input-xlarge select2me", multiple: true, id: 'form_control_1', "data-placeholder" => "Select Tags..."} %>
+			<div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @product.errors[:base_sku].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Base SKU</label>
+		<div class="col-md-10">
+      <%= f.text_field :base_sku, class: "form-control#{' error' unless @product.errors[:base_sku].blank?}", placeholder: 'Enter Base SKU', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @product.errors[:base_price].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Base Price</label>
+		<div class="col-md-10">
+		  <div class="input-group">  
+  		  <span class="input-group-addon">IDR</span>
+        <%= f.text_field :base_price, class: "form-control#{' error' unless @product.errors[:base_price].blank?}", placeholder: 'Enter Base Price', id: 'form_control_1', value: number_format(@product.base_price) %>
+      </div>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @product.errors[:sale_price].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Sale Price</label>
+		<div class="col-md-10">
+		  <div class="input-group">  
+  		  <span class="input-group-addon">IDR</span>
+        <%= f.text_field :sale_price, class: "form-control#{' error' unless @product.errors[:sale_price].blank?}", placeholder: 'Enter Sale Price', id: 'form_control_1', value: number_format(@product.sale_price) %>
+      </div>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+  <div class="form-group form-md-line-input<%' has-error' unless @product.errors[:publish_at].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Publish Time</label>
+		<div class="col-md-6">
+			<div class="input-group date form_datetime">
+				<%= f.text_field :publish_at, value: datetime_value(@product.publish_at), class: "form-control#{' error' unless @product.errors[:publish_at].blank?}", size: 16, readonly: 'readonly', placeholder: 'Select Publish Time' %>	
+				<span class="input-group-btn">
+				<button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
+				</span>
+			</div>
+			<!-- /input-group -->
+		</div>
+	</div>
+  <div class="form-group form-md-line-input<%' has-error' unless @product.errors[:retract_at].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Retract Time</label>
+		<div class="col-md-6">
+			<div class="input-group date form_datetime">
+				<%= f.text_field :retract_at, value: datetime_value(@product.retract_at), class: "form-control#{' error' unless @product.errors[:retract_at].blank?}", size: 16, readonly: 'readonly', placeholder: 'Select Retract Time' %>	
+				<span class="input-group-btn">
+				<button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
+				</span>
+			</div>
+			<!-- /input-group -->
+		</div>
+	</div>
+</div>

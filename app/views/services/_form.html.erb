@@ -1,0 +1,152 @@
+<div class="form-body">
+	<div class="form-group form-md-line-input<%' has-error' unless @service.errors[:name].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Name</label>
+		<div class="col-md-10">
+      <%= f.text_field :name, class: "form-control#{' error' unless @service.errors[:name].blank?}", placeholder: 'Enter Name', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @service.errors[:category_id].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Category</label>
+		<div class="col-md-10">
+      <%= select_tag "service[category_id]", options_for_select(category_options, @service.category_id), {class: "form-control input-xlarge select2me#{' error' unless @service.errors[:category_id].blank?}", "data-placeholder" => "Select Category..."} %>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @service.errors[:contact_number].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Contact Number</label>
+		<div class="col-md-10">
+      <%= f.text_field :contact_number, class: "form-control#{' error' unless @service.errors[:contact_number].blank?}", placeholder: 'Enter Contact Number', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @service.errors[:description].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Description</label>
+		<div class="col-md-10">
+      <%= f.text_area :description, class: "form-control autosizeme#{' error' unless @service.errors[:description].blank?}", placeholder: 'Enter Description', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @service.errors[:keyword].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Keyword</label>
+		<div class="col-md-10">
+      <%= f.text_field :keyword, class: "form-control#{' error' unless @service.errors[:keyword].blank?}", placeholder: 'Enter Keyword', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+
+	<div class="form-group form-md-line-input<%' has-error' unless @service.errors[:fee].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Fee</label>
+		<div class="col-md-10">
+		  <div class="input-group">        
+  		  <span class="input-group-addon">IDR</span>
+        <%= text_field_tag "service[fee]", number_format(@service.fee), class: "form-control#{' error' unless @service.errors[:fee].blank?}", placeholder: 'Enter Fee', id: 'form_control_1' %>
+        <div class="form-control-focus"></div>
+      </div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @service.errors[:fee_type_id].blank? %>">  	
+		<label class="col-md-2 control-label" for="form_control_1">Fee Type</label>
+		<div class="col-md-10">
+			<div class="md-radio-inline">
+			  <% fee_type_options.each do |name, id| %>
+				<div class="md-radio">
+					<%= f.radio_button :fee_type_id, id, class: 'md-radiobtn', id: "radio-type#{id}" %>
+					<label for="radio-type<%= id %>">
+					<span></span>
+					<span class="check"></span>
+					<span class="box"></span>
+					<%= name %> </label>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @service.errors[:open_time].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Open Time</label>
+		<div class="col-md-6">
+		  <div class="input-group input-medium">
+  			<%= f.text_field :open_time, value: time_value(@service.open_time), class: "form-control#{' error' unless @service.errors[:open_time].blank?} timepicker timepicker-24", size: 16, placeholder: 'Select Open Time' %>	
+  			<!--span class="input-group-btn">
+  			<button class="btn default" type="button"><i class="fa fa-clock-o"></i></button>
+  			</span-->
+  		</div>
+  	</div>
+  </div>
+
+	<div class="form-group form-md-line-input<%' has-error' unless @service.address.errors[:street1].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Street1</label>
+		<div class="col-md-10">
+      <%= text_field_tag "service_address[street1]", @service.address.street1, class: "form-control#{' error' unless @service.address.errors[:street1].blank?}", placeholder: ' Enter Street1', id: 'form_control_1' %>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+
+	<div class="form-group form-md-line-input<%' has-error' unless @service.address.errors[:street2].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Street2</label>
+		<div class="col-md-10">
+      <%= text_field_tag "service_address[street2]", @service.address.street2, class: "form-control#{' error' unless @service.address.errors[:street2].blank?}", placeholder: ' Enter Street2', id: 'form_control_1' %>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @service.address.errors[:city].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">City</label>
+		<div class="col-md-10">
+      <%= text_field_tag "service_address[city]", @service.address.city, class: "form-control#{' error' unless @service.address.errors[:city].blank?}", placeholder: ' Enter City', id: 'form_control_1' %>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @service.address.errors[:region].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Region</label>
+		<div class="col-md-10">
+      <%= text_field_tag "service_address[region]", @service.address.region, class: "form-control#{' error' unless @service.address.errors[:region].blank?}", placeholder: ' Enter Region', id: 'form_control_1' %>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @service.address.errors[:postal_code].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Postal Code</label>
+		<div class="col-md-10">
+      <%= text_field_tag "service_address[postal_code]", @service.address.postal_code, class: "form-control#{' error' unless @service.address.errors[:postal_code].blank?}", placeholder: ' Enter Postal Code', id: 'form_control_1' %>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @service.address.errors[:country].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Country</label>
+		<div class="col-md-10">
+      <%= select_tag "service_address[country]", options_for_select(country_options, @service.address.country), {class: "form-control input-xlarge select2me#{' error' unless @service.address.errors[:country].blank?}", "data-placeholder" => "Select Country..."} %>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+
+	<div class="form-group form-md-line-input">
+	  <label class="col-md-2 control-label" for="form_control_1">Tags</label>
+		<div class="col-md-10">
+      <%= f.select :tag_ids, tagging_options, {selected: @service.tags.collect(&:id)}, {class: "form-control input-xlarge select2me", multiple: true, id: 'form_control_1', "data-placeholder" => "Select Tags..."} %>
+			<div class="form-control-focus"></div>
+		</div>
+	</div>
+  <div class="form-group form-md-line-input<%' has-error' unless @service.errors[:publish_at].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Publish Time</label>
+		<div class="col-md-6">
+			<div class="input-group date form_datetime">
+				<%= f.text_field :publish_at, value: datetime_value(@service.publish_at), class: "form-control#{' error' unless @service.errors[:publish_at].blank?}", size: 16, placeholder: 'Select Publish Time' %>	
+				<span class="input-group-btn">
+				<button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
+				</span>
+			</div>
+			<!-- /input-group -->
+		</div>
+	</div>
+  <div class="form-group form-md-line-input<%' has-error' unless @service.errors[:retract_at].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Retract Time</label>
+		<div class="col-md-6">
+			<div class="input-group date form_datetime">
+				<%= f.text_field :retract_at, value: datetime_value(@service.retract_at), class: "form-control#{' error' unless @service.errors[:retract_at].blank?}", size: 16, placeholder: 'Select Retract Time' %>	
+				<span class="input-group-btn">
+				<button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
+				</span>
+			</div>
+			<!-- /input-group -->
+		</div>
+	</div>
+</div>

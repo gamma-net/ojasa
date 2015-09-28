@@ -1,0 +1,100 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+street1: 
+  id: 1
+  street1: address1_1
+  street2: address2_1
+  city: city1
+  region: region1
+  postal_code: 12345
+  country: ID
+    
+street2: 
+  id: 2
+  street1: address1_2
+  street2: address2_2
+  city: city2
+  region: region2
+  postal_code: 12345
+  country: ID
+  
+address3: 
+  id: 3
+  street1: address1_3
+  street2: address2_3
+  city: city3
+  region: region3
+  postal_code: 56789
+  country: ID
+  
+address4:
+  id: 4
+  street1: address1_4
+  street2: address2_4
+  city: city4
+  region: region4
+  postal_code: 56789
+  country: ID
+  
+address5:
+  id: 5
+  street1: address1_5
+  street2: address2_5
+  city: city5
+  region: region5
+  postal_code: 12345
+  country: ID
+
+address6: 
+  id: 6
+  street1: address1_6
+  street2: address2_6
+  city: city6
+  region: region6
+  postal_code: 12345
+  country: ID
+  
+address7:
+  id: 7
+  street1: address1_7
+  street2: address2_7
+  city: city7
+  region: region7
+  postal_code: 12345
+  country: ID
+  
+address8:
+  id: 8
+  street1: address1_8
+  street2: address2_8
+  city: city8
+  region: region8
+  postal_code: 12345
+  country: ID
+  
+address9:
+  id: 9
+  street1: address1_9
+  street2: address2_9
+  city: city9
+  region: region9
+  postal_code: 12345
+  country: ID
+  
+address10:
+  id: 10
+  street1: address1_10
+  street2: address2_10
+  city: city10
+  region: region10
+  postal_code: 12345
+  country: ID
+  
+address11:
+  id: 11
+  street1: address1_11
+  street2: address2_11
+  city: city11
+  region: region11
+  postal_code: 12345
+  country: ID

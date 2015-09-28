@@ -1,0 +1,126 @@
+
+	<div class="page-content">
+		<!-- BEGIN PAGE HEADER-->
+		<div class="row">
+		  <div class="col-md-5">&nbsp;</div>
+  		<div class="col-md-5">
+  		  <h3 class="page-title centered">
+    		<%= ApplicationController::SITE_NAME %>
+    		</h3>
+  		</div>
+  		<% if logged_in? %>
+  		  <div class="col-md-2"><h4><%= link_to 'Logout', logout_accounts_url %></h4></div>
+  		<% else %>
+  		  <div class="col-md-2"><h4><%= link_to 'Login', login_accounts_url %> / <%= link_to 'Register', signup_accounts_url %></h4></div>
+  		<% end %>
+  	</div>
+		<!-- END PAGE HEADER-->
+		<!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+		  <div class="col-md-1">&nbsp;</div>
+			<div class="col-md-10">
+				<!-- Google Map -->
+				<div class="row">
+          <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+					<div id="map" style="height:400px;">
+					</div>
+				</div>
+				<%= render partial: 'layouts/messages' %>
+				<div class="row margin-bottom-20">
+					<div class="col-md-6">
+						<div class="space20">
+						</div>
+						<h3 class="form-section">Contacts</h3>
+						<p>
+							 Lorem ipsum dolor sit amet, Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat consectetuer adipiscing elit.
+						</p>
+						<div class="well">
+							<h4>Address</h4>
+							<address>
+							<strong>Default CMS</strong><br>
+							 Street1, Street2<br>
+							 Jakarta, Indonesia<br>
+							<abbr title="Phone">P:</abbr> (234) 145-1810 </address>
+							<address>
+							<strong>Email</strong><br>
+							<a href="mailto:#">
+							first.last@email.com </a>
+							</address>
+							<ul class="social-icons margin-bottom-10">
+								<li>
+									<a href="javascript:;" data-original-title="facebook" class="facebook">
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" data-original-title="github" class="github">
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" data-original-title="Goole Plus" class="googleplus">
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" data-original-title="linkedin" class="linkedin">
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" data-original-title="rss" class="rss">
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" data-original-title="skype" class="skype">
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" data-original-title="twitter" class="twitter">
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" data-original-title="youtube" class="youtube">
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="space20">
+						</div>
+						<!-- BEGIN FORM-->
+						<%= form_tag mailing_lists_signup_url, method: 'post' do %>
+							<h3 class="form-section">Mailing List Signup</h3>
+							<p>
+								 Please sign up to our mailing lists to receive our promotions.
+							</p>
+							<!--div class="form-group">
+								<div class="input-icon">
+									<i class="fa fa-check"></i>
+	                <input type="text" class="form-control" placeholder="Subject">
+								</div>
+							</div-->
+							<div class="form-group">
+								<div class="input-icon">
+									<i class="fa fa-envelope"></i>
+									<%= text_field_tag "mailing_list[email]", nil, class: "form-control", placeholder: 'Enter Email' %>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="input-icon">
+									<i class="fa fa-user"></i>
+									<%= text_field_tag "mailing_list[full_name]", nil, class: "form-control", placeholder: 'Full Name' %>
+								</div>
+							</div>
+							<div class="form-group">
+								<%= text_area_tag "mailing_list[feedback]", nil, class: "form-control autosizeme", placeholder: 'Feedback', rows: '3=6' %>
+							</div>
+<!--							<%= raw(recaptcha_tag :ajax) %> -->
+							<div class="g-recaptcha" data-sitekey="6LcOfgkTAAAAAMNypZVMrQPcFYeVWt47kLs0qCNJ"></div>
+							<button type="submit" class="btn green">Submit</button>
+						<% end %>
+						<!-- END FORM-->
+					</div>
+				</div>
+			</div>
+		  <div class="col-md-1">&nbsp;</div>
+		</div>
+		<!-- END PAGE CONTENT-->
+	</div>

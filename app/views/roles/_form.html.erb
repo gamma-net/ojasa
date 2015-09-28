@@ -1,0 +1,16 @@
+<div class="form-body">
+  <div class="form-group form-md-line-input<%' has-error' unless @role.errors[:name].blank? %>">
+  	<label class="col-md-2 control-label" for="form_control_1">Name</label>
+  	<div class="col-md-10">
+      <%= f.text_field :name, class: "form-control#{' error' unless @role.errors[:name].blank?}", placeholder: 'Enter Name', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+  	</div>
+  </div>
+	<div class="form-group form-md-line-input<%' has-error' unless @role.errors[:permissions].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Permissions</label>
+		<div class="col-md-10">
+      <%= f.text_field :permissions, class: "form-control#{' error' unless @role.errors[:permissions].blank?}", placeholder: 'Enter Permissions', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+
+collection1:
+  id: 1
+  name: Collection 1
+  sort: 1
+  publish_at: 2015-01-01
+  retract_at: 2016-01-01
+
+collection2:
+  id: 2
+  name: Collection 2
+  sort: 2
+  publish_at: 2015-02-02
+  retract_at: 2016-02-02

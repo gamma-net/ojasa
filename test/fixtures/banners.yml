@@ -1,0 +1,18 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+banner1: 
+  id: 1
+  name: Banner 1
+  image_url: http://www.google.com
+  link_url: http://www.google.com
+  sort: 1
+  publish_at: 2015-1-1
+  retract_at: 2016-5-5
+
+banner2:
+  id: 2
+  name: Banner 2
+  image_url: http://www.yahoo.com
+  link_url: http://www.yahoo.com
+  sort: 2
+  publish_at: 2016-1-1

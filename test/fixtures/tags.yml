@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+tag1:
+  id: 1
+  name: Tag 1
+  sort: 1
+  status_id: 1
+  tag_type: store
+  
+tag2:
+  id: 2
+  name: Tag 2
+  sort: 2
+  status_id: 1
+
+tag3:
+  id: 3
+  name: Tag 3
+  sort: 3
+  status_id: 2
+  tag_type: content
+  
+tag4:
+  id: 4
+  name: Tag 4
+  sort: 4
+  status_id: 3
+
+tag5:
+  id: 5
+  name: Tag 5
+  sort: 5
+  status_id: 1

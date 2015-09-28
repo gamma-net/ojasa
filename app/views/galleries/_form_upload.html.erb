@@ -1,0 +1,199 @@
+<a name="images"></a> 
+
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-camera"></i>Images
+				</div>
+				<div class="tools">
+				  <a class="fullscreen" href="javascript:;" data-original-title="" title=""></a>
+     			<a href="javascript:;" class="collapse"></a>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<div class="table-scrollable">
+				  <%= form_tag admin_contents_gallery_images_url(gallery_id: params[:id]), role: 'form', method: 'post', multipart: true, class: 'form-horizontal', id: 'fileupload' do |f| %>         
+          <div class="form-body">
+          	<div class="form-group form-md-line-input">
+          		<!--div class="col-md-12"-->
+          	  <label class="col-md-2 control-label" for="form_control_1">Images Upload</label>
+           		<div class="col-md-10 fileinput fileinput-new" data-provides="fileinput">
+          			<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+          			<div class="row fileupload-buttonbar">
+          				<div class="col-lg-7">
+          					<!-- The fileinput-button span is used to style the file input field as button -->
+          					<span class="btn green fileinput-button">
+          					  <i class="fa fa-plus"></i>
+          						<span>Add files... </span>
+          						<input type="file" name="image" multiple="">
+          					</span>
+          					<button type="submit" class="btn blue start">
+          						<i class="fa fa-upload"></i>
+          						<span>Start upload </span>
+          					</button>
+          					<button type="reset" class="btn warning cancel">
+          						<i class="fa fa-ban-circle"></i>
+          						<span>Cancel upload </span>
+          					</button>
+          					<!--button type="button" class="btn red delete">
+          						<i class="fa fa-trash"></i>
+          						<span>Delete </span>
+          					</button>
+          					<input type="checkbox" class="toggle"-->
+          					<!-- The global file processing state -->
+          					<span class="fileupload-process"></span>
+          				</div>
+          				<!-- The global progress information -->
+          				<div class="col-lg-5 fileupload-progress fade">
+          					<!-- The global progress bar -->
+          					<div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+          						<div class="progress-bar progress-bar-success" style="width:0%;"></div>
+          					</div>
+          					<!-- The extended global progress information -->
+          					<div class="progress-extended">&nbsp;</div>
+          				</div>
+          			</div>
+          			<!-- The table listing the files available for upload/download -->
+          			<table role="presentation" class="table table-striped clearfix">
+            			<tbody class="files">
+            			  <% @gallery.images.each do |image| %>
+                    <tr class="fade in">
+                      <td>
+                        <span class="preview">
+                          <%= link_to image_tag(image.image.url(:thumb), style: "width: 80px; height: 80px;"), image.image.url, title: image.image_file_name, download: image.image_file_name, 'data-gallery' => 'data-gallery' %>
+                        </span>
+                      </td>
+                      <td>
+                        <p class="name"><%= image.image_file_name %></p>
+                      </td>
+                      <td>
+                        <p class="size"><%= number_to_human_size(image.image_file_size, {precision: 5}) %></p>
+                      </td>
+                      <!--td><span style="height:100px; width:200px; display:block; overflow:auto;">&nbsp;</span></td-->
+                      <td>
+                        <!--button class="btn red delete btn-sm" data-type="<%= image.image_content_type %>" data-url="<%= admin_contents_gallery_image_url(gallery_id: params[:id], id: image.id) %>">
+                            <i class="fa fa-trash-o"></i>
+                            <span>Delete</span>
+                        </button-->
+                        <%= link_to raw('<i class="fa fa-trash-o"> <span>Delete</span></i>'), admin_contents_gallery_image_url(gallery_id: params[:id], id: image.id), class: "btn red delete btn-sm", method: :delete, data: { confirm: "Are you sure you want to delete this image?" }, 'data-type' => image.image_content_type %>
+                        <!--input type="checkbox" name="delete" value="1" class="toggle">
+                        <button class="btn yellow cancel btn-sm">
+                            <i class="fa fa-ban"></i>
+                            <span>Cancel</span>
+                        </button-->
+                      </td>
+                    </tr>
+                    <% end %>
+            			</tbody>
+          			</table>
+          		</div>
+          	</div>
+          </div>
+          <% end %>
+        </div>
+			</div>
+		</div>
+		<!-- END SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+<!-- END PAGE CONTENT-->
+
+<!-- The blueimp Gallery widget -->
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-start-slideshow="true">
+	<div class="slides">
+	</div>
+	<h3 class="title"></h3>
+	<a class="prev">
+	‹ </a>
+	<a class="next">
+	› </a>
+	<a class="close white">
+	</a>
+	<a class="play-pause">
+	</a>
+	<ol class="indicator">
+	</ol>
+</div>
+
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<script id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td>
+            <span class="preview"></span>
+        </td>
+        <td>
+            <p class="name">{%=file.name%}</p>
+            <strong class="error text-danger label label-danger"></strong>
+        </td>
+        <td>
+            <p class="size">Processing...</p>
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+            </div>
+        </td>
+        <td>
+            {% if (!i && !o.options.autoUpload) { %}
+                <button class="btn blue start" disabled>
+                    <i class="fa fa-upload"></i>
+                    <span>Start</span>
+                </button>
+            {% } %}
+            {% if (!i) { %}
+                <button class="btn red cancel">
+                    <i class="fa fa-ban"></i>
+                    <span>Cancel</span>
+                </button>
+            {% } %}
+        </td>
+    </tr>
+{% } %}
+</script>
+
+<!-- The template to display files available for download -->
+<script id="template-download" type="text/x-tmpl">
+    {% for (var i=0, file; file=o.files[i]; i++) { %}
+        <tr class="template-download fade">
+            <td>
+                <span class="preview">                
+                    {% if (file.thumbnail_url) { %}
+                        <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnail_url%}" style="width: 80px; height: 80px;" /></a>
+                    {% } %}
+                </span>
+            </td>
+            <td>
+                <p class="name">
+                    {% if (false && file.url) { %}
+                        <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnail_url?'data-gallery':''%}>{%=file.name%}</a>
+                    {% } else { %}
+                        <span>{%=file.name%}</span>
+                    {% } %}
+                </p>
+                {% if (file.error) { %}
+                    <!--div><span class="label label-danger">Error</span> {%=file.error%}</div-->
+                {% } %}
+            </td>
+            <td>
+                <span class="size">{%=o.formatFileSize(file.size)%}</span>
+            </td>
+            <td>
+                {% if (file.delete_url) { %}
+                    <!--button class="btn red delete btn-sm" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+                        <i class="fa fa-trash-o"></i>
+                        <span>Delete</span>
+                    </button-->
+                    <%= link_to raw('<i class="fa fa-trash-o"> <span>Delete</span></i>'), "{%=file.delete_url%}", class: "btn red delete btn-sm", method: :delete, data: { confirm: "Are you sure you want to delete this image?" }, 'data-type' => "{%=file.delete_type%}" %>
+                    <!--input type="checkbox" name="delete" value="1" class="toggle"-->
+                {% } else { %}
+                    <button class="btn yellow cancel btn-sm">
+                        <i class="fa fa-ban"></i>
+                        <span>Cancel</span>
+                    </button>
+                {% } %}
+            </td>
+        </tr>
+    {% } %}
+</script>

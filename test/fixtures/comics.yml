@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+comic1:
+  id: 1
+  name: Comic 1
+  description: Description 1
+  category_id: 1
+  sort: 1
+  
+comic2: 
+  id: 2
+  name: Comic 2
+  description: Description 2
+  category_id: 2
+  sort: 2
+
+comic3: 
+  id: 3
+  name: Comic 3
+  description: Description 3
+  category_id: 1
+  sort: 3

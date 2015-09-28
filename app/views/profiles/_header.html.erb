@@ -1,0 +1,17 @@
+<!-- BEGIN PAGE HEADER-->
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li><i class="fa fa-home"></i>Home<i class="fa fa-angle-right"></i></li>
+		<li>Settings<i class="fa fa-angle-right"></i></li>
+		<li>My Profile
+		<% breadcrumbs.each do |b| %>
+		  <i class="fa fa-angle-right"></i></li>
+		  <li><%= b %>
+		<% end if breadcrumbs %>
+		</li>
+	</ul>
+</div>
+<!-- END PAGE HEADER-->
+<br />
+
+<%= render partial: 'layouts/messages' %>

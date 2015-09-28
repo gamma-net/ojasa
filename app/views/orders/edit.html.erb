@@ -1,0 +1,103 @@
+<%= render partial: 'orders/header', locals: {breadcrumbs: ["Order ID #{@order.id}"]} %>
+
+<%= form_for @order, {url: admin_store_order_url, role: 'form', method: 'put', multipart: true, html: {class: 'form-horizontal'}} do %>
+
+<div class="row">
+	<div class="col-md-11">
+    <%= button_tag 'Update Order', type: 'submit', class: "btn btn-primary pull-right" %>
+  </div>
+  <div class="col-md-1">
+    <%= button_tag 'Reset', class: "btn btn-default pull-right", type: 'reset' %>
+  </div>
+</div>
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN SAMPLE FORM PORTLET-->
+		<div class="portlet">
+			<div class="portlet-body form">
+          
+        <!-- BEGIN PAGE CONTENT-->
+        <div class="row">
+        	<div class="col-md-12">
+        		<!-- BEGIN SAMPLE TABLE PORTLET-->
+        		<div class="portlet">
+        			<div class="portlet-title">
+        				<div class="caption">
+        					<i class="fa fa-shopping-cart"></i>Order ID #<%= @order.id %></h1>
+        				</div>
+        				<div class="tools">
+        				  <a class="fullscreen" href="javascript:;" data-original-title="" title=""></a>
+             			<a href="javascript:;" class="collapse"></a>
+        				</div>
+        			</div>
+        			<div class="portlet-body">
+          			  
+                <%= render partial: 'form_order', locals: {readonly: false} %>
+
+        			</div>
+        		</div>
+        		<!-- END SAMPLE TABLE PORTLET-->
+        	</div>
+        </div>
+        <!-- END PAGE CONTENT-->
+
+        <!-- BEGIN PAGE CONTENT-->
+        <div class="row">
+        	<div class="col-md-12">
+        		<!-- BEGIN SAMPLE TABLE PORTLET-->
+        		<div class="portlet">
+        			<div class="portlet-title">
+        				<div class="caption">
+        					<i class="fa fa-map-marker"></i>Shipping Address
+        				</div>
+        				<div class="tools">
+        				  <a class="fullscreen" href="javascript:;" data-original-title="" title=""></a>
+             			<a href="javascript:;" class="collapse"></a>
+        				</div>
+        			</div>
+        			<div class="portlet-body">
+
+                <%= render partial: 'form_address', locals: {address_type: 'shipping_address', title: 'Shipping Address', readonly: false} %>
+
+        			</div>
+        		</div>
+        		<!-- END SAMPLE TABLE PORTLET-->
+        	</div>
+        </div>
+        <!-- END PAGE CONTENT-->
+
+        <!-- BEGIN PAGE CONTENT-->
+        <div class="row">
+        	<div class="col-md-12">
+        		<!-- BEGIN SAMPLE TABLE PORTLET-->
+        		<div class="portlet">
+        			<div class="portlet-title">
+        				<div class="caption">
+        					<i class="fa fa-map-marker"></i>Billing Address
+        				</div>
+        				<div class="tools">
+        				  <a class="fullscreen" href="javascript:;" data-original-title="" title=""></a>
+             			<a href="javascript:;" class="collapse"></a>
+        				</div>
+        			</div>
+        			<div class="portlet-body">
+        
+                <%= render partial: 'form_address', locals: {address_type: 'billing_address', title: 'Billing Address', readonly: false} %>
+        			</div>
+        		</div>
+        		<!-- END SAMPLE TABLE PORTLET-->
+        	</div>
+        </div>
+        <!-- END PAGE CONTENT-->
+        
+        <%= render partial: 'orders/items_edit' %>
+                
+			</div>
+		</div>
+		<!-- END SAMPLE FORM PORTLET-->
+	</div>
+</div>
+<!-- END PAGE CONTENT-->
+<% end %>

@@ -1,0 +1,30 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+product_item1_1: 
+  id: 1
+  product_id: 1
+  option: M
+  sku: sku_1_1
+  stock: 10
+    
+product_item1_2: 
+  id: 2
+  product_id: 1
+  option: L
+  sku: sku_1_2
+  stock: 1
+
+product_item1_3: 
+  id: 3
+  product_id: 1
+  option: XL
+  sku: sku_1_3
+  stock: 2
+  price: 12_000
+  sale_price: 10_000
+    
+product_item2_1: 
+  id: 4
+  product_id: 2
+  sku: sku_2
+  stock: 5

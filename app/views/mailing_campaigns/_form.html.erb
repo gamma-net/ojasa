@@ -1,0 +1,85 @@
+<div class="form-body">
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing.errors[:draft].blank? %>">  	
+		<label class="col-md-2 control-label" for="form_control_1">Draft</label>
+		<div class="col-md-10">
+			<div class="md-radio-inline">
+			  <% draft_options.each do |name, id| %>
+				<div class="md-radio">
+					<%= f.radio_button :draft, (id == 1 ? true : false), class: 'md-radiobtn', id: "draft_radio#{id}" %>
+					<label for="draft_radio<%= id %>">
+					<span></span>
+					<span class="check"></span>
+					<span class="box"></span>
+					<%= name %> </label>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing.errors[:subject].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Subject</label>
+		<div class="col-md-10">
+      <%= f.text_field :subject, class: "form-control#{' error' unless @mailing.errors[:subject].blank?}", placeholder: 'Enter Subject', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing.errors[:body_plain].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Body Plain</label>
+		<div class="col-md-10">
+      <%= f.text_area :body_plain, class: "form-control autosizeme#{' error' unless @mailing.errors[:body_plain].blank?}", placeholder: 'Enter Body Plain', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing.errors[:body_html].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Body HTML</label>
+		<div class="col-md-10">
+      <%= f.text_area :body_html, class: "form-control autosizeme#{' error' unless @mailing.errors[:body_html].blank?}", placeholder: 'Enter Body HTML', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing.errors[:preview_recipients].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Recipients Count</label>
+		<div class="col-md-10">
+      <%= f.text_field :preview_recipients, class: "form-control#{' error' unless @mailing.errors[:preview_recipients].blank?}", placeholder: 'Enter Recipients Count', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing.errors[:type_id].blank? %>">  	
+		<label class="col-md-2 control-label" for="form_control_1">Type</label>
+		<div class="col-md-10">
+			<div class="md-radio-inline">
+			  <% mailing_type_options.each do |name, id| %>
+				<div class="md-radio">
+					<%= f.radio_button :type_id, id, class: 'md-radiobtn', id: "type_radio#{id}" %>
+					<label for="type_radio<%= id %>">
+					<span></span>
+					<span class="check"></span>
+					<span class="box"></span>
+					<%= name %> </label>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing.errors[:scheduled_at].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Scheduled Time</label>
+		<div class="col-md-6">
+			<div class="input-group date form_datetime">
+				<%= f.text_field :scheduled_at, value: datetime_value(@mailing.scheduled_at), class: "form-control#{' error' unless @mailing.errors[:scheduled_at].blank?}", size: 16, readonly: 'readonly', placeholder: 'Select Scheduled Time' %>	
+				<span class="input-group-btn">
+				<button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
+				</span>
+			</div>
+			<!-- /input-group -->
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing.errors[:sent_at].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Sent Time</label>
+		<div class="col-md-6">
+			<div class="input-group date">
+				<%= f.text_field :sent_at, value: datetime_value(@mailing.sent_at), class: "form-control#{' error' unless @mailing.errors[:updated_at].blank?}", size: 50, readonly: 'readonly', placeholder: 'Sent Time' %>	
+			</div>
+			<!-- /input-group -->
+		</div>
+	</div>
+</div>

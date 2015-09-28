@@ -1,0 +1,45 @@
+<div class="form-body">
+  <%= f.hidden_field :id %>
+	<div class="form-group form-md-line-input<%' has-error' unless @user.errors[:email].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Email</label>
+		<div class="col-md-10">
+      <%= f.text_field :email, class: "form-control#{' error' unless @user.errors[:email].blank?}", placeholder: 'Enter Email', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @user.errors[:password].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Password</label>
+		<div class="col-md-10">
+      <%= f.password_field :password, class: "form-control#{' error' unless @user.errors[:password].blank?}", placeholder: 'Enter Password', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @user.errors[:confirm_password].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Confirm Password</label>
+		<div class="col-md-10">
+      <%= f.password_field :confirm_password, class: "form-control#{' error' unless @user.errors[:confirm_password].blank?}", placeholder: 'Enter Confirm Password', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @user.errors[:username].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Username</label>
+		<div class="col-md-10">
+      <%= f.text_field :username, class: "form-control#{' error' unless @user.errors[:username].blank?}", placeholder: 'Enter Username', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @user.errors[:first_name].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">First Name</label>
+		<div class="col-md-10">
+      <%= f.text_field :first_name, class: "form-control#{' error' unless @user.errors[:first_name].blank?}", placeholder: 'Enter First Name', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @user.errors[:last_name].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Last Name</label>
+		<div class="col-md-10">
+      <%= f.text_field :last_name, class: "form-control#{' error' unless @user.errors[:last_name].blank?}", placeholder: 'Enter Last Name', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+</div>

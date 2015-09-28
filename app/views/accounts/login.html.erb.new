@@ -1,0 +1,5 @@
+<!-- BEGIN LOGIN -->
+<div class="content"> 
+  <%= render partial: 'login_form', locals: {style: 'display:inline;'} %>
+</div>
+<!-- END LOGIN -->

@@ -1,0 +1,63 @@
+    <%= render partial: 'events/header', locals: {breadcrumbs: []} %>
+    
+    <%= form_tag  sort_admin_contents_events_url, {role: 'form', method: 'post'} do |f| %>
+    
+    <div class="row">
+  		<div class="col-md-12">
+        <%= button_tag 'Sort Event', type: 'submit', class: "btn btn-primary pull-right" %>
+      </div>
+    </div>
+    
+    <!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+			<div class="col-md-12">
+				<!-- BEGIN SAMPLE TABLE PORTLET-->
+				<div class="portlet">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-calendar"></i>Events
+						</div>
+						<div class="tools">
+						  <%= link_to raw('<i class="fa fa-plus"></i>'), new_admin_contents_event_url, alt: "Add" %>              
+						  <a class="fullscreen" href="javascript:;" data-original-title="" title=""></a>
+         			<a href="javascript:;" class="collapse"></a>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<div class="table-scrollable">
+							<table class="table table-striped table-bordered table-advance table-hover">
+							<thead>
+							<tr>
+								<th><i class="fa fa-sort"></i> Sort</th>
+								<th><i class="fa fa-info"></i> Title</th>
+								<th><i class="fa fa-calendar"></i> Date</th>
+								<th><i class="fa fa-map-marker"></i> Venues</th>
+								<th><i class="fa fa-ellipsis-h"></i> Description</th>
+								<th>&nbsp;</th>
+							</tr>
+							</thead>
+							<tbody>
+							  <% @events.each do |event| %>
+							  <%= hidden_field_tag "event[sort][#{event.id}][old]", event.sort %>
+							  <tr>
+  								<td><%= text_field_tag "event[sort][#{event.id}][new]", event.sort, class: 'form-control-size', placeholder: 'Sort #', size: 3, maxlength: 3 %></td>
+                  <td><%= event.title %></td>
+                  <td class="col-md-2"><%= event.date %></td>
+                  <td><%= event.venues %></td>
+                  <td><%= event.description %></td>
+                  <td>
+                    <%= link_to raw('<i class="icon-pencil"> Edit</i>'), edit_admin_contents_event_url(id: event.id), class: "btn btn-warning btn-xs" %>
+                    <%= link_to raw('<i class="icon-trash"> Delete</i>'), admin_contents_event_url(id: event.id), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure you want to delete this event?" } %>
+                  </td>
+  							</tr>
+							  <% end %>
+							</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- END SAMPLE TABLE PORTLET-->
+			</div>
+		</div>
+		<!-- END PAGE CONTENT-->
+		<% end %>

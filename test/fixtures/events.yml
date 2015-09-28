@@ -1,0 +1,18 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+event1:
+  id: 1
+  title: Title 1
+  date: 2014-12-12
+  venues: 'Kemang, South Jakarta'
+  description: "This event is very interesting!"
+  sort: 1
+  
+event2:
+  id: 2
+  title: Title 2
+  date: 2015-2-12
+  venues: 'Bangka, South Jakarta'
+  description: "This event is also very interesting!"
+  sort: 2
+  

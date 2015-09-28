@@ -1,0 +1,168 @@
+<div class="form-body">
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:email].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Email</label>
+		<div class="col-md-10">
+      <%= f.text_field :email, class: "form-control#{' error' unless @mailing_list.errors[:email].blank?}", placeholder: 'Enter Email', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:full_name].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Full Name</label>
+		<div class="col-md-10">
+      <%= f.text_field :full_name, class: "form-control#{' error' unless @mailing_list.errors[:full_name].blank?}", placeholder: 'Enter Full Name', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:birthdate].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Birthdate</label>
+		<div class="col-md-6">
+			<!--div class="input-group input-medium date" data-date="12-02-2012" data-date-viewmode="years"-->
+		  <div class="input-group input-medium date" data-date-format="yyyy-mm-dd">
+				<%= f.text_field :birthdate, value: date_value(@mailing_list.birthdate), class: "form-control#{' error' unless @mailing_list.errors[:birthdate].blank?} input-medium date-picker", size: 16, placeholder: 'Select Birthdate', 'data-date-format' => "yyyy-mm-dd" %>	
+				<!--span class="input-group-btn">
+				<button class="btn default date date-set" type="button"><i class="fa fa-calendar"></i></button>
+				</span-->
+			</div>
+			<!-- /input-group -->
+		</div>
+	</div>
+  <div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:gender].blank? %>">  	
+		<label class="col-md-2 control-label" for="form_control_1">Gender</label>
+		<div class="col-md-10">
+			<div class="md-radio-inline">
+			  <% gender_options.each do |name, id| %>
+				<div class="md-radio">
+					<%= f.radio_button :gender, id, class: 'md-radiobtn', id: "gender_radio#{id}" %>
+					<label for="gender_radio<%= id %>">
+					<span></span>
+					<span class="check"></span>
+					<span class="box"></span>
+					<%= name %> </label>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:mobile].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Mobile Phone #</label>
+		<div class="col-md-10">
+      <%= f.text_field :mobile, class: "form-control#{' error' unless @mailing_list.errors[:mobile].blank?}", placeholder: 'Enter Mobile Phone #', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:street1].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Street 1</label>
+		<div class="col-md-10">
+      <%= f.text_field :street1, class: "form-control#{' error' unless @mailing_list.errors[:street1].blank?}", placeholder: 'Enter Street 1', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:street2].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Street 2</label>
+		<div class="col-md-10">
+      <%= f.text_field :street2, class: "form-control#{' error' unless @mailing_list.errors[:street2].blank?}", placeholder: 'Enter Street 2', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:city].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">City</label>
+		<div class="col-md-10">
+      <%= f.text_field :city, class: "form-control#{' error' unless @mailing_list.errors[:city].blank?}", placeholder: 'Enter City', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:region].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Region</label>
+		<div class="col-md-10">
+      <%= f.text_field :region, class: "form-control#{' error' unless @mailing_list.errors[:region].blank?}", placeholder: 'Enter Region', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:postal_code].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Postal Code</label>
+		<div class="col-md-10">
+      <%= f.text_field :postal_code, class: "form-control#{' error' unless @mailing_list.errors[:postal_code].blank?}", placeholder: 'Enter Postal Code', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:country].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Country</label>
+		<div class="col-md-10">
+      <%= select_tag "mailing_list[country]", options_for_select(country_options, @mailing_list.country), {class: "form-control input-xlarge select2me#{' error' unless @mailing_list.errors[:country].blank?}", "data-placeholder" => "Select Country..."} %>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:feedback].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Feedback</label>
+		<div class="col-md-10">
+      <%= f.text_area :feedback, class: "form-control autosizeme#{' error' unless @mailing_list.errors[:feedback].blank?}", placeholder: 'Enter Feedback', id: 'form_control_1' %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:bounce].blank? %>">  	
+		<label class="col-md-2 control-label" for="form_control_1">Bounce</label>
+		<div class="col-md-10">
+			<div class="md-radio-inline">
+			  <% bounce_options.each do |name, id| %>
+				<div class="md-radio">
+					<%= f.radio_button :bounce, id, class: 'md-radiobtn', id: "bounce_radio#{id}" %>
+					<label for="bounce_radio<%= id %>">
+					<span></span>
+					<span class="check"></span>
+					<span class="box"></span>
+					<%= name %> </label>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:unsubscribe].blank? %>">  	
+		<label class="col-md-2 control-label" for="form_control_1">Unsubscribe</label>
+		<div class="col-md-10">
+			<div class="md-radio-inline">
+			  <% unsubscribe_options.each do |name, id| %>
+				<div class="md-radio">
+					<%= f.radio_button :unsubscribe, id, class: 'md-radiobtn', id: "unsubscribe_radio#{id}" %>
+					<label for="unsubscribe_radio<%= id %>">
+					<span></span>
+					<span class="check"></span>
+					<span class="box"></span>
+					<%= name %> </label>
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+  <div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:confirmed_at].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Confirmed Time</label>
+		<div class="col-md-6">
+			<div class="input-group date form_datetime">
+				<%= f.text_field :confirmed_at, value: datetime_value(@mailing_list.confirmed_at), class: "form-control#{' error' unless @mailing_list.errors[:confirmed_at].blank?}", size: 16, placeholder: 'Select Confirmed Time' %>	
+				<span class="input-group-btn">
+				<button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
+				</span>
+			</div>
+			<!-- /input-group -->
+		</div>
+	</div>
+	<% unless @mailing_list.new_record? %>
+  <div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:updated_at].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Updated Time</label>
+		<div class="col-md-6">
+			<div class="input-group date">
+				<%= f.text_field :updated_at, value: datetime_value(@mailing_list.updated_at), class: "form-control#{' error' unless @mailing_list.errors[:updated_at].blank?}", size: 50, readonly: 'readonly', placeholder: 'Updated Time' %>	
+			</div>
+			<!-- /input-group -->
+		</div>
+	</div>
+  <div class="form-group form-md-line-input<%' has-error' unless @mailing_list.errors[:created_at].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Created Time</label>
+		<div class="col-md-6">
+			<div class="input-group date">
+				<%= f.text_field :created_at, value: datetime_value(@mailing_list.created_at), class: "form-control#{' error' unless @mailing_list.errors[:created_at].blank?}", size: 50, readonly: 'readonly', placeholder: 'Created Time' %>	
+			</div>
+			<!-- /input-group -->
+		</div>
+	</div>
+	<% end %>
+</div>

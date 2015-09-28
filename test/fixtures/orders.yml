@@ -1,0 +1,56 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# Subtotal = (order_item1.original_price * order_item1.quantity) + 
+#             (order_item2.original_price * order_item2.quantity) + ...
+# Discount = ((order_item1.original_price - order_item1.sold_price) * order_item1.quantity) +
+#             ((order_item2.original_price - order_item2.sold_price) * order_item2.quantity) + ...
+# Total = Subtotal + Tax + Shipping - Discount
+
+order1:
+  id: 1
+  customer_id: 1
+  status_id: 1
+  subtotal: 55_000
+  tax: 5_000
+  shipping: 5_000
+  discount: 15_000
+  total: 50_000
+  shipping_address_id: 2
+  billing_address_id: 4
+  
+order2: 
+  id: 2
+  customer_id: 2
+  status_id: 1
+  subtotal: 20_000
+  tax: 500
+  shipping: 5_000
+  discount: 5_000
+  total: 20_500
+  shipping_address_id: 6
+  billing_address_id: 7
+
+order3:
+  id: 3
+  customer_id: 3
+  status_id: 2
+  subtotal: 30_000
+  tax: 5_000
+  shipping: 10_000
+  discount: 7_500
+  total: 37_500
+  shipping_address_id: 8
+  billing_address_id: 9
+
+order4: 
+  id: 4
+  customer_id: 2
+  status_id: 1
+  subtotal: 86_000
+  tax: 15_000
+  shipping: 20_000
+  discount: 21_000
+  total: 100_000
+  shipping_address_id: 10
+  billing_address_id: 11
+  

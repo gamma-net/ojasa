@@ -1,0 +1,38 @@
+    <%= render partial: 'profiles/header', locals: {breadcrumbs: []} %>
+    
+    <%= form_for @user, {url: admin_settings_profiles_url, role: 'form', method: 'put', multipart: true, html: {class: 'form-horizontal'}} do |f| %>
+    
+    <div class="row">
+    	<div class="col-md-11">
+        <%= button_tag 'Update', type: 'submit', class: "btn btn-primary pull-right" %>
+      </div>
+      <div class="col-md-1">
+        <%= button_tag 'Reset', class: "btn btn-default pull-right", type: 'reset' %>
+      </div>
+    </div>
+    
+    <!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+			<div class="col-md-12">
+				<!-- BEGIN SAMPLE TABLE PORTLET-->
+				<div class="portlet">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-user"></i><%= @user.full_name %>
+						</div>
+						<div class="tools">
+						  <a class="fullscreen" href="javascript:;" data-original-title="" title=""></a>
+         			<a href="javascript:;" class="collapse"></a>
+						</div>
+					</div>
+					<div class="portlet-body form ">
+					  
+            <%= render partial: 'form', locals: {f: f} %>
+              
+					</div>
+				</div>
+				<!-- END SAMPLE TABLE PORTLET-->
+			</div>
+		</div>
+		<!-- END PAGE CONTENT-->
+    <% end %>

@@ -1,0 +1,26 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+image1:
+  id: 1
+  content_id: 1
+  content_type: Episode
+  sort: 1
+  
+image2:
+  id: 2
+  content_id: 2
+  content_type: Episode
+  sort: 2
+  
+image3:
+  id: 3
+  content_id: 1
+  content_type: Episode
+  sort: 2
+
+image4:
+  id: 4
+  content_id: 1
+  content_type: Product
+  sort: 2
+    

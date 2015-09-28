@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+order_item1_1:
+  id: 1
+  order_id: 1
+  product_item_id: 1
+  sold_price: 7_500
+  original_price: 10_000
+  quantity: 5
+  
+order_item1_2:
+  id: 2
+  order_id: 1
+  product_item_id: 4
+  sold_price: 2_500
+  original_price: 5_000
+  quantity: 1
+    
+order_item2:
+  id: 3
+  order_id: 2
+  product_item_id: 1
+  sold_price: 7_500
+  original_price: 10_000
+  quantity: 2
+  
+order_item3:
+  id: 4
+  order_id: 3
+  product_item_id: 3
+  sold_price: 7_500
+  original_price: 10_000
+  quantity: 3
+  
+order_item4_1:
+  id: 5
+  order_id: 4
+  product_item_id: 1
+  sold_price: 7_500
+  original_price: 10_000
+  quantity: 4
+  
+order_item4_2:
+  id: 6
+  order_id: 4
+  product_item_id: 4
+  sold_price: 2_500
+  original_price: 5_000
+  quantity: 2
+  
+order_item4_3:
+  id: 7
+  order_id: 4
+  product_item_id: 3
+  sold_price: 10_000
+  original_price: 12_000
+  quantity: 3

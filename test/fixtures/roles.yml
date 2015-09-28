@@ -1,0 +1,65 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+super_admin: 
+  id: 1
+  name: Super Admin
+  permissions: all
+  sort: 1
+  
+admin: 
+  id: 2
+  name: Admin
+  permissions: admin
+  sort: 2
+
+manager_content: 
+  id: 3
+  name: Content Manager
+  permissions: contents
+  sort: 3
+
+# assistant_manager_content_banners: 
+#   id: 4
+#   name: Content Manager (Banners)
+#   permissions: banners
+#   sort: 4
+# 
+# assistant_manager_content_news: 
+#   id: 5
+#   name: Content Manager (News)
+#   permissions: news
+#   sort: 5
+# 
+# assistant_manager_content_galleries: 
+#   id: 6
+#   name: Content Manager (Galleries)
+#   permissions: galleries
+#   sort: 6
+# 
+# assistant_manager_content_events: 
+#   id: 7
+#   name: Content Manager (Events)
+#   permissions: events
+#   sort: 7
+# 
+# manager_store: 
+#   id: 8
+#   name: Store Manager
+#   permissions: store
+#   sort: 8
+# 
+# assistant_manager_store_products: 
+#   id: 9
+#   name: Store Manager (Products)
+#   permissions: products
+#   sort: 9
+# 
+# assistant_manager_store_orders: 
+#   id: 10
+#   name: Store Manager (Orders)
+#   permissions: orders
+#   sort: 10

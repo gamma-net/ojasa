@@ -1,0 +1,47 @@
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN SAMPLE TABLE PORTLET-->
+		<div class="portlet">
+			<div class="portlet-title">
+				<div class="caption">
+					<i class="fa fa-suitcase"></i>Items
+				</div>
+				<div class="tools">
+				  <a class="fullscreen" href="javascript:;" data-original-title="" title=""></a>
+     			<a href="javascript:;" class="collapse"></a>
+				</div>
+			</div>
+			<div class="portlet-body">
+				<div class="table-scrollable">
+					<table class="table table-striped table-bordered table-advance table-hover">
+					<thead>
+					<tr>
+						<th><i class="fa fa-user"></i> Name</th>
+						<th><i class="fa fa-info"></i> Option</th>
+						<th><i class="fa fa-info"></i> SKU</th>
+						<th><i class="fa fa-usd"></i> Sold Price</th>
+						<th><i class="fa fa-money"></i> Original Price</th>
+						<th><i class="fa fa-plus-square-o"></i> Quantity</th>
+					</tr>
+					</thead>
+					<tbody>
+					  <% @order.items.each do |order_item| %>
+					  <tr>
+              <td><%= order_item.product.name %></td>
+              <td><%= order_item.option %></td>
+              <td><%= order_item.sku %></td>
+              <td class="value"><%= money_value(order_item.sold_price) %></td>
+              <td class="value"><%= money_value(order_item.original_price) %></td>
+              <td><%= order_item.quantity %></td>
+						</tr>
+					  <% end %>
+					</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<!-- END SAMPLE TABLE PORTLET-->
+	</div>
+</div>
+<!-- END PAGE CONTENT-->

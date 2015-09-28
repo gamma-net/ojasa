@@ -1,0 +1,25 @@
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+		<button class="close" data-close="alert"></button>
+		<%= flash[:error] %>
+    <% unless @errors.blank? %>
+    <ul>
+      <% @errors.full_messages.each do |error_message| %>
+        <li><%= error_message %></li>
+      <% end if @errors.kind_of?(ActiveModel::Errors) %>
+      <% @errors.each do |column, errors| %>
+        <% errors.each do |error| %>
+          <li><%= "#{column.capitalize} #{error}" %></li>
+        <% end %>
+      <% end if @errors.kind_of?(Hash) %>
+    </ul>
+    <% end %>
+	</div>
+<% end %>
+<% if flash[:success] %>
+	<!--div class="alert alert-danger display-hide"-->
+	<div class="alert alert-success">
+		<button class="close" data-close="alert"></button>
+		<%= flash[:success] %>
+	</div>
+<% end %>

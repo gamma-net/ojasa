@@ -1,0 +1,28 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+news1:
+  id: 1
+  title: Title 1
+  author: Author 1
+  date: 2015-3-3
+  link_url: http://www.ojasa.co.id
+  headline: This is headline 1
+  keyword: 'keyword1, keyword2'
+  article: 'This is article news 1'
+  sort: 1
+  publish_at: 2015-5-5
+  retract_at: 2016-5-5
+  
+news2:
+  id: 2
+  title: Title 2
+  author: Author 2
+  date: 2015-4-4
+  link_url: http://www.detik.com
+  headline: This is headline 2
+  keyword: 'keyword3, keyword4'
+  article: 'This is article news 2'
+  sort: 2
+  publish_at: 2015-7-7
+  retract_at: 2015-8-5
+  

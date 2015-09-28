@@ -1,0 +1,51 @@
+    <%= render partial: 'mailing_lists/header', locals: {breadcrumbs: []} %>
+    
+    <!-- BEGIN PAGE CONTENT-->
+		<div class="row">
+			<div class="col-md-12">
+				<!-- BEGIN SAMPLE TABLE PORTLET-->
+				<div class="portlet">
+					<div class="portlet-title">
+						<div class="caption">
+							<i class="fa fa-users"></i>Lists
+						</div>
+						<div class="tools">
+						  <%= link_to raw('<i class="fa fa-plus"></i>'), new_admin_mailings_list_url, alt: "Add" %>              
+						  <a class="fullscreen" href="javascript:;" data-original-title="" title=""></a>
+         			<a href="javascript:;" class="collapse"></a>
+						</div>
+					</div>
+					<div class="portlet-body">
+						<div class="table-scrollable">
+							<table class="table table-striped table-bordered table-advance table-hover">
+							<thead>
+							<tr>
+								<th><i class="fa fa-envelope"></i> Email</th>
+								<th><i class="fa fa-info"></i> Full Name</th>
+								<th><i class="fa fa-calendar"></i> Created Time</th>
+								<th><i class="fa fa-calendar"></i> Confirmed Time</th>
+								<th>&nbsp;</th>
+							</tr>
+							</thead>
+							<tbody>
+							  <% @mailing_lists.each do |mailing_list| %>
+							  <tr>
+                  <td><%= mailing_list.email %></td>
+                  <td><%= mailing_list.full_name %></td>
+                  <td><%= mailing_list.created_at %></td>
+                  <td><%= mailing_list.confirmed_at %></td>
+                  <td>
+                    <%= link_to raw('<i class="icon-pencil"> Edit</i>'), edit_admin_mailings_list_url(id: mailing_list.id), class: "btn btn-warning btn-xs" %>
+                    <%= link_to raw('<i class="icon-trash"> Delete</i>'), admin_mailings_list_url(id: mailing_list.id), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure you want to delete this mailing list?" } %>
+                  </td>
+  							</tr>
+							  <% end %>
+							</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- END SAMPLE TABLE PORTLET-->
+			</div>
+		</div>
+		<!-- END PAGE CONTENT-->

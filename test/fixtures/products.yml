@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+product1:
+  id: 1
+  name: Product 1
+  metadata: 'metadata1.1, metadata1.2'
+  description: This is a description of Product 1
+  sort: 1
+  base_sku: base-sku-1
+  base_price: 10_000
+  sale_price: 7_500
+  publish_at: 2015-01-01
+  retract_at: 2015-02-01
+  
+product2:
+  id: 2
+  name: Product 2
+  metadata: 'metadata2.1, metadata2.2'
+  description: This is a description of Product 2
+  sort: 2
+  base_sku: base-sku-2
+  base_price: 5_000
+  sale_price: 2_500
+  publish_at: 2015-01-01
+  retract_at: 2016-01-01

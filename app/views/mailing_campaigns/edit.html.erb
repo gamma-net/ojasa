@@ -1,0 +1,29 @@
+<%= render partial: 'mailing_campaigns/header', locals: {breadcrumbs: [@mailing.subject]} %>
+
+<%= form_for @mailing, {url: admin_mailings_campaign_url, role: 'form', method: 'put', multipart: true, html: {class: 'form-horizontal'}} do |f| %>
+
+<div class="row">
+	<div class="col-md-11">
+    <%= button_tag 'Update Campaign', type: 'submit', class: "btn btn-primary pull-right" %>
+  </div>
+  <div class="col-md-1">
+    <%= button_tag 'Reset', class: "btn btn-default pull-right", type: 'reset' %>
+  </div>
+</div>
+
+<!-- BEGIN PAGE CONTENT-->
+<div class="row">
+	<div class="col-md-12">
+		<!-- BEGIN SAMPLE FORM PORTLET-->
+		<div class="portlet">
+			<div class="portlet-body form">
+          
+          <%= render partial: 'form', locals: {f: f} %>
+
+			</div>
+		</div>
+		<!-- END SAMPLE FORM PORTLET-->
+	</div>
+</div>
+<!-- END PAGE CONTENT-->
+<% end %>
