@@ -64,8 +64,8 @@
 
                         <ul class="one-page-menu">
                             <li class="current"><%= link_to raw('<div>Home</div>'), home_page_url, {'data-href' => '#header'} %></li>
-                            <!--li><a href="#" data-href="#section-features"><div>Services</div></a></li>
-                            <li><a href="#" data-href="#section-pricing"><div>Contact Us</div></a></li-->
+                            <li><%= link_to raw('<div>Services</div>'), list_services_url, {'data-href' => '#section-features'} %></li>
+                            <!--li><a href="#" data-href="#section-pricing"><div>Contact Us</div></a></li-->
                             
                             <% if logged_in? %>
                         		  <li><%= link_to raw('<div class="loginbtn">LOGOUT</div>'), logout_accounts_url, {"data-href" => "#section-testimonials"} %></li>
@@ -97,14 +97,14 @@
                 <div class="container clearfix">
 
                     <div class="col_half">
-                        <div class="copyrights-menu copyright-links clearfix">
+                        <!--div class="copyrights-menu copyright-links clearfix">
                             <a href="#">Home</a><a href="#">About</a><a href="#">Job</a><a href="#">Contact</a>
-                        </div>
+                        </div-->
                         Copyrights &copy; 2015 PT. Gamma Technology. All Rights Reserved.
                     </div>
 
                     <div class="col_half col_last tright">
-                        <div class="fright clearfix">
+                        <!--div class="fright clearfix">
                             <a href="#" class="social-icon si-small si-borderless nobottommargin si-facebook">
                                 <i class="icon-facebook"></i>
                                 <i class="icon-facebook"></i>
@@ -114,7 +114,7 @@
                                 <i class="icon-twitter"></i>
                                 <i class="icon-twitter"></i>
                             </a>
-                        </div>
+                        </div-->
                     </div>
 
                 </div>

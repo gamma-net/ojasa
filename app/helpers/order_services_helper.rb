@@ -54,7 +54,7 @@ module OrderServicesHelper
   end
   
   def services_location_options_html
-    options_for_select([['Location', '']] + services_location_options)
+    options_for_select([['Location', '']] + services_location_options, cart["location"])
   end
   
   def services_days_options
@@ -85,17 +85,12 @@ module OrderServicesHelper
     if !params[:category_id].blank? && !params[:category_id].to_i.zero? && (category = Category.find(params[:category_id]))
       return category.name
     end
-    
-    case params[:category_id]
-    when 'cleaning';  'Cleaning Services'
-    when 'salon';     'Hair Salon'
-    when 'carwash';   'Car Wash'
-    when 'autocare';  'Auto Care'
-    when 'gardener';  'Gardener'
-    when 'massage';   'Massage'
-    when 'ac';        'AC Services'
-    else; params[:action].capitalize
+
+    if !params[:service_type].blank? && !params[:service_type].to_i.zero? && (category = Category.find_by_tag_name(params[:service_type]))
+      return category.name
     end
+    
+    return params[:service_type].capitalize
   end
   
   def service_description
@@ -104,16 +99,31 @@ module OrderServicesHelper
     raw(str)
   end
   
-  def service_pricing
-    str = <<-EOF
-      <select id="cleaning-form-price" name="cleaning-form-price" class="input-lg sm-form-control">
-          <option value="">how many hour</option>
-          <option value="50000">1 hour Rp.50.000,-</option>
-          <option value="90000">2 hours Rp.90.000</option>
-          <option value="125000">3 hours Rp.125.000</option>
-      </select>
-    EOF
+  def service_category_id
+    return params[:category_id] unless params[:category_id].blank?
+    if !params[:service_type].blank? && !params[:service_type].to_i.zero? && (category = Category.find_by_tag_name(params[:service_type]))
+      return category.id
+    end
+  end
 
+  def service_pricing
+    category = Category.find(service_category_id)
+    if category.pricings.size == 1
+      
+    else
+      str = '<select id="cleaning-form-price" name="order[subtotal]" class="input-lg sm-form-control">'
+      category.pricings.each do |pricing|
+        str << '<option value="'
+        str << pricing[:value]
+        str << '"'
+        str << ' selected' if cart["subtotal"].to_s == pricing[:value]
+        str << '>'
+        str << pricing[:desc]
+        str << '</option>'
+      end
+      str << '</select>'
+    end
+    
     raw(str)
   end
   
@@ -124,7 +134,9 @@ module OrderServicesHelper
       if (categories = category.child_categories).empty?
         str << '<option value="'
         str << category.id.to_s
-        str << '">'
+        str << '"'
+        str << " selected" if cart["category_id"].to_s == category.id.to_s
+        str << '>'
         str << category.name
         str << '</option>'
       else

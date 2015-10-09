@@ -38,5 +38,6 @@ class AccountsController < ApplicationController
     
     def clear_session
       session[:customer] = nil
+      session[:cart] = nil
     end
 end

@@ -1,5 +1,6 @@
 class OrderServicesController < ApplicationController
-
+  before_filter :update_cart!, only: [:order, :request_service]
+  
   def order
     if params[:location].empty? || params[:category_id].empty?
       flash[:error] = 'Please select our Services and Location'
@@ -16,11 +17,12 @@ class OrderServicesController < ApplicationController
   def request_service
     if logged_in?
       order = Order.new(order_params.merge(customer_id: session[:customer]['id'], status_id: Order.open))
-      if !order.past_date? && order.save!
+      if order.validate? && order.save!
+        initialize_cart
         flash[:success] = 'Thank you for your order'
         redirect_to order_services_url and return
       else
-        flash[:error] = 'Please select correct date'
+        flash[:error] = 'Please fill in all information below'
         redirect_to :back and return
       end
     else
@@ -36,7 +38,15 @@ class OrderServicesController < ApplicationController
   protected 
     
     def order_params
-      params.require(:order).permit!
+      params[:order] ? params.require(:order).permit! : {}
+    end
+    
+    def update_cart!
+      session[:cart] ||= {}
+      session[:cart]["location"] = params[:location] if params[:location]
+      session[:cart]["category_id"] = params[:category_id] if params[:category_id]
+      session[:cart]["service_type"] = params[:service_type] if params[:service_type]
+      session[:cart].merge!(order_params) unless order_params.blank?
     end
     
 end

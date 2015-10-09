@@ -192,6 +192,7 @@ Rails.application.routes.draw do
   
   get 'services', controller: 'order_services', as: 'order_services', action: 'show'
   post 'services', controller: 'order_services', as: 'request_order_services', action: 'request_service'
+  get 'services/list', controller: 'order_services', as: 'list_services', action: 'list'
   get 'services/order', controller: 'order_services', as: 'type_order_services', action: 'order'
   
   get 'services/cleaning', controller: 'order_services', as: 'cleaning_order_services', action: 'order', service_type: 'cleaning'
@@ -201,7 +202,11 @@ Rails.application.routes.draw do
   get 'services/salon', controller: 'order_services', as: 'salon_order_services', action: 'order', service_type: 'salon'
   get 'services/ac', controller: 'order_services', as: 'ac_order_services', action: 'order', service_type: 'ac'
 
-  get 'services/:action', controller: 'order_services', as: 'action_services', action: 'order'
+  get 'services/locksmith', controller: 'order_services', as: 'locksmith_order_services', action: 'order', service_type: 'locksmith'
+  # get 'services/ac', controller: 'order_services', as: 'ac_order_services', action: 'order', service_type: 'ac'
+  # get 'services/ac', controller: 'order_services', as: 'ac_order_services', action: 'order', service_type: 'ac'
+
+  get 'services/:service_type', controller: 'order_services', as: 'action_services', action: 'service'
 
 
   # get ':controller/:action' #/:id', id: nil, format: nil

@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   before_filter :admin_authorize, except: [:login, :logout, :authenticate, :help, :register, :registration, :forgot, :reset, :signup]
   
   before_filter :validate_admin_permission, except: [:profile, :login, :logout, :authenticate, :help, :register, :registration, :forgot, :reset, :signup]
-  
+    
   protected
     
     def user_params
@@ -48,6 +48,15 @@ class ApplicationController < ActionController::Base
       !session[:customer].blank?
     end
     helper_method :logged_in?
+    
+    def initialize_cart
+      session[:cart] = {}
+    end
+    
+    def cart
+      session[:cart] ||= {}
+    end
+    helper_method :cart
     
     def validate_admin_permission
       return false unless admin_logged_in?

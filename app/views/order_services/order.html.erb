@@ -14,14 +14,15 @@
 
              <div class="panel-body divcenter" style="max-width: 550px;">
                  <%= form_tag request_order_services_url, method: :post, class: "nobottommargin", name: 'cleaning-form', id: 'cleaning-form' do %>
+                     <%= hidden_field_tag "order[category_id]", service_category_id %>
                      <div class="col_full">
-                          <input name="order[address]" class="controls form-control placeholder-no-fix required input-lg not-dark" type="text" placeholder="input your address" id="autocomplete" onFocus="geolocate()">
+                          <input name="order[address]" class="controls form-control placeholder-no-fix required input-lg not-dark" type="text" placeholder="input your address" id="autocomplete" onFocus="geolocate()" value="<%= cart["address"] %>">
                      </div>
                      <div class="col_full">
-                         <input name="order[detail]" class="controls form-control placeholder-no-fix required input-lg not-dark" type="text" placeholder="address details (house nr, floor, landmark)" id="cleaning-form-address" >
+                         <input name="order[detail]" class="controls form-control placeholder-no-fix required input-lg not-dark" type="text" placeholder="address details (house nr, floor, landmark)" id="cleaning-form-address" value="<%= cart["detail"] %>">
                      </div>
                      <div class="col_one_third">
-                        <%= text_field_tag "order[requested_at]", nil, class: "datepicker input-lg sm-form-control", size: 16, placeholder: 'choose date', id: "cleaning-form-date", style: "padding: 10px 14px;" %>
+                        <%= text_field_tag "order[requested_at]", nil, class: "datepicker input-lg sm-form-control", size: 16, placeholder: 'choose date', id: "cleaning-form-date", style: "padding: 10px 14px;", value: cart["requested_at"] %>
                      </div>
                      <div class="col_two_third col_last">
                          <%= service_pricing %>
