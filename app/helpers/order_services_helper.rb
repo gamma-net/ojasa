@@ -28,28 +28,20 @@ module OrderServicesHelper
 	  raw(str)
   end
   
+  def service_regions
+    {'jaksel' => 'Jakarta Selatan', 
+      'jaktim' => 'Jakarta Timur',
+      'jakpus' => 'Jakarta Pusat',
+      'jakut' => 'Jakarta Utara',
+      'jakbar' => 'Jakarta Barat',
+      'bintaro' => 'Bintaro',
+      'depok' => 'Depok',
+      'bekasi' => 'Bekasi'}
+  end
+    
   def services_location_options
-    regions = {'jaksel' => 'Jakarta Selatan', 
-                'jaktim' => 'Jakarta Timur',
-                'jakpus' => 'Jakarta Pusat',
-                'jakut' => 'Jakarta Utara',
-                'jakbar' => 'Jakarta Barat',
-                'bintaro' => 'Bintaro',
-                'depok' => 'Depok',
-                'bekasi' => 'Bekasi'}
-
-    # str = ''
-    # regions.each do |key, value|
-    #   str << '<option value="'
-    #   str << key
-    #   str << '">'
-    #   str << value
-    #   str << '</option>'
-    # end
-    # 
-    # raw(str)
     array = []
-    regions.each {|key, value| array << [value, key]}
+    service_regions.each {|key, value| array << [value, key]}
     array
   end
   

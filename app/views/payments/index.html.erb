@@ -1,0 +1,248 @@
+<!-- Content
+============================================= -->
+<section id="content" class="section-payment">
+
+    <div class="content-wrap">
+
+        <%= form_tag process_payments_url, method: :post, class: "bottommargin", name: 'template-contactform', id: 'template-contactform', novalidate: 'novalidate' do %>
+
+        <div class="container clearfix">
+
+            <div class="heading-block center nobottomborder">
+                <h1>PAYMENT</h1>
+            </div>
+
+            <div class="panel panel-default">
+                <div id="billing-detail" class="panel-body" style="padding: 40px;">
+                  
+                    <div class="col-md-8 col-sm-6 col-xs-6">
+                        <h3>Billing Details</h3>
+                    </div>
+
+                    <!--div class="col-md-4 col-sm-6 col-xs-6">
+                        <a href="#" class="button button-small button-dark button-rounded fright"><i class="icon-edit"></i>Edit</a>
+                    </div-->
+
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-12">
+                        <ul>
+                            <li><%= full_name %></li>
+                            <li><%= full_address %></li>
+                            <li>Jakarta</li>
+                            <li>Indonesia</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div> 
+
+            <div class="panel panel-default">
+                <div id="payment-method" class="panel-body" style="padding: 40px;">
+                  
+                    <div class="col-md-12">
+                        <div class="fancy-title title-bottom-border">
+                            <h3>Payment Method</h3>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-12 payment">
+                        
+
+                        <div class="tabs clearfix ui-tabs ui-widget ui-widget-content ui-corner-all" id="tab-3">
+
+                            <ul class="tab-nav tab-nav2 clearfix ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all text-center" role="tablist">
+                                <li class="ui-state-default ui-corner-top col_half nobottommargin" role="tab" tabindex="-1" aria-controls="tabs-9" aria-labelledby="ui-id-9" aria-selected="false">
+                                    <a href="#tabs-9" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-9">
+                                        <span>Credit Card</span><img src="/assets/images/cc.png" /><p class="text-center;">*Exclude 3,5% handling fee</p>
+                                    </a>
+                                </li>
+                                <li class="ui-state-default ui-corner-top col_half col_last nobottommargin" role="tab" tabindex="-1" aria-controls="tabs-10" aria-labelledby="ui-id-10" aria-selected="false">
+                                    <a href="#tabs-10" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-10">    <span>Bank Transfer</span><img src="/assets/images/banktransfer.png" /><p class="text-center;">*Exclude IDR 7.500 handling fee</p>
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-container">
+
+                                <div class="tab-content clearfix ui-tabs-panel ui-widget-content ui-corner-bottom" id="tabs-9" aria-labelledby="ui-id-9" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+                                    <div class="col_half nobottommargin">
+                                        <div class="well">
+                                            <div class="fancy-title title-bottom-border">
+                                                <h3>Credit Card Information</h3>
+
+                                                    <div class="form-process"></div>
+
+                                                    <div class="col_full">
+                                                        <label for="name-credit-card">Nama tertera pada Kartu Kredit</label>
+                                                        <input type="text" id="name-credit-card" name="name-credit-card" value="" class="sm-form-control required" aria-required="true">
+                                                    </div>
+
+                                                    <div class="col_half">
+                                                        <label for="no-credit-card">Nomor Kartu Kredit</label>
+                                                        <input type="text" id="no-credit-card" name="no-credit-card" value="" class="required email sm-form-control" aria-required="true">
+                                                    </div>
+
+                                                    <div class="col_half col_last">
+                                                        <label for="cvv-credit-card" style="text-indent: -999px;">CVV</label>
+                                                        <input type="text" id="cvv-credit-card" name="cvv-credit-card" value="" class="sm-form-control" placeholder="CVV/CVC">
+                                                    </div>
+
+                                                    <div class="clear"></div>
+
+
+                                                    <label>Masa Kadaluarsa Kartu Kredit</label>
+                                                    <div class="col_half">
+                                                        <select id="month-credit-card" name="month-credit-card" class="sm-form-control">
+                                                            <option value="">Bulan</option>
+                                                            <option value="January">January</option>
+                                                            <option value="February">February</option>
+                                                            <option value="Maret">Maret</option>
+                                                            <option value="April">April</option>
+                                                            <option value="Mei">Mei</option>
+                                                            <option value="June">June</option>
+                                                            <option value="July">July</option>
+                                                            <option value="August">August</option>
+                                                            <option value="September">September</option>
+                                                            <option value="October">October</option>
+                                                            <option value="November">November</option>
+                                                            <option value="December">December</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col_half col_last">
+                                                        <select id="year-credit-card" name="year-credit-card" class="sm-form-control">
+                                                            <option value="">Tahun</option>
+                                                            <option value="">1999</option>
+                                                            <option value="">2000</option>
+                                                            <option value="">2001</option>
+                                                            <option value="">2002</option>
+                                                            <option value="">2003</option>
+                                                        </select>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="tab-content clearfix ui-tabs-panel ui-widget-content ui-corner-bottom" id="tabs-10" aria-labelledby="ui-id-10" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+                                    <div class="col_half nobottommargin">
+                                        <div class="well">
+                                            <div class="fancy-title title-bottom-border">
+                                                <h3>Bank Transfer Information</h3>
+                                            </div>
+                                            <h4 style="margin-bottom: 10px;">Bank Permata</h4>
+                                            <ol style="margin-left: 20px;">
+                                                <li>Tekan tombol <strong>"Confirm Payment"</strong> dibawah ini untuk menampilkan nomor rekening permata</li>
+                                                <li>Pastikan Anda mencatat nomor rekening Permata tersebut.</li>
+                                                <li>Nomor rekening Permata ini hanya berlaku <strong>24 Jam</strong> ke depan</li>
+                                            </ol>
+                                            <hr>
+                                            <h5>Silahkan Transfer ke No. Rekening Permata ini</h5>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>    
+
+            <div class="panel panel-default nobottommargin">
+                <div id="review-order" class="panel-body" style="padding: 40px;">
+                  
+                    <div class="col-md-12">
+                        <div class="fancy-title title-bottom-border">
+                            <h3>Review Order</h3>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                          <table class="table" cellspacing="0" cellpadding="0">
+                            <tbody>
+                              <tr>
+                                <td style="width: 17%;">Service</td>
+                                <td style="width: 3%;">:</td>
+                                <td><%= category_name%></td>
+                              </tr>
+                              <tr>
+                                <td>Date</td>
+                                <td>:</td>
+                                <td><%= requested_date %></td>
+                              </tr>
+                              <!--tr>
+                                <td>Time</td>
+                                <td>:</td>
+                                <td>13.00 WIB</td>
+                              </tr-->
+                              <tr>
+                                <td>Price</td>
+                                <td>:</td>
+                                <td><%= service_pricing %></td>
+                              </tr>
+                              <tr>
+                                <td>Name</td>
+                                <td>:</td>
+                                <td><%= full_name %></td>
+                              </tr>
+                                <td>Address</td>
+                                <td>:</td>
+                                <td><%= address %></td>
+                              </tr>
+                              <tr>
+                                <td>Address details</td>
+                                <td>:</td>
+                                <td><%= addressdetail %></td>
+                              </tr>
+                              <tr>
+                                <td>City</td>
+                                <td>:</td>
+                                <td><%= region %></td>
+                              </tr>
+                              <!--tr>
+                                <td>Post code</td>
+                                <td>:</td>
+                                <td>12790</td>
+                              </tr-->
+                              <tr>
+                                <td>Telephone Num.</td>
+                                <td>:</td>
+                                <td><%= phone %></td>
+                              </tr>
+                              <tr>
+                                <td>Email</td>
+                                <td>:</td>
+                                <td><%= email %></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="totalpayment">
+                            <div class="col_half nobottommargin"><span>Total</span></div>
+                            <div class="col_half col_last paymentvalue nobottommargin">
+                                <%= order_total %>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>                  
+            <div class="col-md-8 col-md-offset-2 topmargin">
+                <button class="button button-3d button-large button-aqua btn-block nomargin" id="checkout-form-submit" name="checkout-form-submit" value="checkout">CHECKOUT</button>
+            </div>
+        </div>
+      <% end %>
+
+    </div>
+
+</section><!-- #content end -->

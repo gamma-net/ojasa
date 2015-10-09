@@ -56,11 +56,11 @@ class Order < ActiveRecord::Base
   end
   
   def validate?
-    !past_date? && !category_id.to_i.zero? && !address.blank? && !detail.blank? && !subtotal.to_i.zero?
+    !requested_at.nil? && !past_date? && !category_id.to_i.zero? && !address.blank? && !detail.blank? && !subtotal.to_i.zero?
   end
   
   def past_date?
-    requested_at.nil? || (requested_at < Date.today)
+     !requested_at.nil? && (requested_at < Date.today)
   end
   
   def update_items(order_items)
@@ -73,10 +73,14 @@ class Order < ActiveRecord::Base
     save
   end
   
+  def calculate_total
+    subtotal.to_f - discount.to_f + tax.to_f + shipping.to_f
+  end
+  
   def calculate!
     calculate_subtotal!
     calculate_discount! unless freeze_discount
-    self.total = subtotal - discount + tax + shipping
+    self.total = calculate_total
     save!
   end
 

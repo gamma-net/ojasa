@@ -8,7 +8,7 @@ class Service < ActiveRecord::Base
   belongs_to :address, dependent: :destroy
   belongs_to :category
   
-  validates_presence_of :name, :description, :keyword
+  validates_presence_of :name#, :description, :keyword
   
   before_create :initialize_sort!
   before_save :set_tags

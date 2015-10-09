@@ -88,42 +88,7 @@
   	</div>
   </div>
 
-	<div class="form-group form-md-line-input<%' has-error' unless @service.address.errors[:street1].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Street1</label>
-		<div class="col-md-10">
-      <%= text_field_tag "service_address[street1]", @service.address.street1, class: "form-control#{' error' unless @service.address.errors[:street1].blank?}", placeholder: ' Enter Street1', id: 'form_control_1' %>
-      <div class="form-control-focus"></div>
-		</div>
-	</div>
 
-	<div class="form-group form-md-line-input<%' has-error' unless @service.address.errors[:street2].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Street2</label>
-		<div class="col-md-10">
-      <%= text_field_tag "service_address[street2]", @service.address.street2, class: "form-control#{' error' unless @service.address.errors[:street2].blank?}", placeholder: ' Enter Street2', id: 'form_control_1' %>
-      <div class="form-control-focus"></div>
-		</div>
-	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @service.address.errors[:city].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">City</label>
-		<div class="col-md-10">
-      <%= text_field_tag "service_address[city]", @service.address.city, class: "form-control#{' error' unless @service.address.errors[:city].blank?}", placeholder: ' Enter City', id: 'form_control_1' %>
-      <div class="form-control-focus"></div>
-		</div>
-	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @service.address.errors[:region].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Region</label>
-		<div class="col-md-10">
-      <%= text_field_tag "service_address[region]", @service.address.region, class: "form-control#{' error' unless @service.address.errors[:region].blank?}", placeholder: ' Enter Region', id: 'form_control_1' %>
-      <div class="form-control-focus"></div>
-		</div>
-	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @service.address.errors[:postal_code].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Postal Code</label>
-		<div class="col-md-10">
-      <%= text_field_tag "service_address[postal_code]", @service.address.postal_code, class: "form-control#{' error' unless @service.address.errors[:postal_code].blank?}", placeholder: ' Enter Postal Code', id: 'form_control_1' %>
-      <div class="form-control-focus"></div>
-		</div>
-	</div>
   <div class="form-group form-md-line-input<%' has-error' unless @service.errors[:publish_at].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Publish Time</label>
 		<div class="col-md-6">

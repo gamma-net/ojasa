@@ -209,6 +209,12 @@ Rails.application.routes.draw do
   get 'services/:service_type', controller: 'order_services', as: 'action_services', action: 'service'
 
 
+  get 'payments', controller: 'payments', as: 'payments', action: 'index'
+  get 'payments/thanks', controller: 'payments', as: 'thanks_payments', action: 'thanks'
+  get 'payments/:action', controller: 'payments', as: 'action_payments'
+  post 'payments/process', controller: 'payments', as: 'process_payments', action: 'process_payment'
+  
+  
   # get ':controller/:action' #/:id', id: nil, format: nil
   
   get '/', controller: 'pages', action: 'show', as: 'home_page'

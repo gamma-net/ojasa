@@ -18,11 +18,16 @@ class OrderServicesController < ApplicationController
     if logged_in?
       order = Order.new(order_params.merge(customer_id: session[:customer]['id'], status_id: Order.open))
       if order.validate? && order.save!
-        initialize_cart
+        # initialize_cart
+        cart[:order_id] = order.id
         flash[:success] = 'Thank you for your order'
-        redirect_to order_services_url and return
+        redirect_to payments_url and return
       else
-        flash[:error] = 'Please fill in all information below'
+        if order.past_date?
+          flash[:error] = "Please select a date today or sometime in the future"
+        else
+          flash[:error] = 'Please fill in all information below'
+        end
         redirect_to :back and return
       end
     else
