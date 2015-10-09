@@ -1785,7 +1785,7 @@ input[type="radio"]:checked+label {
 	margin: 0px;
 	font-size: 18px;
 	text-transform: none;
-	text-align: left;
+	//text-align: left;
 	margin-left: 20px;
 }
 .payment img {
@@ -1841,4 +1841,18 @@ input[type="radio"]:checked+label {
 	background: none;
 	color: #ffffff;
 	margin: 10px 0;
+}
+.profile-image {
+	margin-bottom: 20px;
+}
+.well > ul > li {
+	list-style-type: none;
+	margin: 5px 0;
+}
+.box-join {
+	background: #ffffff;
+	border-radius: 5px;
+	padding: 5px 10px;
+	font-weight: bold;
+	margin-top: 10px;
 }

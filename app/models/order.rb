@@ -55,6 +55,10 @@ class Order < ActiveRecord::Base
     end
   end
   
+  def past_date?
+    requested_at.nil? || (requested_at < Date.today)
+  end
+  
   def update_items(order_items)
     self.order_items = []
     order_items.each do |k, v|

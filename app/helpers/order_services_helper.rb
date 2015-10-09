@@ -53,6 +53,10 @@ module OrderServicesHelper
     array
   end
   
+  def services_location_options_html
+    options_for_select([['Location', '']] + services_location_options)
+  end
+  
   def services_days_options
     days = {'senin' => 'Senin', 
             'selasa' => 'Selasa',
@@ -78,11 +82,11 @@ module OrderServicesHelper
   end
   
   def service_name
-    if !params[:service_type].blank? && !params[:service_type].to_i.zero? && (category = Category.find(params[:service_type]))
+    if !params[:category_id].blank? && !params[:category_id].to_i.zero? && (category = Category.find(params[:category_id]))
       return category.name
     end
     
-    case params[:service_type]
+    case params[:category_id]
     when 'cleaning';  'Cleaning Services'
     when 'salon';     'Hair Salon'
     when 'carwash';   'Car Wash'
@@ -95,15 +99,14 @@ module OrderServicesHelper
   end
   
   def service_description
-    str = "dusting . sweep . vacum and mop<br>room tidying . dish washing . toilet sanitizing"
+    str = "" #dusting . sweep . vacum and mop<br>room tidying . dish washing . toilet sanitizing"
     
     raw(str)
   end
   
   def service_pricing
     str = <<-EOF
-      <!--select id="cleaning-form-price" name="order[subtotal]" class="input-lg input-xlarge select2me bs-select form-control not-dark"-->
-      <select id="cleaning-form-price" name="order[subtotal]" class="controls form-control placeholder-no-fix required input-lg not-dark">
+      <select id="cleaning-form-price" name="cleaning-form-price" class="input-lg sm-form-control">
           <option value="">how many hour</option>
           <option value="50000">1 hour Rp.50.000,-</option>
           <option value="90000">2 hours Rp.90.000</option>

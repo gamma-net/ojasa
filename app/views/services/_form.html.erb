@@ -124,21 +124,6 @@
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @service.address.errors[:country].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Country</label>
-		<div class="col-md-10">
-      <%= select_tag "service_address[country]", options_for_select(country_options, @service.address.country), {class: "form-control input-xlarge select2me#{' error' unless @service.address.errors[:country].blank?}", "data-placeholder" => "Select Country..."} %>
-      <div class="form-control-focus"></div>
-		</div>
-	</div>
-
-	<div class="form-group form-md-line-input">
-	  <label class="col-md-2 control-label" for="form_control_1">Tags</label>
-		<div class="col-md-10">
-      <%= f.select :tag_ids, tagging_options, {selected: @service.tags.collect(&:id)}, {class: "form-control input-xlarge select2me", multiple: true, id: 'form_control_1', "data-placeholder" => "Select Tags..."} %>
-			<div class="form-control-focus"></div>
-		</div>
-	</div>
   <div class="form-group form-md-line-input<%' has-error' unless @service.errors[:publish_at].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Publish Time</label>
 		<div class="col-md-6">

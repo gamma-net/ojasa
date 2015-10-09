@@ -4,12 +4,13 @@
        
          <div class="vertical-middle">
 
-           <%= render partial: 'layouts/messages' %>
 
              <div class="heading-block center nobottomborder">
                  <h1 data-animate="fadeInUp" class="oj-title"><%= service_name %></h1>
                  <span data-animate="fadeInUp" data-delay="300" class="fadeInUp animated oj-title"><%= service_description %></span>
              </div>
+
+             <%= render partial: 'layouts/messages' %>
 
              <div class="panel-body divcenter" style="max-width: 550px;">
                  <%= form_tag request_order_services_url, method: :post, class: "nobottommargin", name: 'cleaning-form', id: 'cleaning-form' do %>
@@ -17,20 +18,13 @@
                           <input name="order[address]" class="controls form-control placeholder-no-fix required input-lg not-dark" type="text" placeholder="input your address" id="autocomplete" onFocus="geolocate()">
                      </div>
                      <div class="col_full">
-                         <input name="order[detail]" class="controls form-control placeholder-no-fix required input-lg not-dark" type="text" placeholder="input your address detail" id="cleaning-form-address" >
+                         <input name="order[detail]" class="controls form-control placeholder-no-fix required input-lg not-dark" type="text" placeholder="address details (house nr, floor, landmark)" id="cleaning-form-address" >
                      </div>
-                     <div class="col_two_third">
-                        <%= text_field_tag "order[requested_at][date]", nil, class: "form-control input-lg", size: 16, placeholder: 'select date', id: "cleaning-form-date", name: "cleaning-form-date" %>
-               					<!--span class="input-group-btn" hidden>
-                				<button class="btn default date-set" type="button" hidden="hidden"></button>
-                				</span-->
-                			   <!--input type="text" id="cleaning-form-date" name="cleaning-form-date" value="" placeholder="when" class="form-control input-lg" /-->
+                     <div class="col_one_third">
+                        <%= text_field_tag "order[requested_at]", nil, class: "datepicker input-lg sm-form-control", size: 16, placeholder: 'choose date', id: "cleaning-form-date", style: "padding: 10px 14px;" %>
                      </div>
-                     <div class="col_one_third col_last">
-                         <input type="text" id="cleaning-form-date" name="cleaning-form-time" value="" placeholder="select time" class="form-control input-lg" />
-                     </div>
-                     <div class="col_full">
-                       <%= service_pricing %>
+                     <div class="col_two_third col_last">
+                         <%= service_pricing %>
                      </div>
 
                      <div class="col_full nobottommargin">

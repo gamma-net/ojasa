@@ -1107,7 +1107,7 @@ body.stretched #header.full-header .container {
 
 #primary-menu ul ul > li.sub-menu > a,
 #primary-menu ul ul > li.sub-menu:hover > a {
-	background-image: url("/assets/images/icons/submenu.png");
+	background-image: url("images/icons/submenu.png");
 	background-position: right center;
 	background-repeat: no-repeat;
 }
@@ -1377,7 +1377,7 @@ body:not(.device-sm):not(.device-xs):not(.device-xxs) #primary-menu.style-2.cent
 
 #primary-menu.sub-title > ul > li,
 #primary-menu.sub-title.style-2 > div > ul > li {
-	background: url("/assets/images/icons/menu-divider.png") no-repeat right center;
+	background: url("images/icons/menu-divider.png") no-repeat right center;
 	margin-left: 1px;
 }
 
@@ -2524,7 +2524,7 @@ body.side-push-panel.side-panel-open .body-overlay {
 	pointer-events: auto;
 }
 
-body.side-push-panel.side-panel-open:not(.device-xxs):not(.device-xs):not(.device-sm) .body-overlay:hover { cursor: url('/assets/images/icons/close.png') 15 15, default; }
+body.side-push-panel.side-panel-open:not(.device-xxs):not(.device-xs):not(.device-sm) .body-overlay:hover { cursor: url('images/icons/close.png') 15 15, default; }
 
 
 /* ----------------------------------------------------------------
@@ -2640,7 +2640,7 @@ body.side-push-panel.side-panel-open:not(.device-xxs):not(.device-xs):not(.devic
 	width:100%;
 	height:100%;
 	margin: 0;
-	background: url('/assets/images/pattern2.png') repeat;
+	background: url('images/pattern2.png') repeat;
 }
 
 .swiper_wrapper .swiper-slide {
@@ -2732,7 +2732,7 @@ body.side-push-panel.side-panel-open:not(.device-xxs):not(.device-xs):not(.devic
 	top: 0;
 	left: 0;
 	z-index: 5;
-	background: transparent url('/assets/images/grid.png') repeat;
+	background: transparent url('images/grid.png') repeat;
 	-webkit-backface-visibility: hidden;
 }
 
@@ -3149,7 +3149,7 @@ body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
 -----------------------------------------------------------------*/
 
 #page-title.page-title-pattern {
-	background-image: url('/assets/images/pattern.png');
+	background-image: url('images/pattern.png');
 	background-repeat: repeat;
 	background-attachment: fixed;
 }
@@ -3175,7 +3175,7 @@ body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
 
 #page-title.page-title-parallax {
 	background-color: transparent;
-	background-image: url('/assets/images/parallax/parallax-bg.jpg');
+	background-image: url('images/parallax/parallax-bg.jpg');
 	background-attachment: fixed;
 	background-position: 50% 0;
 	background-repeat: no-repeat;
@@ -7668,7 +7668,7 @@ body:not(.device-touch) .button.button-full strong {
 	padding: 2px;
 	z-index: -1;
 	box-shadow: none;
-	background-image: url('/assets/images/icons/iconalt.svg');
+	background-image: url('images/icons/iconalt.svg');
 	background-position: center center;
 	background-size: 100% 100%;
 	-webkit-transition: -webkit-transform 0.5s, opacity 0.5s, background-color 0.5s;
@@ -7957,7 +7957,7 @@ body:not(.device-touch) .social-icon {
 }
 
 .i-alt {
-	background-image: url('/assets/images/icons/iconalt.svg');
+	background-image: url('images/icons/iconalt.svg');
 	background-position: center center;
 	background-size: 100% 100%;
 }
@@ -8106,7 +8106,7 @@ body:not(.device-touch) .social-icon {
 	top: 0;
 	left: 0;
 	text-align: center;
-	background: rgba(0,0,0,0.2) url('/assets/images/grid.png') repeat;
+	background: rgba(0,0,0,0.2) url('images/grid.png') repeat;
 }
 
 .i-overlay img,
@@ -8673,7 +8673,7 @@ ul.tab-nav li {
 	border: 1px solid #DDD;
 	border-bottom: 0;
 	border-left: 0;
-	height: 41px;
+	//height: 41px;
 }
 
 ul.tab-nav li:first-child {
@@ -8683,10 +8683,10 @@ ul.tab-nav li:first-child {
 
 ul.tab-nav li a {
 	display: block;
-	padding: 0 15px;
+	padding: 20px;
 	color: #444;
-	height: 40px;
-	line-height: 40px;
+	//height: 40px;
+	//line-height: 40px;
 	background-color: #F2F2F2;
 	font-size: 14px;
 	font-weight: bold;
@@ -8709,7 +8709,7 @@ ul.tab-nav.tab-nav2 {
 
 ul.tab-nav.tab-nav2 li {
 	border: 0;
-	margin-left: 10px;
+	//margin-left: 10px;
 }
 
 ul.tab-nav.tab-nav2 li:first-child {
@@ -8720,13 +8720,15 @@ ul.tab-nav.tab-nav2 li:first-child {
 ul.tab-nav.tab-nav2 li a {
 	background-color: #F5F5F5;
 	border-radius: 2px;
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+	border: 2px solid #e1e8ed;
+	//box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 ul.tab-nav.tab-nav2 li.ui-state-active a {
 	top: 0;
-	background-color: #1ABC9C;
-	color: #FFF;
+	//background-color: #1ABC9C;
+	//color: #FFF;
+	border: 2px solid #9cc9ef;
 }
 
 
@@ -9872,7 +9874,7 @@ body:not(.device-touch) .rounded-skill {
 .owl-carousel.owl-loading {
 	display:block;
 	min-height: 100px;
-	background: url('/assets/images/preloader.gif') no-repeat center center
+	background: url('images/preloader.gif') no-repeat center center
 }
 
 .owl-carousel.owl-hidden { opacity:0 }
@@ -9944,7 +9946,7 @@ body:not(.device-touch) .rounded-skill {
 	top: 50%;
 	margin-left: -32px;
 	margin-top: -32px;
-	background: url("/assets/images/icons/play.png") no-repeat;
+	background: url("images/icons/play.png") no-repeat;
 	cursor: pointer;
 	z-index: 1;
 	-webkit-backface-visibility: hidden;
@@ -10637,7 +10639,7 @@ label.error { display: none !important; }
 /* Fancy Title - Bottom Short Border
 -----------------------------------------------------------------*/
 
-.fancy-title.title-dotted-border { background: url('/assets/images/icons/dotted.png') repeat-x center; }
+.fancy-title.title-dotted-border { background: url('images/icons/dotted.png') repeat-x center; }
 
 
 /* Sub Heading
@@ -11042,7 +11044,7 @@ body:not(.device-touch) #gotoTop {
 	display: block;
 	width: 100%;
 	height: 100%;
-	background: url("/assets/images/preloader.gif") center center no-repeat #FFF;
+	background: url("images/preloader.gif") center center no-repeat #FFF;
 }
 
 .preloader2 { background-color: transparent; }
@@ -11400,7 +11402,7 @@ body:not(.device-touch) .tagcloud a {
 
 .widget_recent_comments li {
 	display: block;
-	background: url("/assets/images/icons/widget-comment.png") left top no-repeat;
+	background: url("images/icons/widget-comment.png") left top no-repeat;
 	padding: 4px 0 4px 20px;
 }
 
@@ -11413,7 +11415,7 @@ body:not(.device-touch) .tagcloud a {
 .widget_pages li a,
 .widget_rss li a,
 .widget_recent_comments li a {
-	background: url("/assets/images/icons/widget-link.png") left top no-repeat;
+	background: url("images/icons/widget-link.png") left top no-repeat;
 	border: none !important;
 	color: #444;
 	font-size: 14px;

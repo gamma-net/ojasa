@@ -19,6 +19,12 @@ class Service < ActiveRecord::Base
             
   attr_accessor :tag_ids
   
+  class << self
+    def find_by_location_and_service(location, category_id)
+      !Service.where(category_id: category_id).where("location LIKE '%#{location}%'").first.nil?
+    end
+  end
+
   protected
 
     def set_tags
