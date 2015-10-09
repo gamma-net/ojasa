@@ -12,5 +12,24 @@ class Category < ActiveRecord::Base
 
   validates_presence_of :name
 
+  scope :active, -> { where("publish_at < NOW() AND (retract_at IS NULL OR retract_at > NOW())") }
+
   before_create :initialize_sort!
+  
+  class << self
+    def available(category_id)
+      return Category.all.active unless category_id
+      category = Category.find(category_id)
+      Category.all - ([category] + category.child_categories)
+    end
+  end
+  
+  def child_categories
+    categories = []
+    Category.where(parent_category_id: id).active.each do |category|
+      categories += [category]
+      categories += category.child_categories
+    end
+    categories
+  end 
 end

@@ -20,4 +20,21 @@
       <div class="form-control-focus"></div>
 		</div>
 	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:address].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Address</label>
+		<div class="col-md-10">
+      <%= text_area_tag "order[address]", @order.address, class: "form-control#{' error' unless @order.errors[:address].blank?}", placeholder: 'Enter Address', id: 'form_control_1', readonly: 'readonly' %>
+      <div class="form-control-focus"></div>
+      <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+  		<div id="map" style="height:400px;"></div>
+		</div>
+	</div>
+	<!-- Google Map -->
+	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:detail].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Address Details</label>
+		<div class="col-md-10">
+      <%= text_field_tag "order[detail]", @order.detail, class: "form-control#{' error' unless @order.errors[:detail].blank?}", placeholder: 'Enter Address Details', id: 'form_control_1', readonly: 'readonly' %>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
 </div>

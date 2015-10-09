@@ -45,7 +45,7 @@
 		<label class="col-md-2 control-label" for="form_control_1">Publish Time</label>
 		<div class="col-md-6">
 			<div class="input-group date form_datetime">
-				<%= f.text_field :publish_at, value: datetime_value(@gallery.publish_at), class: "form-control#{' error' unless @gallery.errors[:publish_at].blank?}", size: 16, readonly: 'readonly', placeholder: 'Select Publish Time' %>	
+				<%= f.text_field :publish_at, value: datetime_value(@gallery.publish_at), class: "form-control#{' error' unless @gallery.errors[:publish_at].blank?}", size: 16, placeholder: 'Select Publish Time' %>	
 				<span class="input-group-btn">
 				<button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
 				</span>
@@ -57,7 +57,7 @@
 		<label class="col-md-2 control-label" for="form_control_1">Retract Time</label>
 		<div class="col-md-6">
 			<div class="input-group date form_datetime">
-				<%= f.text_field :retract_at, value: datetime_value(@gallery.retract_at), class: "form-control#{' error' unless @gallery.errors[:retract_at].blank?}", size: 16, readonly: 'readonly', placeholder: 'Select Retract Time' %>	
+				<%= f.text_field :retract_at, value: datetime_value(@gallery.retract_at), class: "form-control#{' error' unless @gallery.errors[:retract_at].blank?}", size: 16, placeholder: 'Select Retract Time' %>	
 				<span class="input-group-btn">
 				<button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
 				</span>

@@ -1,0 +1,167 @@
+Searching 12 files for "../images"
+
+/Users/jafferasegaf/Documents/Gamma/app/rails/ojasa/app/assets/order_services/css/camera.css:
+   95  }
+   96  .camera_target_content .camera_link {
+   97:     background: url(../images/blank.gif);
+   98  	display: block;
+   99  	height: 100%;
+  ...
+  101  }
+  102  .camera_loader {
+  103:     background: url(../images/preloader.gif) no-repeat center;
+  104  	height: 48px;
+  105  	left: 50%;
+  ...
+  166  }
+  167  .camera_prevThumbs div {
+  168: 	background: url(../images/camera_skins.png) no-repeat -160px 0;
+  169  	display: block;
+  170  	height: 40px;
+  ...
+  185  }
+  186  .camera_nextThumbs div {
+  187: 	background: url(../images/camera_skins.png) no-repeat -190px 0;
+  188  	display: block;
+  189  	height: 40px;
+  ...
+  253  }
+  254  .camera_commands > .camera_play {
+  255: 	background: url(../images/icons/play-pause.png) no-repeat -36px 0;
+  256  	height: 36px;
+  257  	width: 36px;
+  258  }
+  259  .camera_commands > .camera_stop {
+  260: 	background: url(../images/icons/play-pause.png) no-repeat 0 0;
+  261  	display: block;
+  262  	height: 36px;
+  ...
+  332  **************************/
+  333  .pattern_1 .camera_overlayer {
+  334: 	background: url(../images/patterns/overlay1.png) repeat;
+  335  }
+  336  .pattern_2 .camera_overlayer {
+  337: 	background: url(../images/patterns/overlay2.png) repeat;
+  338  }
+  339  .pattern_3 .camera_overlayer {
+  340: 	background: url(../images/patterns/overlay3.png) repeat;
+  341  }
+  342  .pattern_4 .camera_overlayer {
+  343: 	background: url(../images/patterns/overlay4.png) repeat;
+  344  }
+  345  .pattern_5 .camera_overlayer {
+  346: 	background: url(../images/patterns/overlay5.png) repeat;
+  347  }
+  348  .pattern_6 .camera_overlayer {
+  349: 	background: url(../images/patterns/overlay6.png) repeat;
+  350  }
+  351  .pattern_7 .camera_overlayer {
+  352: 	background: url(../images/patterns/overlay7.png) repeat;
+  353  }
+  354  .pattern_8 .camera_overlayer {
+  355: 	background: url(../images/patterns/overlay8.png) repeat;
+  356  }
+  357  .pattern_9 .camera_overlayer {
+  358: 	background: url(../images/patterns/overlay9.png) repeat;
+  359  }
+  360  .pattern_10 .camera_overlayer {
+  361: 	background: url(../images/patterns/overlay10.png) repeat;
+  362  }
+  363  .camera_wrap .camera_pag .camera_pag_ul li {
+
+/Users/jafferasegaf/Documents/Gamma/app/rails/ojasa/app/assets/order_services/css/dark.css:
+  202  .dark #primary-menu:not(.not-dark) ul ul > li.sub-menu:hover > a,
+  203  #primary-menu.dark ul ul > li.sub-menu > a,
+  204: #primary-menu.dark ul ul > li.sub-menu:hover > a { background-image: url("../images/icons/submenu-dark.png"); }
+  205  
+  206  .dark #primary-menu:not(.not-dark) ul li .mega-menu-content.col-2 > ul,
+  ...
+  340  .dark .breadcrumb a:hover { color: #EEE; }
+  341  
+  342: .dark #page-title.page-title-pattern { background-image: url('../images/pattern2.png'); }
+  343  
+  344  
+  ...
+  916  }
+  917  
+  918: .dark .owl-carousel.owl-loading { background-image: url('../images/preloader-dark.gif'); }
+  919  
+  920  .dark .owl-theme .owl-controls .owl-nav [class*=owl-] {
+  ...
+ 1002  .dark .preloader,
+ 1003  .dark .preloader2,
+ 1004: .dark .form-process { background-image: url('../images/preloader-dark.gif'); }
+ 1005  
+ 1006  .dark .form-process { background-color: transparent; }
+ ....
+ 1063  }
+ 1064  
+ 1065: .dark .widget_recent_comments li { background-image: url("../images/icons/widget-comment-dark.png"); }
+ 1066  
+ 1067  .dark .widget_nav_menu li a,
+ ....
+ 1075  .dark .widget_rss li a {
+ 1076  	color: #CCC;
+ 1077: 	background-image: url("../images/icons/widget-link-dark.png");
+ 1078  }
+ 1079  
+ ....
+ 1679  
+ 1680  	.dark #primary-menu:not(.not-dark) > ul > li.sub-menu > a,
+ 1681: 	.dark #primary-menu:not(.not-dark) > .container > ul > li.sub-menu > a { background-image: url("../images/icons/submenu-dark.png"); }
+ 1682  
+ 1683  	body:not(.dark) #header:not(.dark) #header-wrap:not(.dark) #primary-menu ul li,
+
+/Users/jafferasegaf/Documents/Gamma/app/rails/ojasa/app/assets/order_services/css/elastic.css:
+   13  	left: 0px;
+   14  	z-index:20;
+   15: 	background: transparent url("../images/preloader.gif") no-repeat center center;
+   16  	color: #fff;
+   17  	text-align: center;
+
+/Users/jafferasegaf/Documents/Gamma/app/rails/ojasa/app/assets/order_services/css/magnific-popup.css:
+   90  	width: 24px;
+   91  	height: 24px;
+   92: 	background: url('../images/preloader-dark.gif') center center no-repeat;
+   93  	text-align: center;
+   94  	margin-top: -12px;
+
+/Users/jafferasegaf/Documents/Gamma/app/rails/ojasa/app/assets/order_services/css/responsive.css:
+  763  	#primary-menu > ul > li.sub-menu > a,
+  764  	#primary-menu > .container > ul > li.sub-menu > a {
+  765: 		background-image: url("../images/icons/submenu.png");
+  766  		background-position: right center;
+  767  		background-repeat: no-repeat;
+  ...
+ 2144  	.preloader2,
+ 2145  	.form-process {
+ 2146: 		background-image: url('../images/preloader@2x.gif');
+ 2147  		background-size: 24px 24px;
+ 2148  	}
+ ....
+ 2151  	.dark .preloader,
+ 2152  	.dark .preloader2,
+ 2153: 	.dark .form-process { background-image: url('../images/preloader-dark@2x.gif'); }
+ 2154  
+ 2155  	.widget_recent_comments li {
+ 2156: 		background-image: url("../images/icons/widget-comment@2x.png");
+ 2157  		background-size: 15px 26px;
+ 2158  	}
+ ....
+ 2167  	.widget_rss li a,
+ 2168  	.widget_recent_comments li a {
+ 2169: 		background-image: url("../images/icons/widget-link@2x.png");
+ 2170  		background-size: 4px 20px;
+ 2171  	}
+ 2172  
+ 2173: 	.dark .widget_recent_comments li { background-image: url("../images/icons/widget-comment-dark@2x.png"); }
+ 2174  
+ 2175  	.dark .widget_nav_menu li a,
+ ....
+ 2181  	.dark .widget_pages li a,
+ 2182  	.dark .widget_rss li a,
+ 2183: 	.dark .widget_recent_comments li a { background-image: url("../images/icons/widget-link-dark@2x.png"); }
+ 2184  
+ 2185  }
+
+32 matches across 5 files

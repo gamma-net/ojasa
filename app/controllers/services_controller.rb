@@ -12,7 +12,7 @@ class ServicesController < ApplicationController
   
   def create
     @service = Service.new(service_params)
-    @service.address = Address.new(service_address_params)
+    # @service.address = Address.new(service_address_params)
     if @service.save
       flash[:success] = 'Service Create success!'
       redirect_to edit_admin_contents_service_url(id: @service.id) and return
@@ -29,7 +29,7 @@ class ServicesController < ApplicationController
   
   def update
     @service = Service.find(params[:id])
-    if @service.update_attributes(service_params) && @service.address.update_attributes(service_address_params)
+    if @service.update_attributes(service_params) #&& @service.address.update_attributes(service_address_params)
       flash[:success] = 'Service Update success!'
       redirect_to edit_admin_contents_service_url and return
     end
@@ -52,6 +52,8 @@ class ServicesController < ApplicationController
   protected
     
     def service_params
+      params[:service][:location] = params[:service][:location].join(',') if params[:service][:location]
+      params[:service][:days] = params[:service][:days].join(',') if params[:service][:days]
       params.require(:service).permit!
     end
     

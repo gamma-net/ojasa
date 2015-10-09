@@ -1,12 +1,78 @@
-<!-- BEGIN LOGIN -->
-<div class="content">
-  
-  <%= render partial: 'layouts/messages' %>
-  
-  <%= render partial: 'login_form', locals: {style: 'display:inline;'} %>
+<section id="content" style="background: url(/assets/images/bglogin.jpg) center center; background-size: content;">
 
-  <%= render partial: 'forgot_form', locals: {style: 'display:none;'} %>
-  
-  <%= render partial: 'registration_form', locals: {style: 'display:none;'} %>
-</div>
-<!-- END LOGIN -->
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+
+            <%= render partial: 'layouts/messages' %>
+            
+            <div class="accordion accordion-lg divcenter nobottommargin clearfix" style="max-width: 550px;">
+
+                <div class="acctitle text-center oj-title">Login</div>
+                <div class="acc_content clearfix">
+                    <!--div class="col_full nobottommargin">
+                        <a href="#" class="button button-rounded si-facebook si-colored btn-block text-center" style="margin:0px;"><i class="icon-facebook" style="margin-right: 15px;"></i>Login With Facebook</a>
+                        <div class="fancy-title title-border-color text-center nobottommargin">
+                            <h4>or</h4>
+                        </div>
+                    </div-->
+                    <%= form_tag login_accounts_url, method: :post, class: "nobottommargin", name: "login-form", id: 'login-form' do %>
+                        <div class="col_full">
+                            <%= email_field_tag 'customer[email_username]', nil, {class: "form-control input-lg form-control-solid placeholder-no-fix", placeholder: "email",  autocomplete: "off", id: "login-form-email"} %>
+                        </div>
+
+                        <div class="col_full">
+                            <%= password_field_tag 'customer[password]', nil, {class: "form-control input-lg form-control-solid placeholder-no-fix", placeholder: "password",  autocomplete: "off", id: "login-form-password"} %>
+                        </div>
+
+                        <div class="col_full nobottommargin">
+                            <button class="button button-3d button-large button-aqua btn-block nomargin" id="login-form-submit" name="login-form-submit" value="login">Login</button>
+                        </div>
+                        <a href="#" class="fright forgot">Forgot Password?</a>
+                    <% end %>
+                </div>
+
+                <div class="acctitle text-center oj-title">Register</div>
+                <div class="acc_content clearfix">
+                    <%= form_tag signup_accounts_url, method: :post, class: "nobottommargin", name: "register-form", id: "register-form" do %>
+                        <div class="col_full">
+                            <%= text_field_tag 'customer[full_name]', nil, {class: "form-control input-lg placeholder-no-fix", placeholder: "full name",  autocomplete: "off", id: 'register-form-name'} %>
+                        </div>
+
+                        <div class="col_full">
+                            <%= text_field_tag 'customer[address]', nil, {class: "form-control input-lg placeholder-no-fix", placeholder: "address",  autocomplete: "off", id: 'register-form-address'} %>
+                        </div>
+
+                        <div class="col_full">
+                            <%= text_field_tag 'customer[addressdetail]', nil, {class: "form-control input-lg placeholder-no-fix", placeholder: "address detail",  autocomplete: "off", id: 'register-form-addressdetail'} %>
+                        </div>
+
+                        <div class="col_full">
+                            <%= text_field_tag 'customer[phone]', nil, {class: "form-control input-lg placeholder-no-fix", placeholder: "telephone no.",  autocomplete: "off", id: 'register-form-phone'} %>
+                        </div>
+
+                        <div class="col_full">
+                      		  <%= email_field_tag 'customer[email]', nil, {class: "form-control input-lg placeholder-no-fix required", placeholder: "email", id: "register-form-email"} %>
+                        </div>
+
+                        <div class="col_full">
+                      		  <%= password_field_tag 'customer[password]', nil, {class: "form-control input-lg placeholder-no-fix required", placeholder: "password", autocomplete: "off", id: "register-form-password"} %>
+                        </div>
+
+                        <div class="col_full">
+                    		    <%= password_field_tag 'customer[confirm_password]', nil, {class: "form-control input-lg placeholder-no-fix required", placeholder: "confirm password", autocomplete: "off", id: "register-form-repassword"} %>
+                        </div>
+
+                        <div class="col_full nobottommargin">
+                            <button class="button button-3d button-purple btn-block nomargin  button-large" id="register-form-submit" name="register-form-submit" value="register">Register Now</button>
+                        </div>
+                    <% end %>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->

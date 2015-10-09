@@ -6,11 +6,18 @@
       <div class="form-control-focus"></div>
 		</div>
 	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @category.errors[:parent_category_id].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Parent Category</label>
+		<div class="col-md-10">
+      <%= select_tag "category[parent_category_id]", options_for_select(parent_category_options(@category.id), @category.parent_category_id), {class: "form-control input-xlarge select2me#{' error' unless @category.errors[:parent_category_id].blank?}", "data-placeholder" => "Select Parent Category..."} %>
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
   <div class="form-group form-md-line-input<%' has-error' unless @category.errors[:publish_at].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Publish Time</label>
 		<div class="col-md-6">
 			<div class="input-group date form_datetime">
-				<%= f.text_field :publish_at, value: datetime_value(@category.publish_at), class: "form-control#{' error' unless @category.errors[:publish_at].blank?}", size: 16, readonly: 'readonly', placeholder: 'Select Publish Time' %>	
+				<%= f.text_field :publish_at, value: datetime_value(@category.publish_at), class: "form-control#{' error' unless @category.errors[:publish_at].blank?}", size: 16, placeholder: 'Select Publish Time' %>	
 				<span class="input-group-btn">
 				<button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
 				</span>
@@ -22,7 +29,7 @@
 		<label class="col-md-2 control-label" for="form_control_1">Retract Time</label>
 		<div class="col-md-6">
 			<div class="input-group date form_datetime">
-				<%= f.text_field :retract_at, value: datetime_value(@category.retract_at), class: "form-control#{' error' unless @category.errors[:retract_at].blank?}", size: 16, readonly: 'readonly', placeholder: 'Select Retract Time' %>	
+				<%= f.text_field :retract_at, value: datetime_value(@category.retract_at), class: "form-control#{' error' unless @category.errors[:retract_at].blank?}", size: 16, placeholder: 'Select Retract Time' %>	
 				<span class="input-group-btn">
 				<button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
 				</span>

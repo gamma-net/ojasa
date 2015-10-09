@@ -175,9 +175,9 @@ Rails.application.routes.draw do
     post 'signup', controller: 'accounts', action: 'register', on: :collection
     post 'forgot', controller: 'accounts', action: 'reset', on: :collection
 
-    get 'logout', on: :collection
-    get 'login', on: :collection
-    get 'signup', on: :collection
+    get 'logout', controller: 'accounts', action: 'logout',  on: :collection
+    get 'login', controller: 'accounts', action: 'login', on: :collection
+    get 'signup', controller: 'accounts', action: 'signup', on: :collection
     # get ':action', controller: 'accounts', on: :collection, as: 'action', except: ['authenticate', 'register', 'reset']
   end
   
@@ -189,7 +189,22 @@ Rails.application.routes.draw do
   
   post 'mailing_lists/signup', controller: 'mailing_lists', action: 'signup'
   
+  
+  get 'services', controller: 'order_services', as: 'order_services', action: 'show'
+  post 'services', controller: 'order_services', as: 'request_order_services', action: 'request_service'
+  get 'services/order', controller: 'order_services', as: 'type_order_services', action: 'order'
+  
+  get 'services/cleaning', controller: 'order_services', as: 'cleaning_order_services', action: 'order', service_type: 'cleaning'
+  get 'services/gardener', controller: 'order_services', as: 'gardener_order_services', action: 'order', service_type: 'gardener'
+  get 'services/carwash', controller: 'order_services', as: 'carwash_order_services', action: 'order', service_type: 'carwash'
+  get 'services/massage', controller: 'order_services', as: 'massage_order_services', action: 'order', service_type: 'massage'
+  get 'services/salon', controller: 'order_services', as: 'salon_order_services', action: 'order', service_type: 'salon'
+  get 'services/ac', controller: 'order_services', as: 'ac_order_services', action: 'order', service_type: 'ac'
+
+  get 'services/:action', controller: 'order_services', as: 'action_services', action: 'order'
+
+
   # get ':controller/:action' #/:id', id: nil, format: nil
   
-  get '/', controller: 'pages', action: 'show'  
+  get '/', controller: 'pages', action: 'show', as: 'home_page'
 end

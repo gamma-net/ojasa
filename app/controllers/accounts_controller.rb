@@ -1,6 +1,4 @@
-class AccountsController < ApplicationController
-  layout 'pages'
-  
+class AccountsController < ApplicationController  
   def logout
     clear_session
     redirect_to '/'
@@ -14,7 +12,7 @@ class AccountsController < ApplicationController
       redirect_to '/' and return
     end
     flash[:error] = "We're sorry but we cannot sign you up at the moment"
-    redirect_to action_accounts_url(action: 'signup') and return
+    redirect_to login_accounts_url and return
   end
   
   def authenticate

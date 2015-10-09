@@ -1,0 +1,35 @@
+<section id="slider" class="slider-parallax dark full-screen" style="background: url(/assets/images/bghome.jpg) center bottom; background-size:cover;">
+
+    <div class="container clearfix">
+        
+        <div class="vertical-middle">
+
+          <%= render partial: 'layouts/messages' %>
+
+            <div class="heading-block center nobottomborder">
+                <h1 data-animate="fadeInUp">On-Demand Services</h1>
+            </div>
+
+            <%= form_tag type_order_services_url, method: :get, class: "landing-wide-form clearfix" do %>
+                <div class="col_four_fifth nobottommargin">
+                    <div class="col_half nobottommargin">
+                        <!--input type="text" class="form-control input-lg not-dark" value="" placeholder="Choose Your Services"-->
+                    		<%= select_tag "service_type", services_options_html, class: "input-xlarge select2me bs-select form-control input-lg not-dark", placeholder: "Choose Your Services" %>
+
+                    </div>
+                    <div class="col_half col_last nobottommargin">
+                  		<%= select_tag "location", options_for_select(services_location_options), class: "input-xlarge select2me bs-select form-control input-lg not-dark", placeholder: "Choose Your Location" %>
+                    </div>
+                </div>
+                <div class="col_one_fifth col_last nobottommargin">
+                    <button class="button button-3d button-large button-rounded button-blue btn-block nomargin" value="submit" type="submit" style="">SUBMIT</button>
+                </div>
+            <% end %>
+
+        </div>
+
+    </div>
+
+</section>
+
+<%= render partial: 'top_services' %>

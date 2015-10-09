@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
   has_many :orders
-  belongs_to :address
+  # belongs_to :address
   
   validates_presence_of :email, :first_name, :username
   validates_confirmation_of :confirm_password

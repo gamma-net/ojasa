@@ -13,6 +13,20 @@
       <div class="form-control-focus"></div>
 		</div>
 	</div>
+	<div class="form-group form-md-line-input">
+	  <label class="col-md-2 control-label" for="form_control_1">Location</label>
+		<div class="col-md-10">
+      <%= select_tag "service[location]", options_for_select(services_location_options, :selected => @service.location.to_s.split(',')), {class: "form-control input-xlarge select2me", multiple: true, id: 'form_control_1'} %>
+			<div class="form-control-focus"></div>
+		</div>
+	</div>
+	<div class="form-group form-md-line-input">
+	  <label class="col-md-2 control-label" for="form_control_1">Working Days</label>
+		<div class="col-md-10">
+      <%= select_tag "service[days]", options_for_select(services_days_options, :selected => @service.days.to_s.split(',')), {class: "form-control input-xlarge select2me", multiple: true, id: 'form_control_1'} %>
+			<div class="form-control-focus"></div>
+		</div>
+	</div>
 	<div class="form-group form-md-line-input<%' has-error' unless @service.errors[:contact_number].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Contact Number</label>
 		<div class="col-md-10">

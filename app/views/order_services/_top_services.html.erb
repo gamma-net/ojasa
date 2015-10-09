@@ -1,0 +1,120 @@
+<!-- Content
+============================================= -->
+<section id="content">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix text-center">
+
+            <span class="button border-blue button-xlarge button-border button-rounded bottommargin">TOP SERVICES</span>
+
+            <!-- Portfolio Items
+            ============================================= -->
+            <div id="portfolio" class="portfolio-2 portfolio-masonry clearfix">
+
+                <article class="portfolio-item pf-media pf-icons">
+                    <div class="portfolio-image">
+                        <%= link_to raw(image_tag('images/services_1.jpg', alt: 'Cleaning Services')), cleaning_order_services_url %>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-desc">
+                                <h3><%= link_to 'Cleaning Services', cleaning_order_services_url %></h3>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portfolio-item pf-illustrations">
+                    <div class="portfolio-image">
+                      <%= link_to raw(image_tag('images/services_2.jpg', alt: 'Hair Salon')), salon_order_services_url %>
+                      <div class="portfolio-overlay">
+                            <div class="portfolio-desc">
+                                <h3><%= link_to 'Hair Salon', salon_order_services_url %>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portfolio-item pf-graphics pf-uielements">
+                    <div class="portfolio-image">
+                        <%= link_to raw(image_tag('images/services_3.jpg', alt: 'Car Wash')), carwash_order_services_url %>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-desc">
+                                <h3><%= link_to 'Car Wash', carwash_order_services_url %></h3>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portfolio-item pf-uielements pf-media">
+                    <div class="portfolio-image">
+                        <%= link_to raw(image_tag('images/services_4.jpg', alt: 'Gardener')), gardener_order_services_url %>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-desc">
+                                <h3><%= link_to 'Gardener', gardener_order_services_url %></h3>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portfolio-item pf-uielements pf-icons">
+                    <div class="portfolio-image">
+                        <%= link_to raw(image_tag('images/services_6.jpg', alt: 'Massage')), massage_order_services_url %>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-desc">
+                                <h3><%= link_to 'Massage', massage_order_services_url %></h3>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="portfolio-item pf-uielements pf-icons">
+                    <div class="portfolio-image">
+                        <%= link_to raw(image_tag('images/services_5.jpg', alt: 'AC Services')), ac_order_services_url %>
+                        <div class="portfolio-overlay">
+                            <div class="portfolio-desc">
+                                <h3><%= link_to 'AC Services', ac_order_services_url %></h3>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div><!-- #portfolio end -->
+
+            <!-- Portfolio Script
+            ============================================= -->
+            <script type="text/javascript">
+
+                jQuery(window).load(function(){
+
+                    var $container = $('#portfolio');
+
+                    $container.isotope({ transitionDuration: '0.65s' });
+
+                    $('#portfolio-filter a').click(function(){
+                        $('#portfolio-filter li').removeClass('activeFilter');
+                        $(this).parent('li').addClass('activeFilter');
+                        var selector = $(this).attr('data-filter');
+                        $container.isotope({ filter: selector });
+                        return false;
+                    });
+
+                    $('#portfolio-shuffle').click(function(){
+                        $container.isotope('updateSortData').isotope({
+                            sortBy: 'random'
+                        });
+                    });
+
+                    $(window).resize(function() {
+                        $container.isotope('layout');
+                    });
+
+                });
+
+            </script><!-- Portfolio Script End -->
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
