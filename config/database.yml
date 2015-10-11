@@ -5,7 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2
+  adapter: postgresql #mysql2
   username: root
   password: 
   encoding: utf8
@@ -26,4 +26,8 @@ test:
 
 production:
   <<: *default
-  database: ojasa_production
+  host: ENV['DATABASE_HOST']
+  database: ENV['DATABASE_NAME']
+  username: ENV['DATABASE_USERNAME']
+  password: ENV['DATABASE_PASSWORD']
+  port: ENV['DATABASE_PORT']
