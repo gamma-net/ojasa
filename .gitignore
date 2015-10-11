@@ -19,6 +19,7 @@
 !/log/.keep
 /tmp
 /public/system
+/public/assets
 
 .DS_Store
 .Trashes
