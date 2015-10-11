@@ -1,5 +1,9 @@
 class ImagesController < ApplicationController
   layout 'admin'
+
+  before_filter :admin_authorize, except: [:login, :logout, :authenticate, :help, :register, :registration, :forgot, :reset, :signup]
+  
+  before_filter :validate_admin_permission, except: [:profile, :login, :logout, :authenticate, :help, :register, :registration, :forgot, :reset, :signup]
   
   def create    
     @image = Image.new({image: params[:image], content_id: content_id, content_type: content_type})
