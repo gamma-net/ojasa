@@ -24,6 +24,10 @@ class Service < ActiveRecord::Base
       !Service.where(category_id: category_id).where("location LIKE '%#{location}%'").first.nil?
     end
   end
+  
+  def category_name
+    category.name if category
+  end
 
   protected
 

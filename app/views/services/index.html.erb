@@ -31,7 +31,7 @@
 							<tr>
 								<th><i class="fa fa-sort"></i> Sort</th>
 								<th><i class="fa fa-info"></i> Name</th>
-								<th class="col-md-6"><i class="fa fa-ellipsis-h"></i> Description</th>
+								<th class="col-md-6"><i class="fa fa-ellipsis-h"></i> Category</th>
 								<th>&nbsp;</th>
 							</tr>
 							</thead>
@@ -41,7 +41,7 @@
 							  <tr>
   								<td><%= text_field_tag "service[sort][#{service.id}][new]", service.sort, class: 'form-control-size', placeholder: 'Sort #', size: 3, maxlength: 3 %></td>
                   <td><%= service.name %></td>
-                  <td><%= service.description %></td>
+                  <td><%= service.category_name %></td>
                   <td>
                     <%= link_to raw('<i class="icon-pencil"> Edit</i>'), edit_admin_contents_service_url(id: service.id), class: "btn btn-warning btn-xs" %>
                     <%= link_to raw('<i class="icon-trash"> Delete</i>'), admin_contents_service_url(id: service.id), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure you want to delete this service?" } %>
