@@ -3,9 +3,7 @@ class Category < ActiveRecord::Base
   
   has_many :images
   
-  belongs_to :events
-  belongs_to :galleries
-  belongs_to :news
+  belongs_to :parent_category, :class_name => 'Category'
   
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/system/defaults/no_image.png"
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
@@ -66,6 +64,10 @@ class Category < ActiveRecord::Base
         {:value => '125000', :desc => '3 hours Rp 125.000,-'}]
     end
   end
+  
+  def parent_category_name
+    parent_category.name if parent_category
+  end 
   
   protected
     

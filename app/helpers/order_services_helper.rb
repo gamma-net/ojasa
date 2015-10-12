@@ -36,7 +36,9 @@ module OrderServicesHelper
       'jakbar' => 'Jakarta Barat',
       'bintaro' => 'Bintaro',
       'depok' => 'Depok',
-      'bekasi' => 'Bekasi'}
+      'bekasi' => 'Bekasi',
+      'bogor' => 'Bogor',
+      'Tangerang' => 'Tangerang'}
   end
     
   def services_location_options

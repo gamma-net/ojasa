@@ -33,7 +33,7 @@
 <%= stylesheet_link_tag 'layout/css/custom.css', 'layout/css/themes/darkblue.css' %>
 
 <!-- END THEME STYLES -->
-<link rel="shortcut icon" href="/ico.png"/>
+<link rel="shortcut icon" href="<%= asset_path ApplicationController::SITE_ICON %>"/>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -44,7 +44,7 @@
 <!-- END SIDEBAR TOGGLER BUTTON -->
 <!-- BEGIN LOGO -->
 <div class="logo">
-  <% if !ApplicationController::SITE_LOGO.blank? %><a href="/"><img src="/<%= ApplicationController::SITE_LOGO %>" alt="logo" class="logo-default" style="width:50%; height:70%"/></a><% else %><a href="/" class="logo-default"><%= ApplicationController::SITE_NAME %></a><% end %>
+	<% if !ApplicationController::SITE_LOGO.blank? %><a href="/admin"><%= image_tag ApplicationController::SITE_LOGO, alt: 'logo', class: 'logo-default' %></a><% else %><a href="/admin" class="navbar-brand"><%= ApplicationController::SITE_NAME %></a><% end %>
 </div>
 <!-- END LOGO -->
 

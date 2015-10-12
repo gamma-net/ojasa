@@ -29,8 +29,8 @@
 							<thead>
 							<tr>
 								<th><i class="fa fa-sort"></i> Sort</th>
-								<th><i class="fa fa-photo"></i> Image</th>
 								<th><i class="fa fa-info"></i> Name</th>
+								<th><i class="fa fa-info"></i> Parent Category</th>
 								<th>&nbsp;</th>
 							</tr>
 							</thead>
@@ -39,8 +39,8 @@
 							  <%= hidden_field_tag "category[sort][#{category.id}][old]", category.sort %>
 							  <tr>
   								<td><%= text_field_tag "category[sort][#{category.id}][new]", category.sort, class: 'form-control-size', placeholder: 'Sort #', size: 3, maxlength: 3 %></td>
-  								<td><%= image_tag category.image.url(:thumb) %></td>
                   <td><%= category.name %></td>
+                  <td><%= category.parent_category_name %></td>
                   <td>
                     <%= link_to raw('<i class="icon-pencil"> Edit</i>'), edit_admin_contents_category_url(id: category.id), class: "btn btn-warning btn-xs" %>
                     <%= link_to raw('<i class="icon-trash"> Delete</i>'), admin_contents_category_url(id: category.id), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure you want to delete this category?" } %>

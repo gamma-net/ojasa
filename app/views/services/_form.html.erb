@@ -48,34 +48,6 @@
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-
-	<div class="form-group form-md-line-input<%' has-error' unless @service.errors[:fee].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Fee</label>
-		<div class="col-md-10">
-		  <div class="input-group">        
-  		  <span class="input-group-addon">IDR</span>
-        <%= text_field_tag "service[fee]", number_format(@service.fee), class: "form-control#{' error' unless @service.errors[:fee].blank?}", placeholder: 'Enter Fee', id: 'form_control_1' %>
-        <div class="form-control-focus"></div>
-      </div>
-		</div>
-	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @service.errors[:fee_type_id].blank? %>">  	
-		<label class="col-md-2 control-label" for="form_control_1">Fee Type</label>
-		<div class="col-md-10">
-			<div class="md-radio-inline">
-			  <% fee_type_options.each do |name, id| %>
-				<div class="md-radio">
-					<%= f.radio_button :fee_type_id, id, class: 'md-radiobtn', id: "radio-type#{id}" %>
-					<label for="radio-type<%= id %>">
-					<span></span>
-					<span class="check"></span>
-					<span class="box"></span>
-					<%= name %> </label>
-				</div>
-				<% end %>
-			</div>
-		</div>
-	</div>
 	<div class="form-group form-md-line-input<%' has-error' unless @service.errors[:open_time].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Open Time</label>
 		<div class="col-md-6">
@@ -87,8 +59,6 @@
   		</div>
   	</div>
   </div>
-
-
   <div class="form-group form-md-line-input<%' has-error' unless @service.errors[:publish_at].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Publish Time</label>
 		<div class="col-md-6">

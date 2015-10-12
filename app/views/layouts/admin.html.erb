@@ -28,7 +28,7 @@
   		<!-- BEGIN LOGO -->
   		<div class="page-logo">
 
-  			<% if !ApplicationController::SITE_LOGO.blank? %><a href="/admin"><img src="/<%= ApplicationController::SITE_LOGO %>" alt="logo" class="logo-default" style="width:50%; height:70%"/></a><% else %><a href="/admin" class="navbar-brand"><%= ApplicationController::SITE_NAME %></a><% end %>
+  			<% if !ApplicationController::SITE_LOGO.blank? %><a href="/admin"><%= image_tag ApplicationController::SITE_LOGO, alt: 'logo', class: 'logo-default', style: "width:50%; height: 50%" %></a><% else %><a href="/admin" class="navbar-brand"><%= ApplicationController::SITE_NAME %></a><% end %>
 
   			<div class="menu-toggler sidebar-toggler">
   				<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
