@@ -1,9 +1,8 @@
 class OrdersController < ApplicationController
   layout 'admin'
 
-  before_filter :admin_authorize, except: [:login, :logout, :authenticate, :help, :register, :registration, :forgot, :reset, :signup]
-  
-  before_filter :validate_admin_permission, except: [:profile, :login, :logout, :authenticate, :help, :register, :registration, :forgot, :reset, :signup]
+  before_filter :admin_authorize
+  before_filter :validate_admin_permission
     
   def index(status_id=Order.all_statuses)
     @orders = Order.where(status_id: status_id)

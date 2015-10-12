@@ -1,9 +1,8 @@
 class ProductItemsController < ApplicationController
   layout 'admin'
 
-  before_filter :admin_authorize, except: [:login, :logout, :authenticate, :help, :register, :registration, :forgot, :reset, :signup]
-  
-  before_filter :validate_admin_permission, except: [:profile, :login, :logout, :authenticate, :help, :register, :registration, :forgot, :reset, :signup]
+  before_filter :admin_authorize
+  before_filter :validate_admin_permission
   
   def index
     @product_items = ProductItem.where(product_id: params[:product_id]).order(:sort)

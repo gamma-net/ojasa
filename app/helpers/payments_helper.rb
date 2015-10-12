@@ -32,7 +32,7 @@ module PaymentsHelper
     cart["requested_at"]
   end
   
-  def service_pricing
+  def service_pricing_desc
     category = Category.find(cart["category_id"])
     pricing = category.pricings.detect {|pr| pr[:value] == cart["subtotal"]}
     pricing[:desc]
