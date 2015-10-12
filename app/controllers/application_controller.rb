@@ -71,12 +71,11 @@ class ApplicationController < ActionController::Base
         end unless role.permissions.blank?
       end
       
-      redirect_to admin_home_url and return false
+      redirect_to admin_home_url and return
     end
     # helper_method :validate_admin_permission
 
     def admin_home_url
       return admin_contents_news_index_url unless request.path == '/admin/contents/news'
-      return '/'
     end
 end
