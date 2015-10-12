@@ -23,11 +23,11 @@ class AccountsController < ApplicationController
     end
     
     flash[:error] = "We're sorry but your login information is invalid"
-    redirect_to action_accounts_url(action: 'login') and return
+    redirect_to login_accounts_url and return
   end
   
   def reset
-    redirect_to action_accounts_url(action: 'login') and return
+    redirect_to login_accounts_url and return
   end
   
   protected
