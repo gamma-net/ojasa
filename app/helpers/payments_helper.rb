@@ -17,11 +17,11 @@ module PaymentsHelper
 
   def address
     customer["address"]
-  end    
+  end
 
   def addressdetail
     customer["addressdetail"]
-  end    
+  end
   
   def category_name
     category = Category.find(cart["category_id"])

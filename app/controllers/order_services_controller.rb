@@ -1,8 +1,8 @@
 class OrderServicesController < ApplicationController
   before_filter :update_cart!, only: [:order, :request_service]
-  
+    
   def order
-    if params[:location].empty? || params[:category_id].empty?
+    if params[:location].blank? || params[:category_id].blank?
       flash[:error] = 'Please select our Services and Location'
       redirect_to order_services_url and return
     end

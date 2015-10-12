@@ -31,4 +31,8 @@ class User < ActiveRecord::Base
     self[:password] = '[FILTERED]'
     self
   end
+  
+  def role_name
+    role.name if role
+  end
 end
