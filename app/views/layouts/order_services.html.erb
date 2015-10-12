@@ -9,14 +9,9 @@
   <!-- Stylesheets
   ============================================= -->  
   <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-  <link rel="stylesheet" href="/assets/css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="/assets/style.css" type="text/css" />
-  <link rel="stylesheet" href="/assets/css/dark.css" type="text/css" />
-  <link rel="stylesheet" href="/assets/css/font-icons.css" type="text/css" />
-  <link rel="stylesheet" href="/assets/css/animate.css" type="text/css" />
-  <link rel="stylesheet" href="/assets/css/magnific-popup.css" type="text/css" />
-  <link rel="stylesheet" href="/assets/css/responsive.css" type="text/css" />
-  <link rel="stylesheet" href="/assets/css/datepicker.css" type="text/css" />
+  
+  <%= stylesheet_link_tag 'css/bootstrap.css', 'style.css', 'css/dark.css', 'css/font-icons.css', 'css/animate.css', 'css/magnific-popup.css', 'css/responsive.css', 'css/datepicker.css' %>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   
   <!--[if lt IE 9]>
@@ -25,10 +20,7 @@
 
   <!-- External JavaScripts
   ============================================= -->
-	<script type="text/javascript" src="/assets/js/jquery.js"></script>
-	<script type="text/javascript" src="/assets/js/plugins.js"></script>
-	<script type="text/javascript" src="/assets/js/bootstrap-datepicker.js"></script>
-
+  <%= javascript_include_tag "js/jquery.js", 'js/plugins.js', 'js/bootstrap-datepicker.js' %>
 
   <!-- Document Title
   ============================================= -->
@@ -54,8 +46,8 @@
                     <!-- Logo
                     ============================================= -->
                     <div id="logo">
-                        <a href="/" class="standard-logo" data-dark-logo="/assets/images/logo.png"><img src="/assets/images/logo.png" alt="OJASA"></a>
-                        <a href="/" class="retina-logo" data-dark-logo="/assets/images/logo@2x.png"><img src="/assets/images/logo@2x.png" alt="OJASA"></a>
+                        <a href="/" class="standard-logo" data-dark-logo="<%= asset_path 'images/logo.png' %>", alt: 'OJASA' %><%= image_tag "images/logo.png", alt: 'OJASA' %></a>
+                        <a href="/" class="retina-logo" data-dark-logo="<%= asset_path 'images/logo@2x.png' %>"><%= image_tag "images/logo@2x.png", alt: 'OJASA' %></a>
                     </div><!-- #logo end -->
 
                     <!-- Primary Navigation
@@ -133,10 +125,11 @@
     
     <!-- Footer Scripts
     ============================================= -->
-    <script type="text/javascript" src="/assets/js/autocomplete-maps.js"></script>
+    
     <script src="http://maps.google.com/maps/api/js?sensor=true&libraries=places&callback=initAutocomplete" type="text/javascript"></script>
     <script src="/global/plugins/gmaps/gmaps.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="/assets/js/functions.js"></script>
+
+    <%= javascript_include_tag "js/autocomplete-maps.js", "js/functions.js" %>
     <script type="text/javascript">
        $('.datepicker').datepicker().on('changeDate', function(e){
          (e.viewMode=='days') ? $(this).datepicker('hide') : '';
