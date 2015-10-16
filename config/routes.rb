@@ -81,14 +81,6 @@ Rails.application.routes.draw do
         post 'sort', on: :collection
       end
       
-      resources :comics do
-        resources :episodes do
-          post 'sort', on: :collection
-          resources :images, only: [:create, :destroy]
-        end
-        post 'sort', on: :collection
-      end
-      
       resources :news do
         post 'sort', on: :collection
         resources :images, only: [:create, :destroy]
@@ -115,16 +107,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resource :store, controller: 'store' do
-      resources :products do 
-        post 'sort', on: :collection
-        # get ':action', on: :collection, as: 'action'
-        resources :images, only: [:create, :destroy]
-        resources :product_items, as: 'items' do
-          post 'sort', on: :collection
-        end
-      end
-      
+    resource :store, controller: 'store' do      
       resources :orders, except: [:new, :create, :destroy] do
         post 'cancel/:id', on: :collection, action: 'cancel', as: 'cancel'
         post 'revert/:id', on: :collection, action: 'revert', as: 'revert'
@@ -142,29 +125,14 @@ Rails.application.routes.draw do
         get ':id/:action', on: :collection, as: 'action', id: nil
       end
       
-      resources :collections do
-        post 'sort', on: :collection
-        get ':action', on: :collection, as: 'action'
-      end
-      
       resources :customers
     end
 
     resources :tags do
       post 'sort', on: :collection
     end
-
-    resource :mailings do
-      resources :campaigns, controller: 'mailing_campaigns'
-      resources :lists, controller: 'mailing_lists'
-    end
     
     resources :dashboards
-        
-    # resources :maps do 
-    #   get ':action', on: :collection, as: 'action'
-    # end        
-    # resources :forms
     
     get ':action', controller: 'admin', on: :collection, as: 'action'
   end  
@@ -186,9 +154,7 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:new, :create]
-  
-  post 'mailing_lists/signup', controller: 'mailing_lists', action: 'signup'
-  
+    
   
   get 'services', controller: 'order_services', as: 'order_services', action: 'show'
   post 'services', controller: 'order_services', as: 'request_order_services', action: 'request_service'

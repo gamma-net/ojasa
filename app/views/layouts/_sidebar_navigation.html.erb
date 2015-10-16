@@ -83,9 +83,6 @@
 					<%= li_active?('galleries') %>
 						<%= link_to raw('<i class="icon-picture"></i> Galleries'), admin_contents_galleries_url %>
 					</li>
-					<%= li_active?('comics') %>
-						<%= link_to raw('<i class="icon-rocket"></i> Comics'), admin_contents_comics_url %>
-					</li>
 					-->
 					<%= li_active?('categories') %>
 						<%= link_to raw('<i class="icon-link"></i> Categories'), admin_contents_categories_url %>
@@ -139,33 +136,9 @@
     					</li>
   				  </ul>
   				</li>
-					<!-- 
-					<%= li_active?('products') %>
-						< %= link_to raw('<i class="icon-handbag"></i> Products'), admin_store_products_url %>
-					</li>
-					<%= li_active?('collections') %>
-						<%= link_to raw('<i class="icon-link"></i> Collections'), admin_store_collections_url %>
-					</li>
-					-->
 				</ul>
 			</li>
 			<!-- 
-			<%= li_active_open?('mailings') %>
-				<a href="javascript:;">
-				<i class="icon-envelope"></i>
-				<span class="title">Mailing Lists</span>
-				<%= span_selected('mailings') %>
-        <span class="arrow<%= is_open?('mailings') %>"></span>
-				</a>
-				<ul class="sub-menu">
-					<%= li_active?('campaigns') %>
-						<%= link_to raw('<i class="icon-envelope-letter"></i> Campaigns'), admin_mailings_campaigns_url %>
-					</li>
-					<%= li_active?('lists') %>
-						<%= link_to raw('<i class="icon-users"></i> List'), admin_mailings_lists_url %>
-					</li>
-				</ul>
-			</li>
 			<%= li_active_open?('tags') %>
 				<%= link_to raw('<i class="icon-tag"></i><span class="title"> Tags</span>'), admin_tags_url %>
 			</li>

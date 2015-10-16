@@ -2,8 +2,6 @@ class Tag < ActiveRecord::Base
   include Sort
 
   has_many :tag_relations
-  has_many :comics, -> { where("tag_relations.content_type = 'Comic'") }, through: :tag_relations
-  has_many :products, -> { where("tag_relations.content_type = 'Product'") }, through: :tag_relations
   has_many :services, -> { where("tag_relations.content_type = 'Service'") }, through: :tag_relations
     
   STATUSES = {1 => 'Available',
