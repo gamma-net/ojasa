@@ -27,8 +27,10 @@ module Ojasa
     
     config.active_record.raise_in_transactional_callbacks = true
     
-	  config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths << Rails.root.join('lib')
 
-    # config.assets.paths << Rails.root.join("app", "assets", "admin")
+    config.assets.paths << Rails.root.join("app", "assets", "admin")
+    config.assets.paths << Rails.root.join("app", "assets", "pages")
+    config.assets.paths << Rails.root.join("app", "assets", "order_services")
   end
 end
