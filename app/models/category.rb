@@ -2,6 +2,7 @@ class Category < ActiveRecord::Base
   include Sort
   
   has_many :images
+  has_many :orders
   
   belongs_to :parent_category, :class_name => 'Category'
   

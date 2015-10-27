@@ -3,6 +3,7 @@ class Order < ActiveRecord::Base
   alias :items :order_items
 
   belongs_to :customer
+  belongs_to :category
   # belongs_to :shipping_address, class_name: 'Address'
   # belongs_to :billing_address, class_name: 'Address'
   
