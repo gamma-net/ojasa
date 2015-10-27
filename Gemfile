@@ -41,6 +41,10 @@ gem 'rack-recaptcha', :require => 'rack/recaptcha'
 
 gem 'veritrans'
 
+gem 'mongrel', '1.2.0.pre2'
+#gem 'mongrel_cluster'
+gem 'passenger'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

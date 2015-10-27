@@ -56,11 +56,11 @@ class Order < ActiveRecord::Base
   end
   
   def validate?
-    !requested_at.nil? && !past_date? && !category_id.to_i.zero? && !address.blank? && !detail.blank? && !subtotal.to_i.zero?
+    !requested_date.nil? && !past_date? && !category_id.to_i.zero? && !address.blank? && !detail.blank? && !subtotal.to_i.zero?
   end
   
   def past_date?
-     !requested_at.nil? && (requested_at < Date.today)
+     !requested_date.nil? && (requested_date < Date.today)
   end
   
   def update_items(order_items)

@@ -29,7 +29,11 @@ module PaymentsHelper
   end
   
   def requested_date
-    cart["requested_at"]
+    cart["requested_date"]
+  end
+
+  def requested_time
+    cart["requested_time"]
   end
   
   def service_pricing_desc

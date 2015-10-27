@@ -27,7 +27,7 @@
   		<label class="control-label visible-ie8 visible-ie9">Service Date</label>
   		<div class="col-md-6">
   			<div class="input-group input-medium date date-picker" data-date-start-date="+0d">
-  				<%= text_field_tag "service[requested_at][date]", nil, class: "form-control", size: 16, readonly: 'readonly', placeholder: 'Select Service Date' %>	
+  				<%= text_field_tag "service[requested_date]", nil, class: "form-control", size: 16, readonly: 'readonly', placeholder: 'Select Service Date' %>	
   				<span class="input-group-btn">
   				<button class="btn default date-set" type="button" hidden="hidden"><i class="fa fa-calendar"></i></button>
   				</span>
@@ -35,7 +35,7 @@
   		</div>
   		<div class="col-md-6">
   			<div class="input-group">
-  				<%= text_field_tag "service[requested_at][time]", nil, class: "form-control timepicker timepicker-24", size: 16, readonly: 'readonly', placeholder: 'Select Service Time' %>	
+  				<%= text_field_tag "service[requested_time]", nil, class: "form-control timepicker timepicker-24", size: 16, readonly: 'readonly', placeholder: 'Select Service Time' %>	
   				<span class="input-group-btn">
   				<button class="btn default" type="button" hidden="hidden"><i class="fa fa-clock-o"></i></button>
   				</span>

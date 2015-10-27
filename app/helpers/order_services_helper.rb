@@ -105,7 +105,7 @@ module OrderServicesHelper
     if category.pricings.size == 1
       
     else
-      str = '<select id="cleaning-form-price" name="order[subtotal]" class="input-lg sm-form-control">'
+      str = '<select id="cleaning-form-price" name="order[subtotal]" class="input-lg sm-form-control">' # multiple=true
       category.pricings.each do |pricing|
         str << '<option value="'
         str << pricing[:value]
@@ -119,6 +119,26 @@ module OrderServicesHelper
     end
     
     raw(str)
+  end
+  
+  def service_requested_time_options
+    str = '<option value="">Choose Time</option>'
+    0.upto(23) do |hour|
+      hour_str = (hour < 10 ? '0' : '')
+      hour_str << hour.to_s
+      
+      str << '<option value="'
+      str << hour_str
+      str << '.00">'
+      str << hour_str
+      str << '.00</option>'
+    end
+  
+    raw(str)
+  end
+  
+  def service_requested_at_time
+    raw('&nbsp;')
   end
   
   protected

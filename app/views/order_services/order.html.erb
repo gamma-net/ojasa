@@ -21,12 +21,22 @@
                      <div class="col_full">
                          <input name="order[detail]" class="controls form-control placeholder-no-fix required input-lg not-dark" type="text" placeholder="address details (house nr, floor, landmark)" id="cleaning-form-address" value="<%= cart["detail"] %>">
                      </div>
-                     <div class="col_one_third">
-                        <%= text_field_tag "order[requested_at]", nil, class: "datepicker input-lg sm-form-control", size: 16, placeholder: 'choose date', id: "cleaning-form-date", style: "padding: 10px 14px;", value: cart["requested_at"] %>
+                     
+                     <div class="col_half">
+                        <%= text_field_tag "order[requested_date]", nil, class: "datepicker input-lg sm-form-control", size: 16, placeholder: 'choose date', id: "cleaning-form-date", style: "padding: 10px 14px;", value: cart["requested_date"] %>
+                     </div>      
+                     <div class="col_half col_last">
+                       <%= select_tag "order[requested_time]", service_requested_time_options, class: "input-lg sm-form-control", placeholder: 'choose time', id: "choose-time", value: cart["requested_time"] %>
                      </div>
-                     <div class="col_two_third col_last">
-                         <%= service_pricing %>
+                     
+                     <div class="col_full">
+                        <%= service_pricing %>
                      </div>
+
+                     <!--div class="col_half col_last">
+                         <span class="price">Price: Rp. 250.000,-</span>
+                     </div-->
+
 
                      <div class="col_full nobottommargin">
                          <button class="button button-3d button-large button-aqua btn-block nomargin" id="cleaning-form-submit" name="cleaning-form-submit" value="submit">SUBMIT</button>

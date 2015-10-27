@@ -8,7 +8,7 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( css/login.css layout/css/custom.css css/inbox.css layout/css/login.css layout/css/themes/darkblue.css )
+Rails.application.config.assets.precompile += %w( css/login.css css/login4.css layout/css/custom.css css/inbox.css layout/css/login.css layout/css/themes/darkblue.css )
 Rails.application.config.assets.precompile += %w( css/profile.css css/profile.css css/tasks.css layout/css/layout.css css/todo.css layout/css/themes/darkblue.css layout/css/custom.css )
 Rails.application.config.assets.precompile += %w( bower_components/bootstrap/dist/css/bootstrap.min.css bower_components/metisMenu/dist/metisMenu.min.css dist/css/timeline.css dist/css/sb-admin-2 bower_components/morrisjs/morris.css bower_components/font-awesome/css/font-awesome.min.css styles.css )
 Rails.application.config.assets.precompile += %w( js/jquery.js js/plugins.js js/bootstrap-datepicker.js )
@@ -22,5 +22,5 @@ Rails.application.config.assets.precompile += %w( scripts/todo.js layout/scripts
 Rails.application.config.assets.precompile += %w( images/logo.png images/logo@2x.png images/services_lock.jpg images/services_homeimprovement.jpg )
 
 Rails.application.config.assets.precompile += %w( images/services_1.jpg images/services_2.jpg images/services_3.jpg images/services_4.jpg images/services_5.jpg images/services_6.jpg images/services_beauty.jpg images/bghome.jpg )
-
 Rails.application.config.assets.precompile += %w( images/cc.png images/banktransfer.png images/bglogin.jpg )
+Rails.application.config.assets.precompile += %w( layout/img/loading.gif layout/img/avatar.png layout/img/avatar1.jpg layout/img/avatar2.jpg layout/img/avatar3.jpg )
