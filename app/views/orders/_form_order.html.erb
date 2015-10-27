@@ -2,7 +2,7 @@
 
   <div class="form-body">  	
     <div class="form-group form-md-line-input<%' has-error' unless @order.errors[:requested_date].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Requested Date</label>
+  		<label class="col-md-3 control-label" for="form_control_1">Requested Date</label>
   		<div class="col-md-6">
   			<div class="input-group date form_datetime">
   				<%= text_field_tag "order[requested_date]", datetime_value(@order.requested_date), class: "form-control#{' error' unless @order.errors[:requested_date].blank?}", size: 16, placeholder: 'Select Requested Date' %>	
@@ -13,28 +13,23 @@
   			<!-- /input-group -->
   		</div>
   	</div>
-    <div class="form-group form-md-line-input<%' has-error' unless @order.errors[:requested_time].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Requested Time</label>
-  		<div class="col-md-6">
-  			<div class="input-group date form_datetime">
-  				<%= text_field_tag "order[requested_time]", datetime_value(@order.requested_time), class: "form-control#{' error' unless @order.errors[:requested_time].blank?}", size: 16, placeholder: 'Select Requested Time' %>	
-  				<span class="input-group-btn">
-  				<button class="btn default date-set" type="button"><i class="fa fa-calendar"></i></button>
-  				</span>
-  			</div>
-  			<!-- /input-group -->
+  	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:requested_time].blank? %>">
+  		<label class="col-md-3 control-label" for="form_control_1">Requested Time</label>
+  		<div class="col-md-9">
+        <%= text_field_tag "order[requested_time]", @order.requested_time, class: "form-control#{' error' unless @order.errors[:requested_time].blank?}", placeholder: ' Enter Requested Time', id: 'form_control_1', readonly: readonly %>
+        <div class="form-control-focus"></div>
   		</div>
   	</div>
   	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:status_id].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Status</label>
-  		<div class="col-md-10">
+  		<label class="col-md-3 control-label" for="form_control_1">Status</label>
+  		<div class="col-md-9">
         <%= select_tag "order[status_id]", options_for_select(order_status_options, @order.status_id), {class: "form-control input-xlarge select2me#{' error' unless @order.errors[:status_id].blank?}", "data-placeholder" => "Select Country..."} %>
         <div class="form-control-focus"></div>
   		</div>
   	</div>
   	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:subtotal].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Subtotal</label>
-  		<div class="col-md-10">
+  		<label class="col-md-3 control-label" for="form_control_1">Subtotal</label>
+  		<div class="col-md-9">
   		  <div class="input-group">        
     		  <span class="input-group-addon">IDR</span>
           <%= text_field_tag "order[subtotal]", number_format(@order.subtotal), class: "form-control#{' error' unless @order.errors[:subtotal].blank?}", placeholder: 'Enter Subtotal', id: 'form_control_1', readonly: 'readonly' %>
@@ -43,8 +38,8 @@
   		</div>
   	</div>
   	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:tax].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Tax</label>
-  		<div class="col-md-10">
+  		<label class="col-md-3 control-label" for="form_control_1">Tax</label>
+  		<div class="col-md-9">
   		  <div class="input-group">        
     		  <span class="input-group-addon">IDR</span>
           <%= text_field_tag "order[tax]", number_format(@order.tax), class: "form-control#{' error' unless @order.errors[:tax].blank?}", placeholder: 'Enter Tax', id: 'form_control_1', readonly: readonly %>
@@ -53,8 +48,8 @@
   		</div>
   	</div>
   	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:discount].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Discount</label>
-  		<div class="col-md-10">
+  		<label class="col-md-3 control-label" for="form_control_1">Discount</label>
+  		<div class="col-md-9">
   		  <div class="input-group">        
     		  <span class="input-group-addon">IDR</span>
           <%= text_field_tag "order[discount]", number_format(@order.discount), class: "form-control#{' error' unless @order.errors[:discount].blank?}", placeholder: 'Enter Discount', id: 'form_control_1', readonly: readonly %>
@@ -63,8 +58,8 @@
   		</div>
   	</div>
   	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:shipping].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Shipping</label>
-  		<div class="col-md-10">
+  		<label class="col-md-3 control-label" for="form_control_1">Shipping</label>
+  		<div class="col-md-9">
   		  <div class="input-group">        
     		  <span class="input-group-addon">IDR</span>
           <%= text_field_tag "order[shipping]", number_format(@order.shipping), class: "form-control#{' error' unless @order.errors[:shipping].blank?}", placeholder: 'Enter Shipping', id: 'form_control_1', readonly: readonly %>
@@ -73,8 +68,8 @@
   		</div>
   	</div>
   	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:total].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Total</label>
-  		<div class="col-md-10">
+  		<label class="col-md-3 control-label" for="form_control_1">Total</label>
+  		<div class="col-md-9">
   		  <div class="input-group">        
     		  <span class="input-group-addon">IDR</span>
           <%= text_field_tag "order[total]", number_format(@order.total), class: "form-control#{' error' unless @order.errors[:total].blank?}", placeholder: 'Enter Total', id: 'form_control_1', readonly: 'readonly' %>
@@ -82,12 +77,9 @@
         </div>
   		</div>
   	</div>
-
-
-
   	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:total].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Total</label>
-  		<div class="col-md-10">
+  		<label class="col-md-3 control-label" for="form_control_1">Total</label>
+  		<div class="col-md-9">
   		  <div class="input-group">        
     		  <span class="input-group-addon">IDR</span>
           <%= text_field_tag "order[total]", number_format(@order.total), class: "form-control#{' error' unless @order.errors[:total].blank?}", placeholder: 'Enter Total', id: 'form_control_1', readonly: 'readonly' %>
