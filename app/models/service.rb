@@ -10,6 +10,8 @@ class Service < ActiveRecord::Base
   
   validates_presence_of :name#, :description, :keyword
   
+  scope :active, -> { where("publish_at < NOW() AND (retract_at IS NULL OR retract_at > NOW())") }
+  
   before_create :initialize_sort!
   before_save :set_tags
   
@@ -21,7 +23,7 @@ class Service < ActiveRecord::Base
   
   class << self
     def find_by_location_and_service(location, category_id)
-      !Service.where(category_id: category_id).where("location LIKE '%#{location}%'").first.nil?
+      !Service.where(category_id: category_id).where("location LIKE '%#{location}%'").active.first.nil?
     end
   end
   
