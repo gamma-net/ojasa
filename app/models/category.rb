@@ -106,7 +106,7 @@ class Category < ActiveRecord::Base
         {:value => '50000', :desc => 'Upperlip (Sugar Wax)  - Rp 50.000,-'},
         {:value => '70000', :desc => 'Upperlip (Hot Wax)    - Rp 70.000,-'}]
     elsif tag_name.include?('locksmith')
-      [{:value => '200000', :desc => 'Emergency / Installation - Rp 200.000,-'}]]
+      [{:value => '200000', :desc => 'Emergency / Installation - Rp 200.000,-'}]
     else
       [{:value => '50000', :desc => '1 hour Rp 50.000,-'},
         {:value => '90000', :desc => '2 hours Rp 90.000,-'},
