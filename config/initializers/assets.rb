@@ -24,3 +24,7 @@ Rails.application.config.assets.precompile += %w( images/logo.png images/logo@2x
 Rails.application.config.assets.precompile += %w( images/services_1.jpg images/services_2.jpg images/services_3.jpg images/services_4.jpg images/services_5.jpg images/services_6.jpg images/services_beauty.jpg images/bghome.jpg )
 Rails.application.config.assets.precompile += %w( images/cc.png images/banktransfer.png images/bglogin.jpg )
 Rails.application.config.assets.precompile += %w( layout/img/loading.gif layout/img/avatar.png layout/img/avatar1.jpg layout/img/avatar2.jpg layout/img/avatar3.jpg )
+
+Rails.application.config.assets.precompile += %w( images/icons/close.png images/icons/submenu.png images/icons/dotted.png         images/icons/widget-comment.png images/icons/iconalt.svg images/icons/widget-link.png images/icons/menu-divider.png images/preloader.gif images/icons/play.png )
+
+Rails.application.config.assets.precompile += %w( css/fonts/font-icons.eot css/fonts/font-icons.eot css/fonts/font-icons.woff css/fonts/font-icons.ttf css/fonts/font-icons.svg css/fonts/lined-icons.eot css/fonts/lined-icons.eot css/fonts/lined-icons.woff css/fonts/lined-icons.ttf css/fonts/lined-icons.svg css/fonts/Simple-Line-Icons.eot css/fonts/Simple-Line-Icons.eot css/fonts/Simple-Line-Icons.woff css/fonts/Simple-Line-Icons.ttf css/fonts/Simple-Line-Icons.svg )
