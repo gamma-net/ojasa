@@ -42,8 +42,8 @@ class Category < ActiveRecord::Base
       [{:value => '125000', :desc => 'Traditional Massage               - 90 minutes Rp 125.000,-'},
         {:value => '150000', :desc => 'Traditional Massage              - 120 minutes Rp 150.000,-'},
         {:value => '200000', :desc => 'Scrub Massage                    - 120 minutes Rp 200.000,-'},
-        {:value => '150000', :desc => 'Sprains & Strains Massage        - 60 minutes Rp 150.000,-'},
-        {:value => '100000', :desc => 'Baby & Child Massage             - 45 minutes Rp 100.000,-'},
+        {:value => '150000', :desc => 'Sprains & Strains Massage        - Max 60 minutes Rp 150.000,-'},
+        {:value => '100000', :desc => 'Baby & Child Massage             - Max 45 minutes Rp 100.000,-'},
         {:value => '150000', :desc => 'Head, Face & Ear Candle Massage  - 90 minutes Rp 150.000,-'},
         {:value => '125000', :desc => 'Reflexiology                     - 90 minutes Rp 125.000,-'},
         {:value => '200000', :desc => 'Traditional Massage & Ear Candle - 120 minutes Rp 200.000,-'}]
@@ -106,7 +106,11 @@ class Category < ActiveRecord::Base
         {:value => '50000', :desc => 'Upperlip (Sugar Wax)  - Rp 50.000,-'},
         {:value => '70000', :desc => 'Upperlip (Hot Wax)    - Rp 70.000,-'}]
     elsif tag_name.include?('locksmith')
-      [{:value => '200000', :desc => 'Max 5 door - Rp 200.000,-'}]
+      [{:value => '200000', :desc => '1 Door - Rp 200.000,-'},
+        {:value => '400000', :desc => '2 Doors - Rp 400.000,-'},
+        {:value => '600000', :desc => '3 Doors - Rp 600.000,-'},
+        {:value => '800000', :desc => '4 Doors - Rp 800.000,-'},
+        {:value => '1000000', :desc => '5 Doors - Rp 1.000.000,-'}]
     else
       [{:value => '50000', :desc => '1 hour Rp 50.000,-'},
         {:value => '90000', :desc => '2 hours Rp 90.000,-'},
