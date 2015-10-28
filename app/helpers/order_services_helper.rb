@@ -80,7 +80,7 @@ module OrderServicesHelper
       return category.name
     end
 
-    if !params[:service_type].blank? && !params[:service_type].to_i.zero? && (category = Category.find_by_tag_name(params[:service_type]))
+    if !params[:service_type].blank? && (category = Category.find_by_tag_name(params[:service_type]))
       return category.name
     end
     
