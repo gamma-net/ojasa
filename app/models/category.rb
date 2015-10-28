@@ -23,6 +23,10 @@ class Category < ActiveRecord::Base
       category = Category.find(category_id)
       Category.all - ([category] + category.child_categories)
     end
+    
+    def find_tag_name(string)
+      where("tag_name LIKE '%#{string}%'").first
+    end
   end
   
   def child_categories

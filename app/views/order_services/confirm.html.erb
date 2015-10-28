@@ -70,7 +70,9 @@
                 </div>
             </div>
             <div class="col-md-8 col-md-offset-2">
-                <button class="button button-3d button-large button-aqua btn-block nomargin" id="confirm-form-submit" name="confirm-form-submit" value="confirmorder">CONFIRM ORDER</button>
+                <%= form_tag request_payment_order_services_url, method: :post, class: "nobottommargin landing-wide-form clearfix", id: "cleaning-form" do %>
+                  <button class="button button-3d button-large button-aqua btn-block nomargin" id="confirm-form-submit" name="confirm-form-submit" value="confirmorder">CONFIRM ORDER</button>
+                <% end %>
             </div>
         </div>
 

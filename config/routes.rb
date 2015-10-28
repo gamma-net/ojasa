@@ -153,10 +153,12 @@ Rails.application.routes.draw do
   
   get 'services', controller: 'order_services', as: 'order_services', action: 'show'
   post 'services', controller: 'order_services', as: 'request_order_services', action: 'request_service'
+  post 'services/payment', controller: 'order_services', as: 'request_payment_order_services', action: 'request_payment'
   get 'services/list', controller: 'order_services', as: 'list_services', action: 'list'
   get 'services/location', controller: 'order_services', as: 'location_order_services', action: 'location'
   get 'services/order', controller: 'order_services', as: 'type_order_services', action: 'order'
   get 'services/confirm', controller: 'order_services', as: 'confirm_order_services', action: 'confirm'
+  get 'services/thanks', controller: 'order_services', as: 'thanks_order_services', action: 'thanks'
   
   get 'services/ac', controller: 'order_services', as: 'ac_service_services', action: 'ac_service', service_type: 'ac_service'
   get 'services/cleaning', controller: 'order_services', as: 'cleaning_services', action: 'cleaning', service_type: 'cleaning'
