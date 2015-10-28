@@ -122,19 +122,14 @@ module OrderServicesHelper
   end
   
   def service_requested_time_options
-    str = '<option value="">Choose Time</option>'
+    array = [['Choose Time','']]
     0.upto(23) do |hour|
       hour_str = (hour < 10 ? '0' : '')
-      hour_str << hour.to_s
-      
-      str << '<option value="'
-      str << hour_str
-      str << '.00">'
-      str << hour_str
-      str << '.00</option>'
+      hour_str << (hour.to_s + '.00')
+      array << [hour_str, hour_str]
     end
   
-    raw(str)
+    array
   end
   
   def service_requested_at_time
