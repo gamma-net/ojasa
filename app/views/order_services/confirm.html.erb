@@ -1,0 +1,79 @@
+<section id="content" style="background: url(<%= asset_path 'images/bglogin.jpg' %>) center center; background-size: content;">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">   
+            <div class="heading-block center nobottomborder">
+                <h1 class="oj-title">Order Confirmation</h1>
+            </div>
+            <div class="col-md-8 col-md-offset-2 col-x box-conf bottommargin">
+                <div class="table-responsive">
+                  <table class="table" cellspacing="0" cellpadding="0">
+                    <tbody>
+                      <tr>
+                        <td style="width: 25%;">Service</td>
+                        <td style="width: 3%;">:</td>
+                        <td><%= category_name %></td>
+                      </tr>
+                      <tr>
+                        <td>Date</td>
+                        <td>:</td>
+                        <td><%= requested_date %></td>
+                      </tr>
+                      <tr>
+                        <td>Time</td>
+                        <td>:</td>
+                        <td><%= requested_time %> WIB</td>
+                      </tr>
+                      <tr>
+                        <td>Price</td>
+                        <td>:</td>
+                        <td><%= service_pricing_desc %></td>
+                      </tr>
+                      <tr>
+                        <td>Name</td>
+                        <td>:</td>
+                        <td><%= full_name %></td>
+                      </tr>
+                      <tr>
+                        <td>Address</td>
+                        <td>:</td>
+                        <td><%= order_address %></td>
+                      </tr>
+                      <tr>
+                        <td>Address details</td>
+                        <td>:</td>
+                        <td><%= order_addressdetail %></td>
+                      </tr>
+                      <tr>
+                        <td>City</td>
+                        <td>:</td>
+                        <td><%= region %></td>
+                      </tr>
+                      <!--tr>
+                        <td>Post code</td>
+                        <td>:</td>
+                        <td>12790</td>
+                      </tr-->
+                      <tr>
+                        <td>Telephone Num.</td>
+                        <td>:</td>
+                        <td><%= phone %></td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td>:</td>
+                        <td><%= email %></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+            <div class="col-md-8 col-md-offset-2">
+                <button class="button button-3d button-large button-aqua btn-block nomargin" id="confirm-form-submit" name="confirm-form-submit" value="confirmorder">CONFIRM ORDER</button>
+            </div>
+        </div>
+
+    </div>
+
+</section><!-- #content end -->

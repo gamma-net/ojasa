@@ -1,6 +1,6 @@
 class OrderServicesController < ApplicationController
   before_filter :update_cart!, only: [:order, :request_service]
-    
+  
   def order
     if params[:location].blank? || params[:category_id].blank?
       flash[:error] = 'Please select our Services and Location'
@@ -20,8 +20,8 @@ class OrderServicesController < ApplicationController
       if order.validate? && order.save!
         # initialize_cart
         cart[:order_id] = order.id
-        flash[:success] = 'Thank you for your order'
-        redirect_to payments_url and return
+        # flash[:success] = 'Thank you for your order'
+        redirect_to confirm_order_services_url and return
       else
         if order.past_date?
           flash[:error] = "Please select a date today or sometime in the future"
@@ -36,10 +36,62 @@ class OrderServicesController < ApplicationController
     end
   end
   
-  def clean
-    render layout: nil
+  def ac_service
+    redirect_to location_order_services_url(service_type: 'ac_service') and return
+  end
+
+  def cleaning
+    redirect_to location_order_services_url(service_type: 'cleaning') and return
+  end
+
+  def home_improvement
+    # redirect_to location_order_services_url(service_type: 'home_improvement') and return
+  end
+
+  def gardener
+    redirect_to location_order_services_url(service_type: 'gardener') and return
+  end
+
+  def auto_care
+    redirect_to location_order_services_url(service_type: 'auto_care') and return
+  end
+
+  def massage
+    redirect_to location_order_services_url(service_type: 'massage') and return
+  end
+
+  def beauty
+    # redirect_to location_order_services_url(service_type: 'beauty') and return
+  end
+
+  def locksmith
+    redirect_to location_order_services_url(service_type: 'locksmith') and return
+  end
+
+  def henna
+    redirect_to location_order_services_url(service_type: 'henna') and return
   end
   
+  def hijab
+    redirect_to location_order_services_url(service_type: 'hijab') and return
+  end
+
+  def waxing
+    redirect_to location_order_services_url(service_type: 'waxing') and return
+  end
+
+  def hairdo
+    redirect_to location_order_services_url(service_type: 'hairdo') and return
+  end
+  
+  def pest_control
+    redirect_to location_order_services_url(service_type: 'pest_control') and return
+  end
+  
+  def pool
+    redirect_to location_order_services_url(service_type: 'pool') and return
+  end
+    
   protected 
     
     def order_params

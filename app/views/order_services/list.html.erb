@@ -12,12 +12,11 @@
 
                 <article class="portfolio-item pf-uielements pf-icons">
                     <div class="portfolio-image">
-                        <a href="#">
-                          <%= image_tag('images/services_5.jpg', alt: 'Backpack Contents') %>
-                        </a>
+                        <%= link_to raw(image_tag('images/services_5.jpg', alt: 'AC Service')), beauty_services_url %>
                         <div class="portfolio-overlay">
                             <div class="portfolio-desc">
-                                <h3><a href="#">AC Service</a></h3>
+                                <h3><%= link_to 'AC Service', ac_service_services_url %></h3>
+
                             </div>
                         </div>
                     </div>
@@ -25,12 +24,10 @@
 
                 <article class="portfolio-item pf-uielements pf-icons">
                     <div class="portfolio-image">
-                        <a href="#">
-                          <%= image_tag('images/services_beauty.jpg', alt: 'Beauty Contents') %>
-                        </a>
+                        <%= link_to raw(image_tag('images/services_beauty.jpg', alt: 'Beauty')), beauty_services_url %>
                         <div class="portfolio-overlay">
                             <div class="portfolio-desc">
-                                <h3><a href="#">Beauty</a></h3>
+                                <h3><%= link_to 'Beauty Services', beauty_services_url %></h3>
                             </div>
                         </div>
                     </div>
@@ -38,10 +35,10 @@
 
                 <article class="portfolio-item pf-uielements pf-icons">
                     <div class="portfolio-image">
-                      <%= link_to raw(image_tag('images/services_cleaning.jpg', alt: 'Cleaning')), cleaning_order_services_url %>
+                      <%= link_to raw(image_tag('images/services_cleaning.jpg', alt: 'Cleaning Services')), cleaning_services_url %>
                         <div class="portfolio-overlay">
                             <div class="portfolio-desc">
-                                <h3><%= link_to 'Cleaning', cleaning_order_services_url %></h3>
+                                <h3><%= link_to 'Cleaning Services', cleaning_services_url %></h3>
                             </div>
                         </div>
                     </div>
@@ -49,10 +46,10 @@
 
                 <article class="portfolio-item pf-uielements pf-icons">
                     <div class="portfolio-image">
-                        <%= link_to raw(image_tag('images/services_lock.jpg', alt: 'Locksmith')), locksmith_order_services_url %>
+                        <%= link_to raw(image_tag('images/services_lock.jpg', alt: 'Locksmith')), locksmith_services_url %>
                         <div class="portfolio-overlay">
                             <div class="portfolio-desc">
-                                <h3><a href="#">Locksmith</a></h3>
+                                <h3><%= link_to 'Locksmith', locksmith_services_url %></h3>
                             </div>
                         </div>
                     </div>
@@ -60,12 +57,10 @@
 
                 <article class="portfolio-item pf-media pf-icons">
                     <div class="portfolio-image">
-                        <a href="#">
-                          <%= image_tag('images/services_homeimprovement.jpg', alt: 'Home Improvement')%>
-                        </a>
+                        <%= link_to raw(image_tag('images/services_homeimprovement.jpg', alt: 'Home Improvement')), home_improvement_services_url %>
                         <div class="portfolio-overlay">
                             <div class="portfolio-desc">
-                                <h3><a href="#">Home Improvement</a></h3>
+                                <h3><%= link_to 'Home Improvement', home_improvement_services_url %></h3>
                             </div>
                         </div>
                     </div>
@@ -73,12 +68,10 @@
 
                 <article class="portfolio-item pf-uielements pf-icons">
                     <div class="portfolio-image">
-                        <a href="#">
-                          <%= image_tag('images/services_6.jpg', alt: 'Massage') %>
-                        </a>
+                      <%= link_to raw(image_tag('images/services_6.jpg', alt: 'Massage')), massage_services_url %>
                         <div class="portfolio-overlay">
                             <div class="portfolio-desc">
-                                <h3><a href="#">Massage</a></h3>
+                                <h3><%= link_to 'Massage', massage_services_url %></h3>
                             </div>
                         </div>
                     </div>

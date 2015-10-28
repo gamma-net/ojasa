@@ -31,3 +31,5 @@ Rails.application.config.assets.precompile += %w( css/fonts/font-icons.eot css/f
 
 Rails.application.config.assets.precompile += %w( images/icons/widget-comment-dark.png images/icons/widget-link-dark.png images/icons/submenu-dark.png images/icons/submenu-dark.png images/pattern2.png images/preloader-dark.gif )
 Rails.application.config.assets.precompile += %w( images/preloader-dark.gif images/icons/submenu.png images/preloader@2x.gif images/preloader-dark@2x.gif images/icons/widget-comment@2x.png images/icons/widget-link@2x.png images/icons/widget-comment-dark@2x.png images/icons/widget-link-dark@2x.png )
+
+Rails.application.config.assets.precompile += %w( js/starrr.js )

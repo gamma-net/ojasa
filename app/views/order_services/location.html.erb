@@ -1,0 +1,24 @@
+<section id="content" class="bgojasa">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+
+            <div class="heading-block center nobottomborder">
+                <h1 data-animate="fadeInUp" class="oj-title"><%= service_name %></h1>
+                <span data-animate="fadeInUp" data-delay="300" class="fadeInUp animated oj-title"><%= service_description %></span>
+            </div>
+
+            <div class="panel-body divcenter" style="max-width: 550px;">
+                <form id="cleaning-form" name="cleaning-form" class="nobottommargin" action="#" method="post">
+                    <div class="col_full">
+                  		<%= select_tag "location", services_location_options_html, class: "input-xlarge select2me bs-select sm-form-control input-lg not-dark", placeholder: "Choose Your Location", id: 'leaning-form-price' %>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
