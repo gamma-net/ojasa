@@ -8,9 +8,9 @@ class Customer < ActiveRecord::Base
   
   attr_accessor :confirm_password
   
-  def full_name
-    "#{first_name} #{last_name}"
-  end
+  # def full_name
+  #   "#{first_name} #{last_name}"
+  # end
   
   class << self
     def verify?(email_username, unencrypted_password)

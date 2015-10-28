@@ -1,8 +1,8 @@
 module PaymentsHelper
   def full_name
-    "#{customer["first_name"]} #{customer["last_name"]}"
+    customer["full_name"] #"#{customer["first_name"]} #{customer["last_name"]}"
   end
-  
+      
   def email
     customer["email"]
   end
