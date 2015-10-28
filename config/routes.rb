@@ -163,7 +163,8 @@ Rails.application.routes.draw do
   get 'services/ac', controller: 'order_services', as: 'ac_service_services', action: 'ac_service', service_type: 'ac_service'
   get 'services/cleaning', controller: 'order_services', as: 'cleaning_services', action: 'cleaning', service_type: 'cleaning'
   get 'services/home_improvement', controller: 'order_services', as: 'home_improvement_services', action: 'home_improvement', service_type: 'home_improvement'
-  get 'services/gardener', controller: 'order_services', as: 'gardener_services', action: 'gardener', service_type: 'gardener'
+  get 'services/gardening', controller: 'order_services', as: 'gardening_services', action: 'gardening', service_type: 'gardening'
+  get 'services/auto_wash', controller: 'order_services', as: 'auto_wash_services', action: 'auto_wash', service_type: 'auto_wash'
   get 'services/auto_care', controller: 'order_services', as: 'auto_care_services', action: 'auto_care', service_type: 'auto_care'
   get 'services/massage', controller: 'order_services', as: 'massage_services', action: 'massage', service_type: 'massage'
   get 'services/beauty', controller: 'order_services', as: 'beauty_services', action: 'beauty', service_type: 'beauty'
@@ -171,9 +172,10 @@ Rails.application.routes.draw do
   get 'services/henna', controller: 'order_services', as: 'henna_services', action: 'henna', service_type: 'henna'
   get 'services/hijab', controller: 'order_services', as: 'hijab_services', action: 'hijab', service_type: 'hijab'
   get 'services/waxing', controller: 'order_services', as: 'waxing_services', action: 'waxing', service_type: 'waxing'
-  get 'services/hairdo', controller: 'order_services', as: 'hairdo_services', action: 'hairdo', service_type: 'hairdo'
+  get 'services/hair_do', controller: 'order_services', as: 'hair_do_services', action: 'hair_do', service_type: 'hair_do'
   get 'services/pest_control', controller: 'order_services', as: 'pest_control_services', action: 'pest_control', service_type: 'pest_control'
   get 'services/pool', controller: 'order_services', as: 'pool_services', action: 'pool', service_type: 'pool'
+  get 'services/grooming', controller: 'order_services', as: 'grooming_services', action: 'grooming', service_type: 'grooming'
 
   get 'services/:service_type', controller: 'order_services', as: 'action_services', action: 'service'
 

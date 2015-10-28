@@ -86,11 +86,20 @@ class OrderServicesController < ApplicationController
     # redirect_to location_order_services_url(url_params) and return
   end
 
-  def gardener
-    url_params = if (category = Category.find_tag_name('gardener'))
+  def gardening
+    url_params = if (category = Category.find_tag_name('gardening'))
                   {:category_id => category.id}
                 else
-                  {:service_type => 'gardener'}
+                  {:service_type => 'gardening'}
+                end
+    redirect_to location_order_services_url(url_params) and return
+  end
+
+  def auto_wash
+    url_params = if (category = Category.find_tag_name('auto_wash'))
+                  {:category_id => category.id}
+                else
+                  {:service_type => 'auto_wash'}
                 end
     redirect_to location_order_services_url(url_params) and return
   end
@@ -158,11 +167,11 @@ class OrderServicesController < ApplicationController
     redirect_to location_order_services_url(url_params) and return
   end
 
-  def hairdo
-    url_params = if (category = Category.find_tag_name('hairdo'))
+  def hair_do
+    url_params = if (category = Category.find_tag_name('hair_do'))
                   {:category_id => category.id}
                 else
-                  {:service_type => 'hairdo'}
+                  {:service_type => 'hair_do'}
                 end
     redirect_to location_order_services_url(url_params) and return
   end
@@ -181,6 +190,15 @@ class OrderServicesController < ApplicationController
                   {:category_id => category.id}
                 else
                   {:service_type => 'pool'}
+                end
+    redirect_to location_order_services_url(url_params) and return
+  end
+
+  def grooming
+    url_params = if (category = Category.find_tag_name('grooming'))
+                  {:category_id => category.id}
+                else
+                  {:service_type => 'grooming'}
                 end
     redirect_to location_order_services_url(url_params) and return
   end
