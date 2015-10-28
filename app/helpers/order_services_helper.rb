@@ -102,7 +102,7 @@ module OrderServicesHelper
 
   def service_pricing
     category = Category.find(service_category_id)
-    if category.pricings.size == 1
+    if false && (category.pricings.size == 1)
       
     else
       str = '<select id="cleaning-form-price" name="order[subtotal]" class="input-lg sm-form-control">' # multiple=true

@@ -47,10 +47,10 @@ class Category < ActiveRecord::Base
         {:value => '150000', :desc => 'Head, Face & Ear Candle Massage  - 90 minutes Rp 150.000,-'},
         {:value => '125000', :desc => 'Reflexiology                     - 90 minutes Rp 125.000,-'},
         {:value => '200000', :desc => 'Tradisional Massage & Ear Candle - 120 minutes Rp 200.000,-'}]
-    elsif tag_name.include?('car_salon')
-      [{:value => '500000', :desc => 'Standard  - Rp 500.000,-'},
-        {:value => '1000000', :desc => 'Full    - Rp 1.000.000,-'},
-        {:value => '2500000', :desc => 'Coating - Rp 2.500.000,-'}]
+    elsif tag_name.include?('auto_care')
+      [{:value => '500000', :desc => 'Car Salon: Standard  - Rp 500.000,-'},
+        {:value => '1000000', :desc => 'Car Salon: Full    - Rp 1.000.000,-'},
+        {:value => '2500000', :desc => 'Car Salon: Coating - Rp 2.500.000,-'}]
     elsif tag_name.include?('henna')
       [{:value => '200000', :desc => 'Foot to Ankle       - Rp 200.000,-'},
         {:value => '400000', :desc => 'Hands up to Wrist  - Rp 400.000,-'},
@@ -105,6 +105,8 @@ class Category < ActiveRecord::Base
         {:value => '60000', :desc => 'Eyebrow (Hot Wax)     - Rp 60.000,-'},
         {:value => '50000', :desc => 'Upperlip (Sugar Wax)  - Rp 50.000,-'},
         {:value => '70000', :desc => 'Upperlip (Hot Wax)    - Rp 70.000,-'}]
+    elsif tag_name.include?('locksmith')
+      [{:value => '200000', :desc => 'Emergency / Installation - Rp 200.000,-'}]]
     else
       [{:value => '50000', :desc => '1 hour Rp 50.000,-'},
         {:value => '90000', :desc => '2 hours Rp 90.000,-'},
