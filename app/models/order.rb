@@ -57,7 +57,7 @@ class Order < ActiveRecord::Base
   end
   
   def validate?
-    !requested_date.nil? && !past_date? && !category_id.to_i.zero? && !address.blank? && !detail.blank? && !subtotal.to_i.zero?
+    !requested_date.nil? && !requested_time.blank? && !past_date? && !category_id.to_i.zero? && !address.blank? && !detail.blank? && !subtotal.to_i.zero?
   end
   
   def past_date?

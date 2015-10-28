@@ -23,6 +23,14 @@ module PaymentsHelper
     customer["addressdetail"]
   end
   
+  def order_address
+    cart["address"]
+  end
+
+  def order_addressdetail
+    cart["detail"]
+  end
+  
   def category_name
     category = Category.find(cart["category_id"])
     category.name
