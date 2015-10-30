@@ -15,6 +15,7 @@
              <div class="panel-body divcenter" style="max-width: 550px;">
                  <%= form_tag request_order_services_url, method: :post, class: "nobottommargin", name: 'cleaning-form', id: 'cleaning-form' do %>
                      <%= hidden_field_tag "order[category_id]", service_category_id %>
+                     <%= hidden_field_tag "order[location]", service_location %>
                      <div class="col_full">
                           <input name="order[address]" class="controls form-control placeholder-no-fix required input-lg not-dark" type="text" placeholder="input your address" id="autocomplete" onFocus="geolocate()" value="<%= cart["address"] %>">
                      </div>

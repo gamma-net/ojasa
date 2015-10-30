@@ -154,6 +154,10 @@ class Category < ActiveRecord::Base
     end
   end
   
+  def pricing_desc(value)
+    (pricing = pricings.detect {|pr| pr[:value] == value.to_s}) ? pricing[:desc] : ''
+  end
+  
   def parent_category_name
     parent_category.name if parent_category
   end 

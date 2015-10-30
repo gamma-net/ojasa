@@ -14,6 +14,8 @@ class Order < ActiveRecord::Base
               5 => 'Processed',
               0 => 'Cancelled'}.freeze
 
+  delegate :email, :full_name, :phone, :full_address, :address, :addressdetail, to: :customer
+  
   attr_accessor :freeze_discount
   
   def status; STATUSES[status_id];  end
@@ -91,5 +93,11 @@ class Order < ActiveRecord::Base
   
   def calculate_discount!
     self.discount = items.inject(0) {|discount, i| discount += (i.discount * i.quantity)}
+  end
+  
+  def category_name;  category.name;  end
+  
+  def pricing_desc
+    category.pricing_desc(subtotal.round)
   end
 end

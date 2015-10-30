@@ -99,6 +99,10 @@ module OrderServicesHelper
       return category.id
     end
   end
+  
+  def service_location
+    session[:cart]["location"]
+  end
 
   def service_pricing
     category = Category.find(service_category_id)

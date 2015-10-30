@@ -46,8 +46,7 @@ module PaymentsHelper
   
   def service_pricing_desc
     category = Category.find(cart["category_id"])
-    pricing = category.pricings.detect {|pr| pr[:value] == cart["subtotal"]}
-    pricing[:desc]
+    category.pricing_desc(cart["subtotal"])
   end
   
   def region

@@ -42,6 +42,7 @@ class OrderServicesController < ApplicationController
       order = Order.find(session[:cart]["order_id"])
       order.status_id = Order.pending_payment
       if order.validate? && order.save!
+        CustomerMailer.order_email(order).deliver_now
         initialize_cart
         flash[:success] = 'Thank you for your order'
         redirect_to thanks_order_services_url and return

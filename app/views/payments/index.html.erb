@@ -27,8 +27,8 @@
 
                     <div class="col-md-12">
                         <ul>
-                            <li><%= full_name %></li>
-                            <li><%= full_address %></li>
+                            <li><%= @order.full_name %></li>
+                            <li><%= @order.full_address %></li>
                             <li>Jakarta</li>
                             <li>Indonesia</li>
                         </ul>
@@ -175,41 +175,41 @@
                               <tr>
                                 <td style="width: 17%;">Service</td>
                                 <td style="width: 3%;">:</td>
-                                <td><%= category_name %></td>
+                                <td><%= @order.category_name %></td>
                               </tr>
                               <tr>
                                 <td>Date</td>
                                 <td>:</td>
-                                <td><%= requested_date %></td>
+                                <td><%= @order.requested_date %></td>
                               </tr>
                               <tr>
                                 <td>Time</td>
                                 <td>:</td>
-                                <td><%= requested_time %> WIB</td>
+                                <td><%= @order.requested_time %> WIB</td>
                               </tr>
                               <tr>
                                 <td>Price</td>
                                 <td>:</td>
-                                <td><%= service_pricing_desc %></td>
+                                <td><%= @order.pricing_desc %></td>
                               </tr>
                               <tr>
                                 <td>Name</td>
                                 <td>:</td>
-                                <td><%= full_name %></td>
+                                <td><%= @order.full_name %></td>
                               </tr>
                                 <td>Address</td>
                                 <td>:</td>
-                                <td><%= order_address %></td>
+                                <td><%= @order.address %></td>
                               </tr>
                               <tr>
                                 <td>Address details</td>
                                 <td>:</td>
-                                <td><%= order_addressdetail %></td>
+                                <td><%= @order.detail %></td>
                               </tr>
                               <tr>
                                 <td>City</td>
                                 <td>:</td>
-                                <td><%= region %></td>
+                                <td><%= service_regions[@order.location] %></td>
                               </tr>
                               <!--tr>
                                 <td>Post code</td>
@@ -219,12 +219,12 @@
                               <tr>
                                 <td>Telephone Num.</td>
                                 <td>:</td>
-                                <td><%= phone %></td>
+                                <td><%= @order.phone %></td>
                               </tr>
                               <tr>
                                 <td>Email</td>
                                 <td>:</td>
-                                <td><%= email %></td>
+                                <td><%= @order.email %></td>
                               </tr>
                             </tbody>
                           </table>
@@ -232,7 +232,7 @@
                         <div class="totalpayment">
                             <div class="col_half nobottommargin"><span>Total</span></div>
                             <div class="col_half col_last paymentvalue nobottommargin">
-                                <%= order_total %>
+                                <%= money_value(@order.calculate_total) %>
                             </div>
                         </div>
                     </div>

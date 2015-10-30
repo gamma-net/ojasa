@@ -33,4 +33,6 @@ class Customer < ActiveRecord::Base
     self[:password] = '[FILTERED]'
     self
   end
+  
+  def full_address; "#{address} #{addressdetail}"; end
 end
