@@ -4,6 +4,7 @@ class Order < ActiveRecord::Base
 
   belongs_to :customer
   belongs_to :category
+  belongs_to :service
   # belongs_to :shipping_address, class_name: 'Address'
   # belongs_to :billing_address, class_name: 'Address'
   
@@ -81,7 +82,7 @@ class Order < ActiveRecord::Base
   end
   
   def calculate!
-    calculate_subtotal!
+    # calculate_subtotal!
     calculate_discount! unless freeze_discount
     self.total = calculate_total
     save!
@@ -99,5 +100,11 @@ class Order < ActiveRecord::Base
   
   def pricing_desc
     category.pricing_desc(subtotal.round)
+  end
+  
+  def category_service_name
+    str = category_name
+    str << " (#{service.name})" if service_id
+    str
   end
 end

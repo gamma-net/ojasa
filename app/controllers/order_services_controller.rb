@@ -1,5 +1,6 @@
 class OrderServicesController < ApplicationController
   before_filter :update_cart!, only: [:order, :request_service]
+  before_filter :validate_login, only: [:request_service, :request_payment, :confirm, :thanks]
   
   def order
     if params[:location].blank? || params[:category_id].blank?
@@ -18,45 +19,35 @@ class OrderServicesController < ApplicationController
   end
   
   def request_service
-    if logged_in?
-      order = Order.new(order_params.merge(customer_id: session[:customer]['id'], status_id: Order.open))
-      if order.validate? && order.save!
-        session[:cart]["order_id"] = order.id
-        redirect_to confirm_order_services_url and return
-      else
-        if order.past_date?
-          flash[:error] = "Please select a date today or sometime in the future"
-        else
-          flash[:error] = 'Please fill in all information below'
-        end
-        redirect_to type_order_services_url and return
-      end
+    order = Order.new(order_params.merge(customer_id: session[:customer]['id'], status_id: Order.open))
+    if order.validate? && order.save!
+      session[:cart]["order_id"] = order.id
+      redirect_to confirm_order_services_url and return
     else
-      flash[:error] = 'Please login first'
-      redirect_to login_accounts_url and return
+      if order.past_date?
+        flash[:error] = "Please select a date today or sometime in the future"
+      else
+        flash[:error] = 'Please fill in all information below'
+      end
+      redirect_to type_order_services_url and return
     end
   end
   
   def request_payment
-    if logged_in?
-      order = Order.find(session[:cart]["order_id"])
-      order.status_id = Order.pending_payment
-      if order.validate? && order.save!
-        CustomerMailer.order_email(order).deliver_now
-        initialize_cart
-        flash[:success] = 'Thank you for your order'
-        redirect_to thanks_order_services_url and return
-      else
-        if order.past_date?
-          flash[:error] = "Please select a date today or sometime in the future"
-        else
-          flash[:error] = 'Please fill in all information below'
-        end
-        redirect_to type_order_services_url and return
-      end
+    order = Order.find(session[:cart]["order_id"])
+    order.status_id = Order.pending_payment
+    if order.validate? && order.save!
+      # CustomerMailer.order_email(order).deliver_now
+      initialize_cart
+      flash[:success] = 'Thank you for your order'
+      redirect_to thanks_order_services_url and return
     else
-      flash[:error] = 'Please login first'
-      redirect_to login_accounts_url and return
+      if order.past_date?
+        flash[:error] = "Please select a date today or sometime in the future"
+      else
+        flash[:error] = 'Please fill in all information below'
+      end
+      redirect_to type_order_services_url and return
     end
   end
   

@@ -107,6 +107,7 @@ Rails.application.routes.draw do
         post 'cancel/:id', on: :collection, action: 'cancel', as: 'cancel'
         post 'revert/:id', on: :collection, action: 'revert', as: 'revert'
         post 'process/:id', on: :collection, action: 'do_process', as: 'process'
+        post 'send_payment_request/:id', on: :collection, action: 'do_send_payment_request', as: 'send_payment_request'
         
         # get ':id/:status', on: :collection, only: [:open, :pending_payment, :pending_work, 
         #                                             :processing, :processed, :cancelled]

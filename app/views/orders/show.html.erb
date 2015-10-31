@@ -2,12 +2,17 @@
 
 <div class="form-horizontal">
   <div class="row">
-  	<div class="col-md-10">
+    <div class="col-md-offset-8 col-md-4">
+      <%= link_to 'View Customer', edit_admin_store_customer_url(id: @order.customer.id), class: "btn btn-primary" %>
+      <%= link_to 'Edit Order', edit_admin_store_order_url, class: "btn btn-warning" %>
+    </div>
+    
+  	<!--div class="col-md-10">
       <%= link_to 'View Customer', edit_admin_store_customer_url(id: @order.customer.id), class: "btn btn-primary pull-right" %>
     </div>
     <div class="col-md-2">
       <%= link_to 'Edit Order', edit_admin_store_order_url, class: "btn btn-warning" %>
-    </div>
+    </div-->
   </div>
 
   <!-- BEGIN PAGE CONTENT-->

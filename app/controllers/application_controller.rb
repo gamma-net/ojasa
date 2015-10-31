@@ -59,6 +59,12 @@ class ApplicationController < ActionController::Base
     end
     helper_method :customer
     
+    def validate_login
+      return true if logged_in?
+      flash[:error] = 'Please login first'
+      redirect_to login_accounts_url and return false
+    end
+    
     def validate_admin_permission
       return false unless admin_logged_in?
       paths = request.path.split('/')[1..-1]

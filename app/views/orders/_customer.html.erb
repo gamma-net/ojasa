@@ -1,39 +1,36 @@
 <div class="form-body">
 	<div class="form-group form-md-line-input">
-		<label class="col-md-2 control-label" for="form_control_1">Customer ID</label>
-		<div class="col-md-10">
+		<label class="col-md-3 control-label" for="form_control_1">Customer ID</label>
+		<div class="col-md-9">
       <%= text_field_tag 'customer[id]', @order.customer.id, class: "form-control", placeholder: 'Enter Customer ID', id: 'form_control_1', readonly: true %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
 	<div class="form-group form-md-line-input">
-		<label class="col-md-2 control-label" for="form_control_1">Email</label>
-		<div class="col-md-10">
+		<label class="col-md-3 control-label" for="form_control_1">Email</label>
+		<div class="col-md-9">
       <%= text_field_tag 'customer[email]', @order.customer.email, class: "form-control", placeholder: 'Enter Email', id: 'form_control_1', readonly: true %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
 	<div class="form-group form-md-line-input">
-		<label class="col-md-2 control-label" for="form_control_1">Full Name</label>
-		<div class="col-md-10">
+		<label class="col-md-3 control-label" for="form_control_1">Full Name</label>
+		<div class="col-md-9">
       <%= text_field_tag 'customer[full_name]', @order.customer.full_name, class: "form-control", placeholder: 'Enter Full Name', id: 'form_control_1', readonly: true %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
 	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:address].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Address</label>
-		<div class="col-md-10">
-      <%= text_area_tag "order[address]", @order.address, class: "form-control#{' error' unless @order.errors[:address].blank?}", placeholder: 'Enter Address', id: 'form_control_1', readonly: 'readonly' %>
+		<label class="col-md-3 control-label" for="form_control_1">Address</label>
+		<div class="col-md-9">
+      <%= text_area_tag "order[address]", @order.customer.address, class: "form-control#{' error' unless @order.errors[:address].blank?}", placeholder: 'Enter Address', id: 'form_control_1', readonly: 'readonly' %>
       <div class="form-control-focus"></div>
-      <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-  		<div id="map" style="height:400px;"></div>
 		</div>
 	</div>
-	<!-- Google Map -->
 	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:detail].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Address Details</label>
-		<div class="col-md-10">
-      <%= text_field_tag "order[detail]", @order.detail, class: "form-control#{' error' unless @order.errors[:detail].blank?}", placeholder: 'Enter Address Details', id: 'form_control_1', readonly: 'readonly' %>
+		<label class="col-md-3 control-label" for="form_control_1">Address Details</label>
+		<div class="col-md-9">
+      <%= text_field_tag "order[detail]", @order.customer.addressdetail, class: "form-control#{' error' unless @order.errors[:detail].blank?}", placeholder: 'Enter Address Details', id: 'form_control_1', readonly: 'readonly' %>
       <div class="form-control-focus"></div>
 		</div>
 	</div>

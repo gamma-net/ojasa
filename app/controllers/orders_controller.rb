@@ -16,9 +16,7 @@ class OrdersController < ApplicationController
   def update    
     @order = Order.find(params[:id])
     if @order.update_attributes(order_params) && 
-      @order.shipping_address.update_attributes(shipping_address_params) &&
-      @order.billing_address.update_attributes(billing_address_params) &&
-      @order.update_items(order_item_params)
+      # @order.update_items(order_item_params)
       @order.calculate!
       flash[:success] = 'Order Update success!'
       redirect_to edit_admin_store_order_url and return
@@ -79,6 +77,13 @@ class OrdersController < ApplicationController
   def cancelled
     index(Order.cancelled)
     render 'index'
+  end
+  
+  def do_send_payment_request
+    order = Order.find(params[:id])
+    CustomerMailer.order_email(order).deliver_now
+    flash[:success] = 'Order Payment Request has been sent successfully!'
+    redirect_to edit_admin_store_order_url
   end
   
   

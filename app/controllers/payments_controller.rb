@@ -1,6 +1,8 @@
 class PaymentsController < ApplicationController
   layout 'order_services'
 
+  before_filter :validate_login
+
   def index
     @order = Order.where(id: params[:order_id], customer_id: session[:customer]['id'], status_id: Order.pending_payment).first
     unless @order
