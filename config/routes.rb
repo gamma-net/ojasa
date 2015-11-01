@@ -181,12 +181,11 @@ Rails.application.routes.draw do
 
   get 'services/:service_type', controller: 'order_services', as: 'action_services', action: 'service'
 
-
-  get 'payments/:order_id', controller: 'payments', as: 'payments', action: 'index'
   get 'payments/thanks', controller: 'payments', as: 'thanks_payments', action: 'thanks'
-  get 'payments/:action', controller: 'payments', as: 'action_payments'
   post 'payments/process', controller: 'payments', as: 'process_payments', action: 'process_payment'
-  
+  post 'payments/receive_webhook', controller: 'payments', as: 'receive_webhook_payments', action: 'receive_webhook'
+  get 'payments/:order_id', controller: 'payments', as: 'payments', action: 'index'
+  get 'payments/:action', controller: 'payments', as: 'action_payments'
   
   # get ':controller/:action' #/:id', id: nil, format: nil
   

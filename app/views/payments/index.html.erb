@@ -4,13 +4,20 @@
 
     <div class="content-wrap">
 
-        <%= form_tag process_payments_url, method: :post, class: "bottommargin", name: 'template-contactform', id: 'template-contactform', novalidate: 'novalidate' do %>
-
+        <%= form_for @payment, url: process_payments_url, method: :post, html: {class: "veritrans-payment-form"} do |f| %>
+        
+        <%= hidden_field_tag "order_id", @order.id %>
+        <%= f.hidden_field :token_id %>
+        <input type="submit" style="display: none">
+        <%= f.hidden_field :amount %>
+        
         <div class="container clearfix">
 
             <div class="heading-block center nobottomborder">
                 <h1>PAYMENT</h1>
             </div>
+            
+            <%= render partial: 'layouts/messages' %>
 
             <div class="panel panel-default">
                 <div id="billing-detail" class="panel-body" style="padding: 40px;">
@@ -77,17 +84,21 @@
 
                                                     <div class="col_full">
                                                         <label for="name-credit-card">Credit Card Name</label>
-                                                        <input type="text" id="name-credit-card" name="name-credit-card" value="" class="sm-form-control required" aria-required="true">
+                                                        <!--input type="text" id="name-credit-card" name="name-credit-card" value="" class="sm-form-control required" aria-required="true"-->
+                                                        <%= text_field_tag 'order[card_name]', nil, 'aria-required' => 'true', class: "sm-form-control required", id: "name-credit-card" %>
                                                     </div>
 
                                                     <div class="col_half">
                                                         <label for="no-credit-card">Credit Card Number</label>
-                                                        <input type="text" id="no-credit-card" name="no-credit-card" value="" class="required email sm-form-control" aria-required="true">
+                                                        <%= text_field_tag :credit_card_number, nil, 'aria-required' => 'true', class: "required email sm-form-control" %>
+                                                        
+                                                        <!--input type="text" id="no-credit-card" name="no-credit-card" value="" class="required email sm-form-control" aria-required="true"-->
                                                     </div>
 
                                                     <div class="col_half col_last">
                                                         <label for="cvv-credit-card" style="text-indent: -999px;">CVV</label>
-                                                        <input type="text" id="cvv-credit-card" name="cvv-credit-card" value="" class="sm-form-control" placeholder="CVV/CVC">
+                                                        <%= text_field_tag :credit_card_cvv, nil, placeholder: "CVV/CVC", class: "sm-form-control" %>
+                                                        <!--input type="text" id="cvv-credit-card" name="cvv-credit-card" value="" class="sm-form-control" placeholder="CVV/CVC"-->
                                                     </div>
 
                                                     <div class="clear"></div>
@@ -95,7 +106,7 @@
 
                                                     <label>Credit Card Expiration Date</label>
                                                     <div class="col_half">
-                                                        <select id="month-credit-card" name="month-credit-card" class="sm-form-control">
+                                                        <select id="credit_card_expire_month" name="credit_card_expire_month" class="sm-form-control">
                                                             <option value="">Month</option>
                                                             <option value="01">01</option>
                                                             <option value="02">02</option>
@@ -113,7 +124,7 @@
                                                     </div>
 
                                                     <div class="col_half col_last">
-                                                        <select id="year-credit-card" name="year-credit-card" class="sm-form-control">
+                                                        <select id="credit_card_expire_year" name="credit_card_expire_year" class="sm-form-control">
                                                             <option value="">Year</option>
                                                             <option value="15">2015</option>
                                                             <option value="16">2016</option>
@@ -244,12 +255,13 @@
                     
                 </div>
             </div>                  
-            <div class="col-md-8 col-md-offset-2 topmargin">
-                <button class="button button-3d button-large button-aqua btn-block nomargin" id="checkout-form-submit" name="checkout-form-submit" value="checkout">CHECKOUT</button>
+            <div class="col-md-8 col-md-offset-2 topmargin">              
+                <button type="submit" name="commit" class="button button-3d button-large button-aqua btn-block nomargin" id="payment_submit" value="checkout">CHECKOUT</button>
             </div>
         </div>
       <% end %>
-
+      
+      <%= render "veritrans_include" %>      
     </div>
 
 </section><!-- #content end -->
