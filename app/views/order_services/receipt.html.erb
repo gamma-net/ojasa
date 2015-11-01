@@ -1,0 +1,129 @@
+<!-- Content
+============================================= -->
+<section id="content" class="section-payment">
+
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+
+            <div class="heading-block center nobottomborder">
+                <h1>Order <%= @order.id %></h1>
+            </div>
+
+            <div class="panel panel-default">
+                <div id="billing-detail" class="panel-body" style="padding: 40px;">
+                  
+                    <div class="col-md-8 col-sm-6 col-xs-6">
+                        <h3>Customer Details</h3>
+                    </div>
+
+                    <!--div class="col-md-4 col-sm-6 col-xs-6">
+                        <a href="#" class="button button-small button-dark button-rounded fright"><i class="icon-edit"></i>Edit</a>
+                    </div-->
+
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-12">
+                        <ul>
+                            <li><%= @order.full_name %></li>
+                            <li><%= @order.full_address %></li>
+                            <li>Jakarta</li>
+                            <li>Indonesia</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div> 
+
+            <div class="panel panel-default nobottommargin">
+                <div id="review-order" class="panel-body" style="padding: 40px;">
+                  
+                    <div class="col-md-12">
+                        <div class="fancy-title title-bottom-border">
+                            <h3>Order</h3>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                          <table class="table" cellspacing="0" cellpadding="0">
+                            <tbody>
+                              <tr>
+                                <td style="width: 17%;">Service</td>
+                                <td style="width: 3%;">:</td>
+                                <td><%= @order.category_name %></td>
+                              </tr>
+                              <tr>
+                                <td>Status</td>
+                                <td>:</td>
+                                <td><%= @order.status %></td>
+                              </tr>
+                              <tr>
+                                <td>Date</td>
+                                <td>:</td>
+                                <td><%= @order.requested_date %></td>
+                              </tr>
+                              <tr>
+                                <td>Time</td>
+                                <td>:</td>
+                                <td><%= @order.requested_time %> WIB</td>
+                              </tr>
+                              <tr>
+                                <td>Price</td>
+                                <td>:</td>
+                                <td><%= @order.pricing_desc %></td>
+                              </tr>
+                              <tr>
+                                <td>Name</td>
+                                <td>:</td>
+                                <td><%= @order.full_name %></td>
+                              </tr>
+                                <td>Address</td>
+                                <td>:</td>
+                                <td><%= @order.address %></td>
+                              </tr>
+                              <tr>
+                                <td>Address details</td>
+                                <td>:</td>
+                                <td><%= @order.detail %></td>
+                              </tr>
+                              <tr>
+                                <td>City</td>
+                                <td>:</td>
+                                <td><%= service_regions[@order.location] %></td>
+                              </tr>
+                              <!--tr>
+                                <td>Post code</td>
+                                <td>:</td>
+                                <td>12790</td>
+                              </tr-->
+                              <tr>
+                                <td>Telephone Num.</td>
+                                <td>:</td>
+                                <td><%= @order.phone %></td>
+                              </tr>
+                              <tr>
+                                <td>Email</td>
+                                <td>:</td>
+                                <td><%= @order.email %></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="totalpayment">
+                            <div class="col_half nobottommargin"><span>Total</span></div>
+                            <div class="col_half col_last paymentvalue nobottommargin">
+                                <%= money_value(@order.calculate_total) %>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>                  
+        </div>
+
+    </div>
+
+</section><!-- #content end -->

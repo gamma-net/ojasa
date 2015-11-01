@@ -51,6 +51,15 @@ class OrderServicesController < ApplicationController
     end
   end
   
+  def receipt
+    @order = Order.where(id: params[:order_id], customer_id: session[:customer]['id']).first
+    unless @order
+      flash[:error] = 'We are sorry, we cannot find your order at the moment'
+      redirect_to order_services_url and return
+    end
+    redirect_to payments_url(order_id: @order.id) and return if @order.pending_payment?
+  end
+  
   def ac_service
     url_params = if (category = Category.find_tag_name('ac_service'))
                   {:category_id => category.id}
