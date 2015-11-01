@@ -96,7 +96,7 @@ class Order < ActiveRecord::Base
     self.discount = items.inject(0) {|discount, i| discount += (i.discount * i.quantity)}
   end
   
-  def category_name;  category.name;  end
+  def category_name;  category ? category.name : '';  end
   
   def pricing_desc
     category.pricing_desc(subtotal.round)
