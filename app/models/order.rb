@@ -74,8 +74,8 @@ class Order < ActiveRecord::Base
     hour = time.first.to_i
     minute = time.last.to_i
     
-    if (hour < (time_now.hour + 2)); return true 
-    elsif (hour == (time_now.hour + 2)) && (minute < Time.now.min); return true
+    if (hour < (time_now.hour + 1)); return true # Singapore Time
+    elsif (hour == (time_now.hour + 1)) && (minute < Time.now.min); return true # Singapore Time
     else; return false
     end
   end
