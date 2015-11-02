@@ -21,7 +21,7 @@ Rails.application.config.assets.precompile += %w( scripts/todo.js layout/scripts
 
 Rails.application.config.assets.precompile += %w( images/logo.png images/logo@2x.png images/services_lock.jpg images/services_homeimprovement.jpg )
 
-Rails.application.config.assets.precompile += %w( images/services_1.jpg images/services_2.jpg images/services_3.jpg images/services_4.jpg images/services_5.jpg images/services_6.jpg images/services_beauty.jpg images/bghome.jpg )
+Rails.application.config.assets.precompile += %w( images/services_1.jpg images/services_2.jpg images/services_3.jpg images/services_4.jpg images/services_5.jpg images/services_6.jpg images/services_beauty.jpg images/bghome.jpg images/bg-ac-service.jpg images/bg-beauty.jpg images/bg-car-wash.jpg images/bg-gardening.jpg images/bg-massage.jpg images/bg-waxing.jpg)
 Rails.application.config.assets.precompile += %w( images/cc.png images/banktransfer.png images/bglogin.jpg )
 Rails.application.config.assets.precompile += %w( layout/img/loading.gif layout/img/avatar.png layout/img/avatar1.jpg layout/img/avatar2.jpg layout/img/avatar3.jpg )
 
