@@ -1,24 +1,5 @@
 module OrderServicesHelper
   def services_options_html
-    #     str = <<-EOF
-    #     <option value="" selected>Services</option>
-    # <optgroup label="Picnic">
-    # <option>Mustard</option>
-    # <option>Ketchup</option>
-    # <option>Relish</option>
-    # <optgroup label="Picnic" class="sub-menu">
-    # <option style="margin-left:23px;">Mustard</option>
-    # <option style="margin-left:23px;">Ketchup</option>
-    # <option style="margin-left:23px;">Relish</option>
-    # </optgroup>
-    # </optgroup>
-    # <optgroup label="Camping">
-    # <option>Tent</option>
-    # <option>Flashlight</option>
-    # <option>Toilet Paper</option>
-    # </optgroup>
-    #     EOF
-	  
 	  str = '<option value="" selected>Services</option>'
 	  Category.where("parent_category_id IS NULL").active.each do |p_category|
 	    str << child_services_options(p_category)
@@ -60,16 +41,6 @@ module OrderServicesHelper
             'sabtu' => 'Sabtu',
             'minggu' => 'Minggu'}
 
-    # str = ''
-    # days.each do |key, value|
-    #   str << '<option value="'
-    #   str << key
-    #   str << '">'
-    #   str << value
-    #   str << '</option>'
-    # end
-    # 
-    # raw(str)
     array = []
     days.each {|key, value| array << [value, key]}
     array
@@ -91,6 +62,18 @@ module OrderServicesHelper
     str = "" #dusting . sweep . vacum and mop<br>room tidying . dish washing . toilet sanitizing"
     
     raw(str)
+  end
+  
+  def service_background_image
+    image = 'bghome'
+    # if !params[:category_id].blank? && !params[:category_id].to_i.zero? && (category = Category.find(params[:category_id]))
+    #   image = case category.tag_name
+    #         when ''
+    # end
+    
+    images = ['bghome', 'bg-ac-service', 'bg-beauty', 'bg-car-wash', 'bg-gardening', 'bg-massage', 'bg-waxing']
+    
+    asset_path "images/#{image}.jpg"
   end
   
   def service_category_id
@@ -138,6 +121,12 @@ module OrderServicesHelper
   
   def service_requested_at_time
     raw('&nbsp;')
+  end
+  
+  def randomize_background_image
+    images = ['bghome', 'bg-ac-service', 'bg-beauty', 'bg-car-wash', 'bg-gardening', 'bg-massage', 'bg-waxing']
+    image = images[rand(images.size)]
+    asset_path "images/#{image}.jpg"
   end
   
   protected

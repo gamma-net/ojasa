@@ -20,17 +20,17 @@
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:address].blank? %>">
+	<div class="form-group form-md-line-input<%' has-error' unless @order.customer.errors[:address].blank? %>">
 		<label class="col-md-3 control-label" for="form_control_1">Address</label>
 		<div class="col-md-9">
-      <%= text_area_tag "order[address]", @order.customer.address, class: "form-control#{' error' unless @order.errors[:address].blank?}", placeholder: 'Enter Address', id: 'form_control_1', readonly: 'readonly' %>
+      <%= text_area_tag "customer[address]", @order.customer.address, class: "form-control#{' error' unless @order.customer.errors[:address].blank?}", placeholder: 'Enter Address', id: 'form_control_1', readonly: 'readonly' %>
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:detail].blank? %>">
+	<div class="form-group form-md-line-input<%' has-error' unless @order.customer.errors[:addressdetail].blank? %>">
 		<label class="col-md-3 control-label" for="form_control_1">Address Details</label>
 		<div class="col-md-9">
-      <%= text_field_tag "order[detail]", @order.customer.addressdetail, class: "form-control#{' error' unless @order.errors[:detail].blank?}", placeholder: 'Enter Address Details', id: 'form_control_1', readonly: 'readonly' %>
+      <%= text_field_tag "customer[addressdetail]", @order.customer.addressdetail, class: "form-control#{' error' unless @order.customer.errors[:addressdetail].blank?}", placeholder: 'Enter Address Details', id: 'form_control_1', readonly: 'readonly' %>
       <div class="form-control-focus"></div>
 		</div>
 	</div>

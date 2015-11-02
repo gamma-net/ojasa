@@ -9,12 +9,12 @@ class OrderServicesController < ApplicationController
       error_msg_array << 'Service' if params[:category_id].blank?
       error_msg_array << 'Location' if params[:location].blank? 
       flash[:error] = error_message + error_msg_array.join(' and ')
-      redirect_to :back and return
+      redirect_to order_services_url and return
     end
     
     unless Service.find_by_location_and_service(params[:location], params[:category_id])
       flash[:error] = "We are sorry, we don't have anyone available at the time"
-      redirect_to :back and return
+      redirect_to order_services_url and return
     end
   end
   
@@ -29,7 +29,7 @@ class OrderServicesController < ApplicationController
       else
         flash[:error] = 'Please fill in all information below'
       end
-      redirect_to type_order_services_url and return
+      redirect_to type_order_services_url(location: cart["location"], category_id: cart["category_id"]) and return
     end
   end
   
@@ -47,7 +47,7 @@ class OrderServicesController < ApplicationController
       else
         flash[:error] = 'Please fill in all information below'
       end
-      redirect_to type_order_services_url and return
+      redirect_to type_order_services_url(location: cart["location"], category_id: cart["category_id"]) and return
     end
   end
   

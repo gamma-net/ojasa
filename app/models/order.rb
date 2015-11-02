@@ -15,7 +15,7 @@ class Order < ActiveRecord::Base
               5 => 'Processed',
               0 => 'Cancelled'}.freeze
 
-  delegate :email, :full_name, :phone, :full_address, :address, :addressdetail, to: :customer
+  delegate :email, :full_name, :phone, :full_address, :customer_address, :addressdetail, to: :customer
   
   attr_accessor :freeze_discount
   
@@ -64,7 +64,20 @@ class Order < ActiveRecord::Base
   end
   
   def past_date?
-     !requested_date.nil? && (requested_date < Date.today)
+     !requested_date.nil? && ((requested_date < Date.today) || ((requested_date == Date.today) && past_time?))
+  end
+  
+  def past_time?
+    return false if requested_time.nil? 
+    time_now = Time.now
+    time = requested_time.split('.')
+    hour = time.first.to_i
+    minute = time.last.to_i
+    
+    if (hour < (time_now.hour + 2)); return true 
+    elsif (hour == (time_now.hour + 2)) && (minute < Time.now.min); return true
+    else; return false
+    end
   end
   
   def update_items(order_items)

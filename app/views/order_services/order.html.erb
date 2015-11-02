@@ -1,4 +1,4 @@
-<section id="slider" class="slider-parallax full-screen" style="background: url(<%= asset_path 'images/bghome.jpg' %>) center bottom; background-size:cover;">
+<section id="slider" class="slider-parallax full-screen" style="background: url(<%= service_background_image %>) center bottom; background-size:cover;">
 
      <div class="container clearfix">
        
@@ -7,7 +7,7 @@
 
              <div class="heading-block center nobottomborder">
                  <h1 data-animate="fadeInUp" class="oj-title"><%= service_name %></h1>
-                 <span data-animate="fadeInUp" data-delay="300" class="fadeInUp animated oj-title"><%= service_description %></span>
+                 <!--span data-animate="fadeInUp" data-delay="300" class="fadeInUp animated oj-title"><%= service_description %></span-->
              </div>
 
              <%= render partial: 'layouts/messages' %>
@@ -22,7 +22,6 @@
                      <div class="col_full">
                          <input name="order[detail]" class="controls form-control placeholder-no-fix required input-lg not-dark" type="text" placeholder="address details (house nr, floor, landmark)" id="cleaning-form-address" value="<%= cart["detail"] %>">
                      </div>
-                     
                      <div class="col_half">
                         <%= text_field_tag "order[requested_date]", cart["requested_date"], class: "datepicker input-lg sm-form-control", size: 16, placeholder: 'choose date', id: "cleaning-form-date", style: "padding: 10px 14px;" %>
                      </div>      

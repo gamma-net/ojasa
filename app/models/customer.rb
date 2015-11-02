@@ -35,4 +35,5 @@ class Customer < ActiveRecord::Base
   end
   
   def full_address; "#{address} #{addressdetail}"; end
+  def customer_address; address; end
 end
