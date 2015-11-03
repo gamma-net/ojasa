@@ -15,6 +15,8 @@ class Order < ActiveRecord::Base
               5 => 'Processed',
               0 => 'Cancelled'}.freeze
 
+  TIME_INTERVAL = (ENV['RAILS_ENV'] == 'production' ? 1 : 2)
+  
   delegate :email, :full_name, :phone, :full_address, :customer_address, :addressdetail, to: :customer
   
   attr_accessor :freeze_discount
@@ -74,8 +76,8 @@ class Order < ActiveRecord::Base
     hour = time.first.to_i
     minute = time.last.to_i
     
-    if (hour < (time_now.hour + 1)); return true # Singapore Time
-    elsif (hour == (time_now.hour + 1)) && (minute < Time.now.min); return true # Singapore Time
+    if (hour < (time_now.hour + TIME_INTERVAL)); return true # Singapore Time
+    elsif (hour == (time_now.hour + TIME_INTERVAL)) && (minute < Time.now.min); return true # Singapore Time
     else; return false
     end
   end

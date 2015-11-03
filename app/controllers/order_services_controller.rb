@@ -9,12 +9,12 @@ class OrderServicesController < ApplicationController
       error_msg_array << 'Service' if params[:category_id].blank?
       error_msg_array << 'Location' if params[:location].blank? 
       flash[:error] = error_message + error_msg_array.join(' and ')
-      redirect_to order_services_url and return
+      redirect_to :back and return
     end
     
     unless Service.find_by_location_and_service(params[:location], params[:category_id])
       flash[:error] = "We are sorry, we don't have anyone available at the time"
-      redirect_to order_services_url and return
+      redirect_to :back and return
     end
   end
   
@@ -43,7 +43,7 @@ class OrderServicesController < ApplicationController
       redirect_to thanks_order_services_url and return
     else
       if order.past_date?
-        flash[:error] = "Please select a date today or sometime in the future"
+        flash[:error] = "Please select a time at least 2 hours in the future"
       else
         flash[:error] = 'Please fill in all information below'
       end

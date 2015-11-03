@@ -65,15 +65,22 @@ module OrderServicesHelper
   end
   
   def service_background_image
-    image = 'bghome'
-    # if !params[:category_id].blank? && !params[:category_id].to_i.zero? && (category = Category.find(params[:category_id]))
-    #   image = case category.tag_name
-    #         when ''
-    # end
+    if !params[:category_id].blank? && !params[:category_id].to_i.zero? && (category = Category.find(params[:category_id]))
+      parent_category = category.parent_category
+      parent_tag_name = (parent_category ? parent_category.tag_name : category.tag_name)
+      image = if parent_tag_name.include?('ac_service'); 'bg-ac-service'
+            elsif parent_tag_name.include?('beauty'); 
+              if category.tag_name.include?('waxing'); 'bg-waxing'
+              else; 'bg-beauty'
+              end
+            elsif parent_tag_name.include?('auto'); 'bg-car-wash'
+            elsif parent_tag_name.include?('home'); 'bg-gardening'
+            elsif parent_tag_name.include?('massage'); 'bg-massage'
+            end
+    end
     
     images = ['bghome', 'bg-ac-service', 'bg-beauty', 'bg-car-wash', 'bg-gardening', 'bg-massage', 'bg-waxing']
-    
-    asset_path "images/#{image}.jpg"
+    asset_path "images/#{image || images[rand(images.size)]}.jpg"
   end
   
   def service_category_id

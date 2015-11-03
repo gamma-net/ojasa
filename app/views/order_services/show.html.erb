@@ -4,11 +4,11 @@
         
         <div class="vertical-middle">
 
-          <%= render partial: 'layouts/messages' %>
-
             <div class="heading-block center nobottomborder">
                 <h1 data-animate="fadeInUp">On-Demand Services</h1>
             </div>
+
+            <%= render partial: 'layouts/messages' %>
 
             <%= form_tag type_order_services_url, method: :get, class: "landing-wide-form clearfix" do %>
                 <div class="col_four_fifth nobottommargin">
