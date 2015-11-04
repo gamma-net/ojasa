@@ -12,7 +12,7 @@
     <div class="form-group form-md-line-input<%' has-error' unless @order.errors[:service_id].blank? %>">
   		<label class="col-md-3 control-label" for="form_control_1">Service By</label>
   		<div class="col-md-9">
-        <%= select_tag "order[service_id]", options_for_select(service_options(@order.category_id), @order.service_id), {class: "form-control input-xlarge select2me#{' error' unless @order.errors[:service_id].blank?}", "data-placeholder" => "Select Service...", readonly: readonly} %>
+        <%= select_tag "order[service_id]", options_for_select(service_options(@order.category_id, @order.location), @order.service_id), {class: "form-control input-xlarge select2me#{' error' unless @order.errors[:service_id].blank?}", "data-placeholder" => "Select Service...", readonly: readonly} %>
         <div class="form-control-focus"></div>
   		</div>
   	</div>
