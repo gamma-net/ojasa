@@ -11,8 +11,8 @@ $(document).ready(function () {
       card_cvv: $('#credit_card_cvv').val(),
       card_exp_month: $('#credit_card_expire_month').val(), //.match(/(\d+) \//)[1],
       card_exp_year: '20' + $('#credit_card_expire_year').val(), //.match(/\/ (\d+)/)[1],
-      gross_amount: $('#payment_amount').val()//,
-      // secure: $('#payment_credit_card_secure')[0].checked
+      gross_amount: $('#payment_amount').val(),
+      secure: true //$('#payment_credit_card_secure')[0].checked
     };
   }
 
