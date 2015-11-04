@@ -8,9 +8,8 @@
 
   <!-- Stylesheets
   ============================================= -->  
-  <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-  
-  <%= stylesheet_link_tag 'css/bootstrap.css', 'style.css', 'css/dark.css', 'css/font-icons.css', 'css/animate.css', 'css/magnific-popup.css', 'css/responsive.css', 'css/datepicker.css' %>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <%= stylesheet_link_tag 'fancybox/jquery.fancybox.css', 'css/font-googleapis.css', 'css/bootstrap.css', 'style.css', 'css/dark.css', 'css/font-icons.css', 'css/animate.css', 'css/magnific-popup.css', 'css/responsive.css', 'css/datepicker.css' %>
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   
@@ -22,7 +21,7 @@
   ============================================= -->
   
   <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag 'js/plugins.js', 'js/bootstrap-datepicker.js' %>
+  <%= javascript_include_tag 'fancybox/jquery.fancybox.pack.js', 'js/plugins.js', 'js/bootstrap-datepicker.js' %>
   <!-- Document Title
   ============================================= -->
 	<title>OJASA</title>
@@ -131,7 +130,10 @@
        $('.datepicker').datepicker().on('changeDate', function(e){
          (e.viewMode=='days') ? $(this).datepicker('hide') : '';
          });
-     </script>
 
+       $(document).ready(function() {
+           $('.fancybox').fancybox();
+       });
+   </script>
 </body>
 </html>

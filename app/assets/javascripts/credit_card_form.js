@@ -37,15 +37,51 @@ $(document).ready(function () {
       if (data.redirect_url) {
         // it works nice with lightbox js libraries
         $('#3d-secure-iframe').attr('src', data.redirect_url).show();
+        console.log('Open Dialog 3Dsecure');
+        openDialog(data.redirect_url);
+        
       // if no redirect_url and we have token_id then just make charge request
       } else if (data.token_id) {
+        // success 3d secure or success normal
+        //close 3d secure dialog if any
+        closeDialog();
+
+        // store token data in input #token_id and then submit form to merchant server
         $('#payment_token_id').val(data.token_id);
         form.submit();
+                      
       // if no redirect_url and no token_id, then it should be error
       } else {
-        alert(data.validation_messages ? data.validation_messages.join("\n") : data.status_message);
+        // failed request token
+        //close 3d secure dialog if any
+        closeDialog();
+        
+        // Show status message.
+        // alert(data.validation_messages ? data.validation_messages.join("\n") : data.status_message);
         button.removeAttr('disabled').val(buttonValBefore);
+
+        $('#message').text(data.status_message);
+        console.log(JSON.stringify(data));        
+        
       }
     });
   });
+  
+  // Open 3DSecure dialog box
+   function openDialog(url) {
+     $.fancybox.open({
+           href: url,
+           type: 'iframe',
+           autoSize: false,
+           width: 400,
+           height: 420,
+           closeBtn: false,
+           modal: true
+       });
+   }
+
+   // Close 3DSecure dialog box
+   function closeDialog() {
+     $.fancybox.close();
+   }
 });
