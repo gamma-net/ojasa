@@ -19,8 +19,9 @@ Rails.application.config.assets.precompile += %w( bower_components/jquery/dist/j
 Rails.application.config.assets.precompile += %w( scripts/components-pickers.js scripts/components-form-tools2.js layout/scripts/layout.js layout/scripts/demo.js scripts/login.js scripts/contact-us.js )
 Rails.application.config.assets.precompile += %w( scripts/todo.js layout/scripts/quick-sidebar.js scripts/inbox.js scripts/lock.js scripts/profile.js scripts/form-fileupload.js )
 
-Rails.application.config.assets.precompile += %w( images/logo.png images/logo@2x.png images/services_lock.jpg images/services_homeimprovement.jpg )
+Rails.application.config.assets.precompile += %w( images/logo.png images/logo@2x.png  )
 
+Rails.application.config.assets.precompile += %w( images/henna.jpg images/makeuphijab.jpg images/waxing.jpg images/makeuphairdo.jpg images/pestcontrol.jpg images/poolmaintenance.jpg images/services_cleaning.jpg images/services_lock.jpg images/services_homeimprovement.jpg )
 Rails.application.config.assets.precompile += %w( images/services_1.jpg images/services_2.jpg images/services_3.jpg images/services_4.jpg images/services_5.jpg images/services_6.jpg images/services_beauty.jpg images/bghome.jpg images/bg-ac-service.jpg images/bg-beauty.jpg images/bg-car-wash.jpg images/bg-gardening.jpg images/bg-massage.jpg images/bg-waxing.jpg)
 Rails.application.config.assets.precompile += %w( images/cc.png images/banktransfer.png images/bglogin.jpg )
 Rails.application.config.assets.precompile += %w( layout/img/loading.gif layout/img/avatar.png layout/img/avatar1.jpg layout/img/avatar2.jpg layout/img/avatar3.jpg )
