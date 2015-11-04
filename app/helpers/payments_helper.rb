@@ -23,6 +23,10 @@ module PaymentsHelper
     customer["addressdetail"]
   end
   
+  def order_id
+    cart["order_id"]
+  end
+  
   def order_address
     cart["address"]
   end

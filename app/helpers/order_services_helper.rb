@@ -68,15 +68,18 @@ module OrderServicesHelper
     if !params[:category_id].blank? && !params[:category_id].to_i.zero? && (category = Category.find(params[:category_id]))
       parent_category = category.parent_category
       parent_tag_name = (parent_category ? parent_category.tag_name : category.tag_name)
-      image = if parent_tag_name.include?('ac_service'); 'bg-ac-service'
-            elsif parent_tag_name.include?('beauty'); 
-              if category.tag_name.include?('waxing'); 'bg-waxing'
-              else; 'bg-beauty'
+      image = if parent_tag_name.include?('cleaning'); 'bghome'
+              elsif parent_tag_name.include?('beauty')
+                if category.tag_name.include?('waxing'); 'bg-waxing'
+                else; 'bg-beauty'
+                end
+              elsif parent_tag_name.include?('auto'); 'bg-car-wash'
+              elsif parent_tag_name.include?('home')
+                if category.tag_name.include?('ac_service'); 'bg-ac-service'
+                else; 'bg-gardening'
+                end
+              elsif parent_tag_name.include?('massage'); 'bg-massage'
               end
-            elsif parent_tag_name.include?('auto'); 'bg-car-wash'
-            elsif parent_tag_name.include?('home'); 'bg-gardening'
-            elsif parent_tag_name.include?('massage'); 'bg-massage'
-            end
     end
     
     images = ['bghome', 'bg-ac-service', 'bg-beauty', 'bg-car-wash', 'bg-gardening', 'bg-massage', 'bg-waxing']
@@ -117,7 +120,7 @@ module OrderServicesHelper
   
   def service_requested_time_options
     array = [['Choose Time','']]
-    0.upto(23) do |hour|
+    8.upto(17) do |hour|
       hour_str = (hour < 10 ? '0' : '')
       hour_str << (hour.to_s + '.00')
       array << [hour_str, hour_str]
