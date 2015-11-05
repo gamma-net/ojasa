@@ -55,7 +55,7 @@ class Category < ActiveRecord::Base
         {:value => '125000', :desc => 'Reflexiology                     - 90 minutes Rp 125.000,-'},
         {:value => '200000', :desc => 'Traditional Massage & Ear Candle - 120 minutes Rp 200.000,-'}
       ]
-    elsif tag_name.include?('auto_care')
+    elsif tag_name.include?('auto_polish')
       [
         {:value => '500000', :desc => 'Car Salon: Standard  - Rp 500.000,-'}#,
         # {:value => '1000000', :desc => 'Car Salon: Full    - Rp 1.000.000,-'},
