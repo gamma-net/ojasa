@@ -68,6 +68,7 @@ module OrderServicesHelper
     if !params[:category_id].blank? && !params[:category_id].to_i.zero? && (category = Category.find(params[:category_id]))
       parent_category = category.parent_category
       parent_tag_name = (parent_category ? parent_category.tag_name : category.tag_name)
+ 
       image = if parent_tag_name.include?('cleaning'); 'bghome'
               elsif parent_tag_name.include?('beauty')
                 if category.tag_name.include?('waxing'); 'bg-waxing'
@@ -76,13 +77,22 @@ module OrderServicesHelper
               elsif parent_tag_name.include?('auto'); 'bg-car-wash'
               elsif parent_tag_name.include?('home')
                 if category.tag_name.include?('ac_service'); 'bg-ac-service'
+                elsif category.tag_name.include?('pool'); 'bg-pool-maintenance'
+                elsif category.tag_name.include?('pest'); 'bg-pest-control'
+                elsif category.tag_name.include?('garden'); 'bg-gardening'
                 else; 'bg-gardening'
                 end
+              elsif parent_tag_name.include?('health')
+                if category.tag_name.include?('yoga'); 'bg-yoga'
+                else; 'bg-yoga'
+                end
+              elsif parent_tag_name.include?('pet'); 'bg-pet-groom'
               elsif parent_tag_name.include?('massage'); 'bg-massage'
+              elsif parent_tag_name.include?('locksmith'); 'bg-locksmith'
               end
     end
     
-    images = ['bghome', 'bg-ac-service', 'bg-beauty', 'bg-car-wash', 'bg-gardening', 'bg-massage', 'bg-waxing']
+    images = ['bghome', 'bg-ac-service', 'bg-beauty', 'bg-car-wash', 'bg-gardening', 'bg-massage', 'bg-waxing', 'bg-locksmith', 'bg-pest-control', 'bg-pool-maintenance', 'bg-pet-groom', 'bg-yoga']
     asset_path "images/#{image || images[rand(images.size)]}.jpg"
   end
   
