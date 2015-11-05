@@ -2,16 +2,18 @@ class Customer < ActiveRecord::Base
   has_many :orders
   # belongs_to :address
   
-  validates_presence_of :email
-  validates_confirmation_of :confirm_password
+  validates_presence_of :email, :full_name, :phone, :address
+  validates_presence_of :password, :password_confirmation, :on => :create
+  validates_confirmation_of :password
   validates_uniqueness_of :email
+  # validates_presence_of :password_confirmation, :if => :password_changed?
   
-  attr_accessor :confirm_password
+  attr_accessor :password_confirmation
   
   # def full_name
   #   "#{first_name} #{last_name}"
   # end
-  
+
   class << self
     def verify?(email_username, unencrypted_password)
       return false unless customer = Customer.where(email: email_username).first || Customer.where(username: email_username).first
@@ -24,13 +26,23 @@ class Customer < ActiveRecord::Base
       self[:password] = BCrypt::Password.create(Digest::MD5.hexdigest(unencrypted_password), cost: 4)
     end
   end
-
+  
+  def password_confirmation=(unencrypted_password)
+    unless unencrypted_password.blank?
+      @password_confirmation = Digest::MD5.hexdigest(unencrypted_password)
+    end
+  end
+    
+  def password
+    BCrypt::Password.new(self[:password]) if self[:password]
+  end
+  
   def authenticate(unencrypted_password)
-    BCrypt::Password.new(password) == Digest::MD5.hexdigest(unencrypted_password) ? self : false
+    password == Digest::MD5.hexdigest(unencrypted_password) ? self : false
   end
   
   def sanitize!
-    self[:password] = '[FILTERED]'
+    self.password = '[FILTERED]'
     self
   end
   

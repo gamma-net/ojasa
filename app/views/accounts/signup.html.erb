@@ -35,24 +35,24 @@
                 <div class="acctitle text-center oj-title">Register</div>
                 <div class="clearfix" >
                     <%= form_tag signup_accounts_url, method: :post, class: "nobottommargin", name: "register-form", id: "register-form" do %>
-                        <div class="col_full">
-                            <%= text_field_tag 'customer[full_name]', nil, {class: "form-control input-lg placeholder-no-fix", placeholder: "full name",  autocomplete: "off", id: 'register-form-name'} %>
+                        <div class="col_full<%= ' has-error' unless @customer.errors[:full_name].blank? %>">
+                            <%= text_field_tag 'customer[full_name]', @customer.full_name, {class: "form-control input-lg placeholder-no-fix required#{' error' unless @customer.errors[:full_name].blank?}", placeholder: "full name",  autocomplete: "off", id: 'register-form-name'} %>
                         </div>
 
                         <div class="col_full">
-                            <%= text_field_tag 'customer[address]', nil, {class: "form-control input-lg placeholder-no-fix", placeholder: "address",  autocomplete: "off", id: 'register-form-address'} %>
+                            <%= text_field_tag 'customer[address]', @customer.address, {class: "form-control input-lg placeholder-no-fix required", placeholder: "address",  autocomplete: "off", id: 'register-form-address'} %>
                         </div>
 
                         <div class="col_full">
-                            <%= text_field_tag 'customer[addressdetail]', nil, {class: "form-control input-lg placeholder-no-fix", placeholder: "address detail",  autocomplete: "off", id: 'register-form-addressdetail'} %>
+                            <%= text_field_tag 'customer[addressdetail]', @customer.addressdetail, {class: "form-control input-lg placeholder-no-fix", placeholder: "address detail",  autocomplete: "off", id: 'register-form-addressdetail'} %>
                         </div>
 
                         <div class="col_full">
-                            <%= text_field_tag 'customer[phone]', nil, {class: "form-control input-lg placeholder-no-fix", placeholder: "telephone no.",  autocomplete: "off", id: 'register-form-phone'} %>
+                            <%= text_field_tag 'customer[phone]', @customer.phone, {class: "form-control input-lg placeholder-no-fix required", placeholder: "telephone no.",  autocomplete: "off", id: 'register-form-phone'} %>
                         </div>
 
                         <div class="col_full">
-                      		  <%= email_field_tag 'customer[email]', nil, {class: "form-control input-lg placeholder-no-fix required", placeholder: "email", id: "register-form-email"} %>
+                      		  <%= email_field_tag 'customer[email]', @customer.email, {class: "form-control input-lg placeholder-no-fix required", placeholder: "email", id: "register-form-email"} %>
                         </div>
 
                         <div class="col_full">
@@ -60,7 +60,7 @@
                         </div>
 
                         <div class="col_full">
-                    		    <%= password_field_tag 'customer[confirm_password]', nil, {class: "form-control input-lg placeholder-no-fix required", placeholder: "confirm password", autocomplete: "off", id: "register-form-repassword"} %>
+                    		    <%= password_field_tag 'customer[password_confirmation]', nil, {class: "form-control input-lg placeholder-no-fix required", placeholder: "confirm password", autocomplete: "off", id: "register-form-repassword"} %>
                         </div>
 
                         <div class="col_full nobottommargin">
