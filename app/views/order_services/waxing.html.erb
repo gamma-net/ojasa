@@ -1,0 +1,73 @@
+<!-- Content
+ ============================================= -->
+ <section id="content">
+
+     <div class="content-wrap">
+
+         <div class="container clearfix text-center">
+
+             <!-- Portfolio Items
+             ============================================= -->
+             <div id="portfolio" class="portfolio-2 portfolio-masonry clearfix">
+
+                 <article class="portfolio-item pf-uielements pf-icons">
+                     <div class="portfolio-image">
+                        <%= link_to raw(image_tag('images/services_beauty_hot_wax.jpg', alt: 'Hot Wax')), hotwax_services_url %>
+                         <div class="portfolio-overlay">
+                             <div class="portfolio-desc">
+                                <h3><%= link_to 'Hot Wax', hotwax_services_url %></h3>
+                             </div>
+                         </div>
+                     </div>
+                 </article>
+
+                 <article class="portfolio-item pf-uielements pf-icons">
+                     <div class="portfolio-image">
+                        <%= link_to raw(image_tag('images/services_beauty_sugar_wax.jpg', alt: 'Sugar Wax')), sugarwax_services_url %>
+                         <div class="portfolio-overlay">
+                             <div class="portfolio-desc">
+                               <h3><%= link_to 'Sugar Wax', sugarwax_services_url %></h3>
+                             </div>
+                         </div>
+                     </div>
+                 </article>
+
+                
+
+             <!-- Portfolio Script
+             ============================================= -->
+             <script type="text/javascript">
+
+                 jQuery(window).load(function(){
+
+                     var $container = $('#portfolio');
+
+                     $container.isotope({ transitionDuration: '0.65s' });
+
+                     $('#portfolio-filter a').click(function(){
+                         $('#portfolio-filter li').removeClass('activeFilter');
+                         $(this).parent('li').addClass('activeFilter');
+                         var selector = $(this).attr('data-filter');
+                         $container.isotope({ filter: selector });
+                         return false;
+                     });
+
+                     $('#portfolio-shuffle').click(function(){
+                         $container.isotope('updateSortData').isotope({
+                             sortBy: 'random'
+                         });
+                     });
+
+                     $(window).resize(function() {
+                         $container.isotope('layout');
+                     });
+
+                 });
+
+             </script><!-- Portfolio Script End -->
+
+         </div>
+
+     </div>
+
+ </section><!-- #content end -->

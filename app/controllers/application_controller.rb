@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Rack::Recaptcha::Helpers
   
-  SITE_NAME = 'oJasa'.freeze
+  SITE_NAME = 'OJASA'.freeze
   SITE_ICON = 'images/logo.png'.freeze
   SITE_LOGO = 'images/logo.png'.freeze
   

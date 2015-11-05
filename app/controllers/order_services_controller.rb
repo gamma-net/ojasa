@@ -160,12 +160,12 @@ class OrderServicesController < ApplicationController
   end
 
   def waxing
-    url_params = if (category = Category.find_tag_name('waxing'))
-                  {:category_id => category.id}
-                else
-                  {:service_type => 'waxing'}
-                end
-    redirect_to location_order_services_url(url_params) and return
+    # url_params = if (category = Category.find_tag_name('waxing'))
+    #               {:category_id => category.id}
+    #             else
+    #               {:service_type => 'waxing'}
+    #             end
+    # redirect_to location_order_services_url(url_params) and return
   end
 
   def hair_do
@@ -204,6 +204,24 @@ class OrderServicesController < ApplicationController
     redirect_to location_order_services_url(url_params) and return
   end
     
+  def hotwax
+    url_params = if (category = Category.find_tag_name('waxing'))
+                  {:category_id => category.id}
+                else
+                  {:service_type => 'waxing'}
+                end
+    redirect_to location_order_services_url(url_params) and return
+  end
+
+  def sugarwax
+    url_params = if (category = Category.find_tag_name('waxing'))
+                  {:category_id => category.id}
+                else
+                  {:service_type => 'waxing'}
+                end
+    redirect_to location_order_services_url(url_params) and return
+  end
+  
   protected 
     
     def order_params

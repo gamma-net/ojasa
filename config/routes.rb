@@ -151,6 +151,7 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:new, :create]
     
+  get 'contact', controller: 'contact', as: 'contact', action: 'index'
   
   get 'services', controller: 'order_services', as: 'order_services', action: 'show'
   post 'services', controller: 'order_services', as: 'request_order_services', action: 'request_service'
@@ -178,6 +179,8 @@ Rails.application.routes.draw do
   get 'services/pest_control', controller: 'order_services', as: 'pest_control_services', action: 'pest_control', service_type: 'pest_control'
   get 'services/pool', controller: 'order_services', as: 'pool_services', action: 'pool', service_type: 'pool'
   get 'services/grooming', controller: 'order_services', as: 'grooming_services', action: 'grooming', service_type: 'grooming'
+  get 'services/hotwax', controller: 'order_services', as: 'hotwax_services', action: 'hotwax', service_type: 'hotwax'
+  get 'services/sugarwax', controller: 'order_services', as: 'sugarwax_services', action: 'sugarwax', service_type: 'sugarwax'
 
   get 'services/:service_type', controller: 'order_services', as: 'action_services', action: 'service'
 
