@@ -1,26 +1,26 @@
 <div class="form-body">
-	<div class="form-group form-md-line-input<%' has-error' unless @gallery.errors[:title].blank? %>">
+	<div class="form-group form-md-line-input<%= ' has-error' unless @gallery.errors[:title].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Title</label>
 		<div class="col-md-10">
       <%= f.text_field :title, class: "form-control#{' error' unless @gallery.errors[:title].blank?}", placeholder: 'Enter Title', id: 'form_control_1' %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @gallery.errors[:description].blank? %>">
+	<div class="form-group form-md-line-input<%= ' has-error' unless @gallery.errors[:description].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Description</label>
 		<div class="col-md-10">
       <%= f.text_area :description, class: "form-control autosizeme#{' error' unless @gallery.errors[:description].blank?}", placeholder: 'Enter Description', id: 'form_control_1' %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @gallery.errors[:photographer].blank? %>">
+	<div class="form-group form-md-line-input<%= ' has-error' unless @gallery.errors[:photographer].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Photographer</label>
 		<div class="col-md-10">
       <%= f.text_field :photographer, class: "form-control#{' error' unless @gallery.errors[:photographer].blank?}", placeholder: 'Enter Photographer', id: 'form_control_1' %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @gallery.errors[:date_taken].blank? %>">
+	<div class="form-group form-md-line-input<%= ' has-error' unless @gallery.errors[:date_taken].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Date Taken</label>
 		<div class="col-md-6">
 			<!--div class="input-group input-medium date" data-date="12-02-2012" data-date-viewmode="years"-->
@@ -41,7 +41,7 @@
 			<div class="form-control-focus"></div>
 		</div>
 	</div>
-  <div class="form-group form-md-line-input<%' has-error' unless @gallery.errors[:publish_at].blank? %>">
+  <div class="form-group form-md-line-input<%= ' has-error' unless @gallery.errors[:publish_at].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Publish Time</label>
 		<div class="col-md-6">
 			<div class="input-group date form_datetime">
@@ -53,7 +53,7 @@
 			<!-- /input-group -->
 		</div>
 	</div>
-  <div class="form-group form-md-line-input<%' has-error' unless @gallery.errors[:retract_at].blank? %>">
+  <div class="form-group form-md-line-input<%= ' has-error' unless @gallery.errors[:retract_at].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Retract Time</label>
 		<div class="col-md-6">
 			<div class="input-group date form_datetime">

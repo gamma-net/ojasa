@@ -1,7 +1,7 @@
 <a name="<%= address_type %>"></a> 
 
   <div class="form-body">
-  	<div class="form-group form-md-line-input<%' has-error' unless @order.send(address_type).errors[:street1].blank? %>">
+  	<div class="form-group form-md-line-input<%= ' has-error' unless @order.send(address_type).errors[:street1].blank? %>">
   		<label class="col-md-2 control-label" for="form_control_1">Street1</label>
   		<div class="col-md-10">
         <%= text_field_tag "#{address_type}[street1]", @order.send(address_type).street1, class: "form-control#{' error' unless @order.send(address_type).errors[:street1].blank?}", placeholder: ' Enter Street1', id: 'form_control_1', readonly: readonly %>
@@ -9,35 +9,35 @@
   		</div>
   	</div>
 
-  	<div class="form-group form-md-line-input<%' has-error' unless @order.send(address_type).errors[:street2].blank? %>">
+  	<div class="form-group form-md-line-input<%= ' has-error' unless @order.send(address_type).errors[:street2].blank? %>">
   		<label class="col-md-2 control-label" for="form_control_1">Street2</label>
   		<div class="col-md-10">
         <%= text_field_tag "#{address_type}[street2]", @order.send(address_type).street2, class: "form-control#{' error' unless @order.send(address_type).errors[:street2].blank?}", placeholder: ' Enter Street2', id: 'form_control_1', readonly: readonly %>
         <div class="form-control-focus"></div>
   		</div>
   	</div>
-  	<div class="form-group form-md-line-input<%' has-error' unless @order.send(address_type).errors[:city].blank? %>">
+  	<div class="form-group form-md-line-input<%= ' has-error' unless @order.send(address_type).errors[:city].blank? %>">
   		<label class="col-md-2 control-label" for="form_control_1">City</label>
   		<div class="col-md-10">
         <%= text_field_tag "#{address_type}[city]", @order.send(address_type).city, class: "form-control#{' error' unless @order.send(address_type).errors[:city].blank?}", placeholder: ' Enter City', id: 'form_control_1', readonly: readonly %>
         <div class="form-control-focus"></div>
   		</div>
   	</div>
-  	<div class="form-group form-md-line-input<%' has-error' unless @order.send(address_type).errors[:region].blank? %>">
+  	<div class="form-group form-md-line-input<%= ' has-error' unless @order.send(address_type).errors[:region].blank? %>">
   		<label class="col-md-2 control-label" for="form_control_1">Region</label>
   		<div class="col-md-10">
         <%= text_field_tag "#{address_type}[region]", @order.send(address_type).region, class: "form-control#{' error' unless @order.send(address_type).errors[:region].blank?}", placeholder: ' Enter Region', id: 'form_control_1', readonly: readonly %>
         <div class="form-control-focus"></div>
   		</div>
   	</div>
-  	<div class="form-group form-md-line-input<%' has-error' unless @order.send(address_type).errors[:postal_code].blank? %>">
+  	<div class="form-group form-md-line-input<%= ' has-error' unless @order.send(address_type).errors[:postal_code].blank? %>">
   		<label class="col-md-2 control-label" for="form_control_1">Postal Code</label>
   		<div class="col-md-10">
         <%= text_field_tag "#{address_type}[postal_code]", @order.send(address_type).postal_code, class: "form-control#{' error' unless @order.send(address_type).errors[:postal_code].blank?}", placeholder: ' Enter Postal Code', id: 'form_control_1', readonly: readonly %>
         <div class="form-control-focus"></div>
   		</div>
   	</div>
-  	<div class="form-group form-md-line-input<%' has-error' unless @order.send(address_type).errors[:country].blank? %>">
+  	<div class="form-group form-md-line-input<%= ' has-error' unless @order.send(address_type).errors[:country].blank? %>">
   		<label class="col-md-2 control-label" for="form_control_1">Country</label>
   		<div class="col-md-10">
         <%= select_tag "#{address_type}[country]", options_for_select(country_options, @order.send(address_type).country), {class: "form-control input-xlarge select2me#{' error' unless @order.send(address_type).errors[:country].blank?}", disabled: readonly, "data-placeholder" => "Select Country..."} %>

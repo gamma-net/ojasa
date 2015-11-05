@@ -1,19 +1,19 @@
 <div class="form-body">
-	<div class="form-group form-md-line-input<%' has-error' unless @news.errors[:title].blank? %>">
+	<div class="form-group form-md-line-input<%= ' has-error' unless @news.errors[:title].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Title</label>
 		<div class="col-md-10">
       <%= f.text_field :title, class: "form-control#{' error' unless @news.errors[:title].blank?}", placeholder: 'Enter Title', id: 'form_control_1' %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @news.errors[:author].blank? %>">
+	<div class="form-group form-md-line-input<%= ' has-error' unless @news.errors[:author].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Author</label>
 		<div class="col-md-10">
       <%= f.text_field :author, class: "form-control#{' error' unless @news.errors[:author].blank?}", placeholder: 'Enter Author', id: 'form_control_1' %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @news.errors[:date].blank? %>">
+	<div class="form-group form-md-line-input<%= ' has-error' unless @news.errors[:date].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Date</label>
 		<div class="col-md-6">
 			<!--div class="input-group input-medium date" data-date="12-02-2012" data-date-viewmode="years"-->
@@ -26,28 +26,28 @@
 			<!-- /input-group -->
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @news.errors[:headline].blank? %>">
+	<div class="form-group form-md-line-input<%= ' has-error' unless @news.errors[:headline].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Headline</label>
 		<div class="col-md-10">
       <%= f.text_field :headline, class: "form-control#{' error' unless @news.errors[:headline].blank?}", placeholder: 'Enter Headline', id: 'form_control_1' %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @news.errors[:keyword].blank? %>">
+	<div class="form-group form-md-line-input<%= ' has-error' unless @news.errors[:keyword].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Keyword</label>
 		<div class="col-md-10">
       <%= f.text_field :keyword, class: "form-control#{' error' unless @news.errors[:keyword].blank?}", placeholder: 'Enter Keyword', id: 'form_control_1' %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @news.errors[:article].blank? %>">
+	<div class="form-group form-md-line-input<%= ' has-error' unless @news.errors[:article].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Article</label>
 		<div class="col-md-10">
       <%= f.text_area :article, class: "form-control autosizeme#{' error' unless @news.errors[:article].blank?}", placeholder: 'Enter Article', id: 'form_control_1' %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @news.errors[:link_url].blank? %>">
+	<div class="form-group form-md-line-input<%= ' has-error' unless @news.errors[:link_url].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Link URL</label>
 		<div class="col-md-10">
       <%= f.text_field :link_url, class: "form-control#{' error' unless @news.errors[:link_url].blank?}", placeholder: 'Enter Link URL', id: 'form_control_1' %>			
@@ -61,7 +61,7 @@
 			<div class="form-control-focus"></div>
 		</div>
 	</div>
-  <div class="form-group form-md-line-input<%' has-error' unless @news.errors[:publish_at].blank? %>">
+  <div class="form-group form-md-line-input<%= ' has-error' unless @news.errors[:publish_at].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Publish Time</label>
 		<div class="col-md-6">
 			<div class="input-group date form_datetime">
@@ -73,7 +73,7 @@
 			<!-- /input-group -->
 		</div>
 	</div>
-  <div class="form-group form-md-line-input<%' has-error' unless @news.errors[:retract_at].blank? %>">
+  <div class="form-group form-md-line-input<%= ' has-error' unless @news.errors[:retract_at].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Retract Time</label>
 		<div class="col-md-6">
 			<div class="input-group date form_datetime">

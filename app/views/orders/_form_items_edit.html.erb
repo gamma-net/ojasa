@@ -8,7 +8,7 @@
       <div class="form-control-focus"></div>
 		</div>
   </div>
-  <div class="form-group form-md-line-input<%' has-error' unless order_item.errors[:sold_price].blank? %>">
+  <div class="form-group form-md-line-input<%= ' has-error' unless order_item.errors[:sold_price].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Sold Price</label>
 		<div class="col-md-10">
 		  <div class="input-group">  
@@ -18,7 +18,7 @@
       </div>
 		</div>
 	</div>
-  <div class="form-group form-md-line-input<%' has-error' unless order_item.errors[:original_price].blank? %>">
+  <div class="form-group form-md-line-input<%= ' has-error' unless order_item.errors[:original_price].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Original Price</label>
 		<div class="col-md-10">
 		  <div class="input-group">        
@@ -28,7 +28,7 @@
       </div>
 		</div>
 	</div>
-  <div class="form-group form-md-line-input<%' has-error' unless order_item.errors[:quantity].blank? %>">
+  <div class="form-group form-md-line-input<%= ' has-error' unless order_item.errors[:quantity].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Quantity</label>
 		<div class="col-md-10">
       <%= text_field_tag "order_item[#{order_item.id}][quantity]", number_format(order_item.quantity), class: "form-control#{' error' unless order_item.errors[:quantity].blank?}", placeholder: 'Enter Quantity', id: 'form_control_1' %>
