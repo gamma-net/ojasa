@@ -29,8 +29,10 @@ function fillInAddress() {
   var place = autocomplete.getPlace();
 
   for (var component in componentForm) {
-    document.getElementById(component).value = '';
-    document.getElementById(component).disabled = false;
+    if(document.getElementById(component) != null) {
+      document.getElementById(component).value = '';
+      document.getElementById(component).disabled = false;
+    }
   }
 
   // Get each component of the address from the place details
@@ -39,7 +41,7 @@ function fillInAddress() {
     var addressType = place.address_components[i].types[0];
     if (componentForm[addressType]) {
       var val = place.address_components[i][componentForm[addressType]];
-      document.getElementById(addressType).value = val;
+      if(document.getElementById(addressType) != null) document.getElementById(addressType).value = val;
     }
   }
 }
@@ -51,6 +53,10 @@ function fillInAddress() {
 function geolocate() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
+      autocomplete = new google.maps.places.Autocomplete(
+          /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+          {types: ['geocode']});
+          
       var geolocation = {
         lat: position.coords.latitude,
         lng: position.coords.longitude
