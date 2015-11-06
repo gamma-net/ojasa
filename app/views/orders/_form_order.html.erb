@@ -94,6 +94,13 @@
   		</div>
   	</div>
     -->
+    <div class="form-group form-md-line-input<%= ' has-error' unless @order.errors[:location].blank? %>">
+  		<label class="col-md-3 control-label" for="form_control_1">Location</label>
+  		<div class="col-md-9">
+        <%= select_tag "order[location]", options_for_select(services_location_options, @order.location), {class: "form-control input-xlarge select2me#{' error' unless @order.errors[:location].blank?}", "data-placeholder" => "Select Location..."} %>
+        <div class="form-control-focus"></div>
+  		</div>
+  	</div>
   	<div class="form-group form-md-line-input<%= ' has-error' unless @order.errors[:address].blank? %>">
   		<label class="col-md-3 control-label" for="form_control_1">Address</label>
   		<div class="col-md-9">

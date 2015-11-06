@@ -1,0 +1,17 @@
+THANK YOU FOR ORDERING OJASA!
+OUR WARRIOR WILL BE THERE SOON 
+
+<%= service_profile_image(@order) %>
+<%= @order.service_name %>
+
+Order ID: <%= @order.id %>
+Service: <%= @order.category_name %>
+Date: <%= @order.requested_date %>
+Time: <%= @order.requested_time %> WIB
+Price: <%= @order.pricing_desc %>
+Name: <%= @order.full_name %>
+Address: <%= @order.address %>
+Address details: <%= @order.detail %>
+City: <%= service_regions[@order.location] %>
+Telephone Num.: <%= @order.phone %>
+Email: <%= @order.email %>

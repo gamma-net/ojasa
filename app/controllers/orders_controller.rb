@@ -86,6 +86,26 @@ class OrdersController < ApplicationController
     redirect_to edit_admin_store_order_url
   end
   
+  def do_send_work_request
+    order = Order.find(params[:id])
+    AdminMailer.work_request_email(order).deliver_now
+    flash[:success] = 'Work Request has been sent successfully!'
+    redirect_to edit_admin_store_order_url
+  end
+
+  def do_send_warrior_info
+    order = Order.find(params[:id])
+    CustomerMailer.warrior_info_email(order).deliver_now
+    flash[:success] = 'Warrior Info has been sent to the customer successfully!'
+    redirect_to edit_admin_store_order_url
+  end
+  
+  def do_send_feedback_request
+    order = Order.find(params[:id])
+    CustomerMailer.feedback_request_email(order).deliver_now
+    flash[:success] = 'Customer Feedback Request has been sent successfully!'
+    redirect_to edit_admin_store_order_url
+  end
   
   protected
     

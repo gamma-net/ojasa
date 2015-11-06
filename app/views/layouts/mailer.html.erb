@@ -1,5 +1,53 @@
-<html>
-  <body>
-    <%= yield %>
-  </body>
+
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="OJASAWEB" />
+
+    <!-- Stylesheets
+    ============================================= -->
+	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+	
+	  <%= stylesheet_link_tag 'css/bootstrap.css', 'style.css', 'css/dark.css', 'css/font-icons.css', 'css/animate.css', 'css/responsive.css' %>  
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+    	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+
+    <!-- External JavaScripts
+    ============================================= -->
+    <%= javascript_include_tag "js/jquery.js", 'js/plugins.js', 'js/bootstrap-datepicker.js', 'js/starrr.js' %>
+    
+    <!-- Document Title
+    ============================================= -->
+	<title><%= ApplicationController::SITE_NAME %></title>
+
+</head>
+
+<body class="stretched">
+
+    <!-- Document Wrapper
+    ============================================= -->
+    <div id="wrapper" class="clearfix">
+
+        <%= yield %>
+
+    </div><!-- #wrapper end -->
+
+    <!-- Footer Scripts
+    ============================================= -->
+    <%= javascript_include_tag "js/functions.js" %>
+
+    <script type="text/javascript">
+      $('.datepicker').datepicker().on('changeDate', function(e){
+        (e.viewMode=='days') ? $(this).datepicker('hide') : '';
+        });
+    </script>
+
+</body>
 </html>

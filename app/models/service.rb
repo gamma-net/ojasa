@@ -30,6 +30,10 @@ class Service < ActiveRecord::Base
   def category_name
     category.name if category
   end
+  
+  def image_url
+    'images/profile-picture.jpg'
+  end
 
   protected
 

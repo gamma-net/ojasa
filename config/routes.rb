@@ -108,6 +108,9 @@ Rails.application.routes.draw do
         post 'revert/:id', on: :collection, action: 'revert', as: 'revert'
         post 'process/:id', on: :collection, action: 'do_process', as: 'process'
         post 'send_payment_request/:id', on: :collection, action: 'do_send_payment_request', as: 'send_payment_request'
+        post 'send_warrior_info/:id', on: :collection, action: 'do_send_warrior_info', as: 'send_warrior_info'
+        post 'send_work_request/:id', on: :collection, action: 'do_send_work_request', as: 'send_work_request'
+        post 'send_feedback_request/:id', on: :collection, action: 'do_send_feedback_request', as: 'send_feedback_request'
         
         # get ':id/:status', on: :collection, only: [:open, :pending_payment, :pending_work, 
         #                                             :processing, :processed, :cancelled]
@@ -189,6 +192,9 @@ Rails.application.routes.draw do
   post 'payments/receive_webhook', controller: 'payments', as: 'receive_webhook_payments', action: 'receive_webhook'
   get 'payments/:order_id', controller: 'payments', as: 'payments', action: 'index'
   get 'payments/:action', controller: 'payments', as: 'action_payments'
+  
+  get 'rating/:order_id', controller: 'rating', as: 'rating', action: 'index'
+  
   
   # get ':controller/:action' #/:id', id: nil, format: nil
   

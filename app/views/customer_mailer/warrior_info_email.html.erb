@@ -1,61 +1,70 @@
-<section id="content" style="background: url(<%= asset_path 'images/bglogin.jpg' %>) center center; background-size: content;">
+<!-- Content
+============================================= -->
+<section id="content">
 
     <div class="content-wrap">
 
-        <%= render partial: 'layouts/messages' %>
+        <div class="container clearfix">
 
-        <div class="container clearfix">   
-            <div class="heading-block center nobottomborder">
-                <h1 class="oj-title">Order Confirmation</h1>
-            </div>
-            <div class="col-md-8 col-md-offset-2 col-x box-conf bottommargin">
+            <div class="col_full">
+
+                <div class="heading-block center nobottomborder">
+                    <h2 class="bottommargin-sm">THANK YOU FOR ORDERING OJASA!</h2>
+                    <h2 class="bottommargin-sm">OUR WARRIOR WILL BE THERE SOON </h2>
+
+                    <div class="profile-image">
+                      <%= service_profile_image(@order) %>
+                    </div>
+                    <!--h5><%= @order.category_name %></h5-->
+                    <h4 class="name"><%= @order.service_name %><h4>
+                </div>
+                <div class="col-md-8 col-md-offset-2 col-x box-conf bottommargin">
                 <div class="table-responsive">
                   <table class="table" cellspacing="0" cellpadding="0">
                     <tbody>
                       <tr>
                         <td style="width: 25%;">Order ID</td>
                         <td style="width: 3%;">:</td>
-                        <td><%= order_id %></td>
+                        <td><%= @order.id %></td>
                       </tr>
                       <tr>
-                        <td>Service</td>
-                        <td>:</td>
-                        <td><%= category_name %></td>
+                        <td style="width: 25%;">Service</td>
+                        <td style="width: 3%;">:</td>
+                        <td><%= @order.category_name %></td>
                       </tr>
                       <tr>
                         <td>Date</td>
                         <td>:</td>
-                        <td><%= requested_date %></td>
+                        <td><%= @order.requested_date %></td>
                       </tr>
                       <tr>
                         <td>Time</td>
                         <td>:</td>
-                        <td><%= requested_time %> WIB</td>
+                        <td><%= @order.requested_time %> WIB</td>
                       </tr>
                       <tr>
                         <td>Price</td>
                         <td>:</td>
-                        <td><%= service_pricing_desc %></td>
+                        <td><%= @order.pricing_desc %></td>
                       </tr>
                       <tr>
                         <td>Name</td>
                         <td>:</td>
-                        <td><%= full_name %></td>
+                        <td><%= @order.full_name %></td>
                       </tr>
-                      <tr>
                         <td>Address</td>
                         <td>:</td>
-                        <td><%= order_address %></td>
+                        <td><%= @order.address %></td>
                       </tr>
                       <tr>
                         <td>Address details</td>
                         <td>:</td>
-                        <td><%= order_addressdetail %></td>
+                        <td><%= @order.detail %></td>
                       </tr>
                       <tr>
                         <td>City</td>
                         <td>:</td>
-                        <td><%= region %></td>
+                        <td><%= service_regions[@order.location] %></td>
                       </tr>
                       <!--tr>
                         <td>Post code</td>
@@ -65,22 +74,19 @@
                       <tr>
                         <td>Telephone Num.</td>
                         <td>:</td>
-                        <td><%= phone %></td>
+                        <td><%= @order.phone %></td>
                       </tr>
                       <tr>
                         <td>Email</td>
                         <td>:</td>
-                        <td><%= email %></td>
+                        <td><%= @order.email %></td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
             </div>
-            <div class="col-md-8 col-md-offset-2">
-                <%= form_tag request_payment_order_services_url, method: :post, class: "nobottommargin landing-wide-form clearfix", id: "cleaning-form" do %>
-                  <button class="button button-3d button-large button-aqua btn-block nomargin" id="confirm-form-submit" name="confirm-form-submit" value="confirmorder">CONFIRM ORDER</button>
-                <% end %>
             </div>
+
         </div>
 
     </div>

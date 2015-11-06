@@ -4,6 +4,8 @@
 
     <div class="content-wrap">
 
+        <%= render partial: 'layouts/messages' %>
+      
         <div class="container clearfix">
 
             <div class="heading-block center nobottomborder">
@@ -51,8 +53,13 @@
                           <table class="table" cellspacing="0" cellpadding="0">
                             <tbody>
                               <tr>
-                                <td style="width: 17%;">Service</td>
+                                <td style="width: 17%;">Order ID</td>
                                 <td style="width: 3%;">:</td>
+                                <td><%= @order.id %></td>
+                              </tr>
+                              <tr>
+                                <td>Service</td>
+                                <td>:</td>
                                 <td><%= @order.category_name %></td>
                               </tr>
                               <tr>

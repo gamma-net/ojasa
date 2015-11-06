@@ -38,6 +38,7 @@ class OrderServicesController < ApplicationController
     order.status_id = Order.pending_payment
     if order.validate? && order.save!
       # CustomerMailer.order_email(order).deliver_now
+      AdminMailer.notify_support(order, "New order waiting for service").deliver_now
       initialize_cart
       flash[:success] = 'Thank you for your order'
       redirect_to thanks_order_services_url and return

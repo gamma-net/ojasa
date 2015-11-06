@@ -41,7 +41,8 @@ class PaymentsController < ApplicationController
       @order.bank = @result.bank
       @order.status_id = Order.pending_work   # @order.pay!
       @order.save
-      CustomerMailer.payment_received(@order).deliver_now      
+      CustomerMailer.payment_received(@order).deliver_now
+      AdminMailer.notify_support(@order, "Paid order waiting for work").deliver_now
       redirect_to thanks_payments_url and return
     end
     @order.save

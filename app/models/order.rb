@@ -37,6 +37,11 @@ class Order < ActiveRecord::Base
   def pending_work?;      status_id == Order.pending_work; end
   def processed?;         status_id == Order.processed; end
   
+  def send_email?;            send_payment_request? || send_warrior_info? || send_feedback_request?; end
+  def send_payment_request?;  pending_payment?;           end
+  def send_warrior_info?;     pending_work? && service;   end
+  def send_feedback_request?; processed?;                 end 
+  
   class << self
     def open!(order_id);      Order.find(order_id).open!;     end
     def order!(order_id);     Order.find(order_id).order!;  end
@@ -112,6 +117,7 @@ class Order < ActiveRecord::Base
   end
   
   def category_name;  category ? category.name : '';  end
+  def service_name;  service ? service.name : '';  end
   
   def pricing_desc
     category.pricing_desc(subtotal.round)
