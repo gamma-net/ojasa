@@ -31,6 +31,6 @@ Rails.application.config.assets.precompile += %w( images/icons/close.png images/
 Rails.application.config.assets.precompile += %w( css/font-googleapis.css css/fonts/font-icons.eot css/fonts/font-icons.eot css/fonts/font-icons.woff css/fonts/font-icons.ttf css/fonts/font-icons.svg css/fonts/lined-icons.eot css/fonts/lined-icons.eot css/fonts/lined-icons.woff css/fonts/lined-icons.ttf css/fonts/lined-icons.svg css/fonts/Simple-Line-Icons.eot css/fonts/Simple-Line-Icons.eot css/fonts/Simple-Line-Icons.woff css/fonts/Simple-Line-Icons.ttf css/fonts/Simple-Line-Icons.svg )
 
 Rails.application.config.assets.precompile += %w( images/icons/widget-comment-dark.png images/icons/widget-link-dark.png images/icons/submenu-dark.png images/icons/submenu-dark.png images/preloader-dark.gif )
-Rails.application.config.assets.precompile += %w( images/preloader-dark.gif images/icons/submenu.png images/preloader@2x.gif images/preloader-dark@2x.gif images/icons/widget-comment@2x.png images/icons/widget-link@2x.png images/icons/widget-comment-dark@2x.png images/icons/widget-link-dark@2x.png )
+Rails.application.config.assets.precompile += %w( images/preloader-dark.gif images/icons/submenu.png images/preloader@2x.gif images/preloader-dark@2x.gif images/icons/widget-comment@2x.png images/icons/widget-link@2x.png images/icons/widget-comment-dark@2x.png images/icons/widget-link-dark@2x.png images/profile-picture.jpg )
 
 Rails.application.config.assets.precompile += %w( js/starrr.js fancybox/jquery.fancybox.css fancybox/jquery.fancybox.pack.js )
