@@ -5,6 +5,7 @@ class Service < ActiveRecord::Base
   has_many :tag_relations, as: :content, inverse_of: :content  
   has_many :tags, through: :tag_relations
   has_many :orders
+  has_many :feedbacks
   belongs_to :address, dependent: :destroy
   belongs_to :category
   

@@ -76,6 +76,7 @@ var __slice = [].slice;
       }
       this.options.rating = rating;
       this.syncRating();
+      $('#feedback_rating').val(rating);
       return this.$el.trigger('starrr:change', rating);
     };
 

@@ -193,7 +193,8 @@ Rails.application.routes.draw do
   get 'payments/:order_id', controller: 'payments', as: 'payments', action: 'index'
   get 'payments/:action', controller: 'payments', as: 'action_payments'
   
-  get 'rating/:order_id', controller: 'rating', as: 'rating', action: 'index'
+  get 'feedback/:order_id', controller: 'feedback', as: 'feedback', action: 'index'
+  post 'feedback/:order_id', controller: 'feedback', as: 'rate_feedback', action: 'rate'
   
   
   # get ':controller/:action' #/:id', id: nil, format: nil

@@ -1,5 +1,6 @@
 class Order < ActiveRecord::Base
   has_many :order_items
+  has_many :feedbacks
   alias :items :order_items
 
   belongs_to :customer
@@ -127,5 +128,9 @@ class Order < ActiveRecord::Base
     str = category_name
     str << " (#{service.name})" if service_id
     str
+  end
+  
+  def feedback!(feedback_params={})
+    Feedback.create(feedback_params)
   end
 end
