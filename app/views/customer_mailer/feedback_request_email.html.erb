@@ -17,7 +17,7 @@
                     <!--h5><%= @order.category_name %></h5-->
                     <h4 class="name"><%= @order.service_name %><h4>
                     <h5 style="margin-top: 10px; margin-bottom:0px;">Order ID: <%= @order.id %></h5>
-                    <%= form_tag rate_feedback_url(order_id: @order.id), method: :post, class: "nobottommargin", name: "feedback-form", id: 'feedback-form' do %>
+                    <form class="nobottommargin" name="feedback-form" id="feedback-form" action="<%= rate_feedback_url(order_id: @order.id) %>" accept-charset="UTF-8" method="post">
                     <%= hidden_field_tag 'feedback[service_id]', @order.service_id %>
                     <%= hidden_field_tag 'feedback[order_id]', @order.id %>
                     <%= hidden_field_tag 'feedback[rating]' %>
@@ -28,7 +28,7 @@
                         <textarea class="required sm-form-control bottommargin-sm" id="template-contactform-message" name="feedback[comment]" rows="4" cols="30" aria-required="true"></textarea>
                         <button class="button button-3d button-large button-aqua btn-block nomargin" id="cleaning-form-submit" name="cleaning-form-submit" value="submit">SUBMIT</button>
                     </div>
-                    <% end %>
+                  </form>
                 </div>
 
             </div>
