@@ -12,13 +12,15 @@ Rails.application.configure do
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
-
+  config.action_controller.asset_host = "http://localhost:3500"
+  
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = {host: 'localhost', port: 3500}
   config.action_mailer.default charset: 'utf-8'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.asset_host = "http://localhost:3500"
   # config.action_mailer.smtp_settings = {
   #   host: 'mail.ojasa.co.id',
   #   port: 587,

@@ -13,6 +13,7 @@ Rails.application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+  config.action_controller.asset_host = "http://www.ojasa.co.id"
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
@@ -67,6 +68,8 @@ Rails.application.configure do
   config.action_mailer.default charset: 'utf-8'
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.asset_host = "http://www.ojasa.co.id"
+  
   # config.action_mailer.smtp_settings = {
   #   host: 'mail.ojasa.co.id',
   #   port: 587,
