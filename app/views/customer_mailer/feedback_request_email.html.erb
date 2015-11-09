@@ -1,40 +1,5 @@
-<!-- Content
-============================================= -->
-<section id="content">
+Order ID: <%= @order.id %>
 
-    <div class="content-wrap">
+Please let us know of our warrior work to better assist you next time. To rate please go to <%= feedback_url(order_id: @order.id) %>
 
-        <div class="container clearfix">
-
-            <div class="col_full">
-
-                <div class="heading-block center nobottomborder">
-                    <h2 class="bottommargin-sm">THANK YOU FOR USING OJASA</h2>
-
-                    <div class="profile-image">
-                        <%= service_profile_image(@order) %>
-                    </div>
-                    <!--h5><%= @order.category_name %></h5-->
-                    <h4 class="name"><%= @order.service_name %><h4>
-                    <h5 style="margin-top: 10px; margin-bottom:0px;">Order ID: <%= @order.id %></h5>
-                    <form class="nobottommargin" name="feedback-form" id="feedback-form" action="<%= rate_feedback_url(order_id: @order.id) %>" accept-charset="UTF-8" method="post">
-                    <%= hidden_field_tag 'feedback[service_id]', @order.service_id %>
-                    <%= hidden_field_tag 'feedback[order_id]', @order.id %>
-                    <%= hidden_field_tag 'feedback[rating]' %>
-                    <div class="starrr"></div>
-                    <p>Give 1 star for bad service, 5 for good</p>
-                    <div class="comment">
-                        <label for="template-contactform-message">Leave Comment <small>*</small></label>
-                        <textarea class="required sm-form-control bottommargin-sm" id="template-contactform-message" name="feedback[comment]" rows="4" cols="30" aria-required="true"></textarea>
-                        <button class="button button-3d button-large button-aqua btn-block nomargin" id="cleaning-form-submit" name="cleaning-form-submit" value="submit">SUBMIT</button>
-                    </div>
-                  </form>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section><!-- #content end -->
+Thank you!
