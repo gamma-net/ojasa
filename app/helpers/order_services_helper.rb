@@ -74,7 +74,10 @@ module OrderServicesHelper
                 if category.tag_name.include?('waxing'); 'bg-waxing'
                 else; 'bg-beauty'
                 end
-              elsif parent_tag_name.include?('auto'); 'bg-car-wash'
+              elsif parent_tag_name.include?('auto')
+                if category.tag_name.include?('auto_polish'); 'bghome-car-polish'
+                else; 'bg-car-wash'
+                end
               elsif parent_tag_name.include?('home')
                 if category.tag_name.include?('ac_service'); 'bg-ac-service'
                 elsif category.tag_name.include?('pool'); 'bg-pool-maintenance'
