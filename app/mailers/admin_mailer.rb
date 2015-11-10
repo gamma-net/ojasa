@@ -1,4 +1,6 @@
 class AdminMailer < ApplicationMailer
+  layout false, only: [:notify_support, :work_request_email]
+  
   def work_request_email(order)
     @order = order
     @warrior = @order.customer

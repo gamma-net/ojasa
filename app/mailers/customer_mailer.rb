@@ -1,4 +1,5 @@
 class CustomerMailer < ApplicationMailer
+  layout false, only: [:feedback_request_email, :forgot_password_request, :order_email, :payment_received]
   
   def order_email(order)
     @order = order
