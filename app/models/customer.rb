@@ -2,13 +2,13 @@ class Customer < ActiveRecord::Base
   has_many :orders
   # belongs_to :address
   
-  validates_presence_of :email, :full_name, :phone, :address
-  validates_presence_of :password, :password_confirmation, :on => :create
+  validates_presence_of :email, :full_name, :phone, :address, unless: Proc.new {|c| c.reset_password? }
+  validates_presence_of :password, :password_confirmation, if: Proc.new {|c| c.validate_password? }
   validates_confirmation_of :password
   validates_uniqueness_of :email
   # validates_presence_of :password_confirmation, :if => :password_changed?
   
-  attr_accessor :password_confirmation
+  attr_accessor :password_confirmation, :reset_password
   
   # def full_name
   #   "#{first_name} #{last_name}"
@@ -18,6 +18,11 @@ class Customer < ActiveRecord::Base
     def verify?(email_username, unencrypted_password)
       return false unless customer = Customer.where(email: email_username).first || Customer.where(username: email_username).first
       customer.authenticate(unencrypted_password)
+    end
+    
+    def hashify(email)
+      salt = 'oJasa'
+      Digest::MD5.hexdigest(salt + email + salt)
     end
   end
   
@@ -48,4 +53,14 @@ class Customer < ActiveRecord::Base
   
   def full_address; "#{address} #{addressdetail}"; end
   def customer_address; address; end
+  
+  protected
+  
+    def validate_password?
+      new_record? || reset_password?
+    end
+    
+    def reset_password?
+      reset_password
+    end
 end

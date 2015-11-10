@@ -140,11 +140,14 @@ Rails.application.routes.draw do
   resource :accounts, controller: 'accounts', only: [:login, :register] do
     post 'login', controller: 'accounts', action: 'authenticate', on: :collection
     post 'signup', controller: 'accounts', action: 'register', on: :collection
-    post 'forgot', controller: 'accounts', action: 'reset', on: :collection
-
+    post 'forgot', controller: 'accounts', action: 'send_forgot', on: :collection
+    post 'reset', controller: 'accounts', action: 'reset_password', on: :collection
+    
     get 'logout', controller: 'accounts', action: 'logout',  on: :collection
     get 'login', controller: 'accounts', action: 'login', on: :collection
     get 'signup', controller: 'accounts', action: 'signup', on: :collection
+    get 'forgot', controller: 'accounts', action: 'forgot', on: :collection
+    get 'reset', controller: 'accounts', action: 'reset', on: :collection
     # get ':action', controller: 'accounts', on: :collection, as: 'action', except: ['authenticate', 'register', 'reset']
   end
   

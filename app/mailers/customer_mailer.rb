@@ -28,4 +28,9 @@ class CustomerMailer < ApplicationMailer
     mail(to: @customer.email, subject: "[#{ApplicationController::SITE_NAME} #{@order.id}] Please share your feedback ")
   end
   
+  def forgot_password_request(email)
+    @email = email
+    mail(to: @email, subject: "[OJASA] Reset password request")
+  end    
+  
 end

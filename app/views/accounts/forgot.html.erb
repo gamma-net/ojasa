@@ -1,12 +1,31 @@
-<!-- BEGIN LOGIN -->
-<div class="content"> 
-  
-  <%= render partial: 'layouts/messages' %>
-  
-  <%= render partial: 'login_form', locals: {style: 'display:none;'} %>
+<section id="content" style="background: url(<%= asset_path 'images/bglogin.jpg' %>) center center; background-size: content;">
 
-  <%= render partial: 'forgot_form', locals: {style: 'display:inline;'} %>
-  
-  <%= render partial: 'registration_form', locals: {style: 'display:none;'} %>
-</div>
-<!-- END LOGIN -->
+    <div class="content-wrap">
+
+        <div class="container clearfix">
+
+            <%= render partial: 'layouts/messages' %>
+            
+            <div class="accordion accordion-lg divcenter nobottommargin clearfix" style="max-width: 550px;">
+
+                <div class="acctitle text-center oj-title">Forgot Password</div>
+                <div class="clearfix">
+                    <%= form_tag forgot_accounts_url, method: :post, class: "nobottommargin", name: "login-form", id: 'login-form' do %>
+                        <div class="col_full">
+                            <%= email_field_tag 'email', nil, {class: "form-control input-lg form-control-solid placeholder-no-fix", placeholder: "email",  autocomplete: "off", id: "login-form-email"} %>
+                        </div>
+
+                        <div class="col_full nobottommargin">
+                            <button class="button button-3d button-large button-aqua btn-block nomargin" id="login-form-submit" name="login-form-submit" value="login">Request Password</button>
+                        </div>
+                        <%= link_to 'Login', login_accounts_url, class: 'fright forgot' %>
+                    <% end %>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section><!-- #content end -->
