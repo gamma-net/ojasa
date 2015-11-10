@@ -42,6 +42,16 @@
         <div class="form-control-focus"></div>
   		</div>
   	</div>
+  	
+  	<div class="form-group form-md-line-input">
+  		<label class="col-md-3 control-label" for="form_control_1">Service Pricing</label>
+  		<div class="col-md-9">
+        <!--<%= select_tag "order_service_pricing", options_for_select(category_pricings(@order.category), @order.subtotal.round), {class: "form-control input-xlarge select2me", "data-placeholder" => "Select Service Pricing...", readonly: 'readonly'} %>-->     
+        <%= text_field_tag "order_service_pricing", @order.pricing_desc, class: "form-control", placeholder: 'Choose Service Pricing', id: 'form_control_1', readonly: 'readonly' %>
+        <div class="form-control-focus"></div>
+  		</div>
+  	</div>
+  	
   	<div class="form-group form-md-line-input<%= ' has-error' unless @order.errors[:subtotal].blank? %>">
   		<label class="col-md-3 control-label" for="form_control_1">Subtotal</label>
   		<div class="col-md-9">

@@ -62,7 +62,7 @@ class ApplicationController < ActionController::Base
     def validate_login
       return true if logged_in?
       flash[:error] = 'Please login first'
-      session[:redirect_to] = request.url
+      session[:redirect_to] = (request.get? ? request.url : request.referrer)
       redirect_to login_accounts_url and return false
     end
     

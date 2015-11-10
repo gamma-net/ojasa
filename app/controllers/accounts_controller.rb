@@ -6,7 +6,7 @@ class AccountsController < ApplicationController
   
   def logout
     clear_session
-    redirect_to '/'
+    redirect_to :back
   end
 
   def signup

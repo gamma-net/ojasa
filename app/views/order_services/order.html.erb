@@ -25,7 +25,7 @@
                         <%= text_field_tag "order[requested_date]", cart["requested_date"], class: "datepicker input-lg sm-form-control", size: 16, placeholder: 'choose date', id: "cleaning-form-date", style: "padding: 10px 14px;" %>
                      </div>      
                      <div class="col_half col_last">
-                       <%= select_tag "order[requested_time]", options_for_select(service_requested_time_options, :selected => cart["requested_time"]) , class: "input-lg sm-form-control", placeholder: 'choose time', id: "choose-time" %>
+                       <%= select_tag "order[requested_time]", options_for_select(service_requested_time_options, cart["requested_time"]) , class: "input-lg sm-form-control", placeholder: 'choose time', id: "choose-time" %>
                      </div>
                      
                      <div class="col_full">

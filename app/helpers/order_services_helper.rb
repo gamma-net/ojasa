@@ -109,24 +109,18 @@ module OrderServicesHelper
   def service_location
     session[:cart]["location"]
   end
-
+  
+  def category_pricings(category)
+    category.pricings.collect {|pricing| [pricing[:desc], pricing[:value]]}
+  end
+  
   def service_pricing
     category = Category.find(service_category_id)
-    if false && (category.pricings.size == 1)
-      
-    else
-      str = '<select id="cleaning-form-price" name="order[subtotal]" class="input-lg sm-form-control">' # multiple=true
-      category.pricings.each do |pricing|
-        str << '<option value="'
-        str << pricing[:value]
-        str << '"'
-        str << ' selected' if cart["subtotal"].to_s == pricing[:value]
-        str << '>'
-        str << pricing[:desc]
-        str << '</option>'
-      end
-      str << '</select>'
-    end
+    str = if false && (category.pricings.size == 1)
+            ''
+          else
+            select_tag("order[subtotal]", options_for_select(category_pricings(category), cart["subtotal"].to_s), {class: "input-lg sm-form-control", input: "cleaning-form-price"})
+          end
     
     raw(str)
   end
