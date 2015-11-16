@@ -31,7 +31,7 @@ class CustomerMailer < ApplicationMailer
   
   def forgot_password_request(email)
     @email = email
-    mail(to: @email, subject: "[OJASA] Reset password request")
+    mail(to: @email, subject: "[#{ApplicationController::SITE_NAME}] Reset password request")
   end    
   
 end
