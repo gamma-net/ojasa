@@ -158,6 +158,20 @@ class Category < ActiveRecord::Base
     (pricing = pricings.detect {|pr| pr[:value] == value.to_s}) ? pricing[:desc] : ''
   end
   
+  def working_hour
+    if tag_name.include?('auto_polish'); [9, 17]
+    elsif tag_name.include?('henna'); [4, 22]
+    elsif tag_name.include?('makeup'); [1, 24]
+    elsif tag_name.include?('waxing'); [9, 19]
+    elsif tag_name.include?('yoga'); [17, 21]
+    elsif tag_name.include?('pool'); [7, 17]
+    elsif tag_name.include?('locksmith'); [8, 21]
+    elsif tag_name.include?('massage'); [6, 24]      
+    elsif tag_name.include?('groom'); [8, 15]      
+    else; [8, 17]
+    end
+  end
+    
   def parent_category_name
     parent_category.name if parent_category
   end 

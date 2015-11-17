@@ -126,8 +126,10 @@ module OrderServicesHelper
   end
   
   def service_requested_time_options
+    category = Category.find(service_category_id)
+    start_working_hour, end_working_hour = category.working_hour
     array = [['Choose Time','']]
-    8.upto(17) do |hour|
+    start_working_hour.upto(end_working_hour) do |hour|
       hour_str = (hour < 10 ? '0' : '')
       hour_str << (hour.to_s + '.00')
       array << [hour_str, hour_str]
