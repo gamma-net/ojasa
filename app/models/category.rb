@@ -161,7 +161,7 @@ class Category < ActiveRecord::Base
   def working_hour
     if tag_name.include?('auto_polish'); [9, 17]
     elsif tag_name.include?('henna'); [4, 22]
-    elsif tag_name.include?('makeup'); [1, 24]
+    elsif tag_name.include?('make_up'); [1, 24]
     elsif tag_name.include?('waxing'); [9, 19]
     elsif tag_name.include?('yoga'); [17, 21]
     elsif tag_name.include?('pool'); [7, 17]
