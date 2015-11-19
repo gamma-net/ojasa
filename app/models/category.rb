@@ -171,7 +171,17 @@ class Category < ActiveRecord::Base
     else; [8, 17]
     end
   end
-    
+  
+  def time_interval
+    if tag_name.include?('auto') || 
+      tag_name.include?('garden') ||
+      tag_name.include?('cleaning') ||
+      tag_name.include?('pest') ||
+      tag_name.include?('groom'); 3     
+    else; 2
+    end
+  end
+  
   def parent_category_name
     parent_category.name if parent_category
   end 

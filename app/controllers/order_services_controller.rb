@@ -25,7 +25,7 @@ class OrderServicesController < ApplicationController
       redirect_to confirm_order_services_url and return
     else
       if order.past_date?
-        flash[:error] = "Please select a time at least 2 hours in the future"
+        flash[:error] = "Please select a time at least #{order.category.time_interval} hours in the future"
       else
         flash[:error] = 'Please fill in all information below'
       end
