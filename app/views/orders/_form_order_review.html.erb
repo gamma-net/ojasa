@@ -1,0 +1,20 @@
+<a name="review"></a> 
+
+  <div class="form-body">  	
+    
+    <div class="form-group form-md-line-input">
+  		<label class="col-md-3 control-label" for="form_control_1">Rating</label>
+  		<div class="col-md-9">
+        <%= select_tag "feedback[rating]", options_for_select(feedback_options, @order.rating), {class: "form-control input-xlarge select2me", "data-placeholder" => "Select Rating...", readonly: 'readonly'} %>
+        <div class="form-control-focus"></div>
+  		</div>
+  	</div>
+  	<div class="form-group form-md-line-input">
+  		<label class="col-md-3 control-label" for="form_control_1">Comment</label>
+  		<div class="col-md-9">
+        <%= text_area_tag "feedback[comment]", @order.comment, class: "form-control", id: 'form_control_1', readonly: 'readonly' %>
+        <div class="form-control-focus"></div>
+  		</div>
+  	</div>
+
+  </div>

@@ -132,6 +132,18 @@ class Order < ActiveRecord::Base
     Feedback.create(feedback_params)
   end
   
+  def rating
+    feedback.rating if feedback
+  end
+  
+  def comment
+    feedback.comment if feedback
+  end
+  
+  def feedback
+    feedbacks.current_service(service_id).first
+  end
+  
   protected
   
     def time_interval
